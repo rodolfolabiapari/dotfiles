@@ -1,0 +1,10 @@
+export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/local/go/bin
+export PATH=$HOME/bin:~/.local/bin:$PATH
+export PATH=$PATH:/snap/bin
+export PATH=~/.npm-global/bin:$PATH
+
+alias wireguard_down='sudo wg-quick down wg0'
+alias wireguard_up='sudo wg-quick up wg0'
+alias pbcopy="xclip -selection c"
+alias pbpaste="xclip -selection clipboard -o"
+
