@@ -1115,18 +1115,6 @@ _p9k_prompt_anaconda_init() {
 ################################################################
 # AWS Profile
 
-vault_remain_linux_gnu() {
-  local now=$(TZ=UTC date -u +%Y-%m-%dT%H:%M:%SZ)
-  local aws_expire=$(TZ=UTC date -u -d "${AWS_CREDENTIAL_EXPIRATION:-$now}" +%s)
-  local curr=$(TZ=UTC date -u +%s)
-  local left_sec=$((aws_expire-curr))
-  let "left_hour=(left_sec/3600)"
-  let "left_sec=(left_sec - (left_hour * 3600))"
-  let "left_min=(left_sec/60)"
-  let "left_sec=(left_sec - (left_min*60))"
-  echo ${left_min}:${left_sec}
-}
-
 prompt_aws() {
   local aws_profile="${AWS_VAULT:-${AWSUME_PROFILE:-${AWS_PROFILE:-$AWS_DEFAULT_PROFILE}}}"
   local pat class
@@ -1136,7 +1124,7 @@ prompt_aws() {
       break
     fi
   done
-  _p9k_prompt_segment "$0$state" red white 'AWS_ICON' 0 '' "${aws_profile//\%/%%} $(vault_remain_linux_gnu)"
+  _p9k_prompt_segment "$0$state" red white 'AWS_ICON' 0 '' "${aws_profile//\%/%%} $(vault_remain)"
 }
 
 _p9k_prompt_aws_init() {
