@@ -48,16 +48,6 @@
             - 'org.videolan.VLC'
             - 'com.stremio.Stremio'
 
-  - name: APT Install common packages for Raspberry Pi and Linux
-    when: ansible_distribution == 'Raspberry Pi OS' or ansible_distribution == 'Ubuntu' or ansible_distribution == 'Linux Mint'
-    block:
-      - name: Ensure fonts directory on all systems
-        file:
-          path: "{{ regular_user.home }}/.fonts"
-          state: directory
-          mode: "0755"
-          owner: "{{ regular_user.name }}"
-
   # - name: Change shell to zsh
   #   user:
   #     name: "{{ remote_regular_user }}"
