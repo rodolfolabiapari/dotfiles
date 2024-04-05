@@ -1,0 +1,24 @@
+{
+    "git.autofetch": true,
+    "editor.renderWhitespace": "all",
+    "editor.renderControlCharacters": true,
+    "go.formatTool": "goimports",
+    "go.useLanguageServer": true,
+    "workbench.colorTheme": "Default Light+",
+    "workbench.startupEditor": "newUntitledFile",
+    "window.zoomLevel": 1,
+    "git.openRepositoryInParentFolders": "always",
+    "diffEditor.hideUnchangedRegions.enabled": true,
+    "aws.telemetry": false,
+    "workbench.iconTheme": "material-icon-theme",
+    "editor.rulers": [
+        80, 120
+    ],
+    "editor.tabSize": 2,
+    "editor.detectIndentation": false,
+    "editor.autoIndent": "none",
+    "terminal.integrated.fontFamily": "MesloLGS NF",
+    "workbench.settings.applyToAllProfiles": [
+      "terminal.integrated.fontFamily"
+    ]
+}
