@@ -5,8 +5,10 @@
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # Exports
-PATH=$PATH:$HOME/rlmg/bin
-PATH=$PATH:$HOME/homebrew/bin
+export PATH=$PATH:$HOME/rlmg/bin
+export PATH=$PATH:$HOME/homebrew/bin
+# utiliza pacotes pre-compilados
+export HOMEBREW_BUILD_BOTTLE=1
 
 # Functions
 vault_remain() {
