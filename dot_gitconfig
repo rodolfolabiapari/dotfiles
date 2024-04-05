@@ -1,0 +1,14 @@
+[user]
+	email = rodolfolabiapari@gmail.com
+	name = Rodolfo Labiapari Mansur @rodolfolabiapari
+	signingkey = 3A0990FAE12D319E
+[core]
+	editor = vim
+[commit]
+	gpgsign = true
+[pull]
+	rebase = false
+[gpg]
+	program = gpg
+[merge]
+	default = recursive
