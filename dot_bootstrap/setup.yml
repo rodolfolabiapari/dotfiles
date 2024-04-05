@@ -55,8 +55,6 @@
             - ipcalc
             - jq
             - less
-            - openssl
-            - openvpn
             - pciutils
             - perl
             - pwgen
@@ -64,6 +62,7 @@
             - sed
             - snap
             - tar
+            - taskwarrior
             - telnet
             - terminator
             - tmux
@@ -82,7 +81,6 @@
       - name: Install SNAP packages
         community.general.snap:
           name:
-            - bare
             - brave
             - canonical-livepatch
             - chezmoi
