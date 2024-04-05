@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# Caminho original para o arquivo de configuração do Terminator
+# CONFIG_FILE="$HOME/.config/terminator/config"
+
+CHEZMOI_TERMINATOR_PROFILE={{ joinPath .chezmoi.sourceDir "dot_config/terminator-terminal-profiles-config" | quote }}
+
+# Verifica se o arquivo de configuração existe
+if [ -f "$CONFIG_FILE" ]; then
+    # Carrega as configurações do Terminator a partir do arquivo de configuração
+    terminator --config="$CONFIG_FILE"
+else
+    echo "Arquivo de configuração do Terminator não encontrado: $CONFIG_FILE"
+fi
