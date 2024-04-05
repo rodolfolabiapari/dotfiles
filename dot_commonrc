@@ -1,4 +1,5 @@
-export GOPATH=~/go/work
+export GOPATH=$HOME/go/work
+export PATH=$PATH:$HOME/bin
 export EDITOR="vim"
 
 alias ls="eza"
@@ -6,4 +7,3 @@ alias pwc="pwd | pbcopy"
 alias cat="bat --paging=never"
 
 eval "$(zoxide init --cmd cd zsh)"
-

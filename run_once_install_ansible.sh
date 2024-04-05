@@ -26,6 +26,7 @@ case "${OS}" in
             exit 1
         fi
         ;;
+    # TODO arch
     Darwin*)
         install_on_mac
         ;;
@@ -35,6 +36,6 @@ case "${OS}" in
         ;;
 esac
 
-ansible-playbook ~/.bootstrap/setup.yml --ask-become-pass
+echo ansible-playbook ~/.bootstrap/setup.yml --ask-become-pass
 
 echo "Ansible installation complete."

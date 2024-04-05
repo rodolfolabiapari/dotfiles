@@ -1,7 +1,7 @@
 export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/local/go/bin
-export PATH=$HOME/bin:~/.local/bin:$PATH
+export PATH=$PATH:$HOME/bin:~/.local/bin
 export PATH=$PATH:/snap/bin
-export PATH=~/.npm-global/bin:$PATH
+export PATH=$PATH:$HOME//.npm-global/bin
 
 alias wireguard_down='sudo wg-quick down wg0'
 alias wireguard_up='sudo wg-quick up wg0'
