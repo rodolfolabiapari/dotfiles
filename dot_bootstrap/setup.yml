@@ -105,6 +105,31 @@
             - 'org.videolan.VLC'
             - 'com.stremio.Stremio'
 
+  # Copia o arquivo de config do vscode para os OS
+  - name: Garantir a config do VSCode para todos os OS
+    hosts: localhost
+    tasks:
+      - name: Definir variáveis de caminho para o arquivo de configuração
+        set_fact:
+          settings_json_src: "./config/settings.json"
+          settings_json_dest_macos: "{{ ansible_env.HOME }}/Library/Application Support/Code/User/settings.json"
+          settings_json_dest_linux: "$HOME/.config/Code/User/settings.json"
+
+      - name: Copiar settings.json do VSCode para o macOS
+        ansible.builtin.copy:
+          src: "{{ settings_json_src }}"
+          dest: "{{ settings_json_dest_macos }}"
+          remote_src: yes
+        when: ansible_distribution == 'MacOSX'
+
+      - name: Copiar settings.json do VSCode para o Linux
+        ansible.builtin.copy:
+          src: "{{ settings_json_src }}"
+          dest: "{{ settings_json_dest_linux }}"
+          remote_src: yes
+        when: ansible_system == 'Linux'
+
+
   # - name: Change shell to zsh
   #   user:
   #     name: "{{ remote_regular_user }}"
