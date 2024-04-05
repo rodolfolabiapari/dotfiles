@@ -1,0 +1,19 @@
+# Sources
+source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# Exports
+PATH=$PATH:$HOME/rlmg/bin
+PATH=$PATH:$HOME/homebrew/bin
+
+# Functions
+vault_remain() {
+  local now=$(TZ=UTC date -j +%Y-%m-%dT%H:%M:%SZ)
+  local aws_expire=$(TZ=UTC date -j -f +%Y-%m-%dT%H:%M:%SZ "${AWS_CREDENTIAL_EXPIRATION:-$now}" +%s)
+  local curr=$(TZ=UTC date -j +%s)
+  local left_sec=$((aws_expire-curr))
+  let "left_hour=(left_sec/3600)"
+  let "left_sec=(left_sec - (left_hour * 3600))"
+  let "left_min=(left_sec/60)"
+  let "left_sec=(left_sec - (left_min*60))"
+  echo ${left_hour}:${left_min}:${left_sec}
+}
