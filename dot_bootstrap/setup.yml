@@ -1,7 +1,7 @@
 ---
 - name: Machine setup
   hosts: localhost
-  #become: true
+  become: true
   connection: local
   gather_facts: true
   vars:
@@ -15,9 +15,17 @@
   # - name: Get my user
   #   set_fact:
   #     remote_regular_user: "{{ ansible_env.SUDO_USER or ansible_user_id }}"
+
+  - name: Exibir distribuição do sistema operacional
+    debug:
+      msg: "A distribuição do sistema operacional é {{ ansible_distribution }}"
+      
+  - name: Atualizar lista de pacotes
+    apt:
+      update_cache: yes
         
   - name: APT Install common packages for Raspberry Pi and Linux
-    when: ansible_distribution == 'Raspberry Pi OS' or ansible_distribution == 'Ubuntu' or ansible_distribution == 'LinuxMint'
+    when: ansible_distribution == 'Raspberry Pi OS' or ansible_distribution == 'Ubuntu' or ansible_distribution == 'Linux Mint'
     block:
       - name: Install APT packages
         apt:
@@ -25,27 +33,23 @@
             - btop
           state: present
 
-  - name: APT Install common packages for Raspberry Pi and Linux
-    when: ansible_distribution == 'Raspberry Pi OS' or ansible_distribution == 'Ubuntu' or ansible_distribution == 'LinuxMint'
-    block:
       - name: Install SNAP packages
         community.general.snap:
           name:
             - sublime-text
           state: present
 
-  - name: APT Install common packages for Raspberry Pi and Linux
-    when: ansible_distribution == 'Raspberry Pi OS' or ansible_distribution == 'Ubuntu' or ansible_distribution == 'LinuxMint'
-    block:
       - name: Install Flatpak packages
-        community.general.flatpak:
-          name:
-            - org.videolan.VLC
-            - com.stremio.Stremio
-          state: present
+        command:
+          cmd: "/usr/bin/flatpak install --system --noninteractive flathub {{ item }}"
+        loop: "{{ flatpak_packages }}"
+        vars:
+          flatpak_packages:
+            - 'org.videolan.VLC'
+            - 'com.stremio.Stremio'
 
   - name: APT Install common packages for Raspberry Pi and Linux
-    when: ansible_distribution == 'Raspberry Pi OS' or ansible_distribution == 'Ubuntu' or ansible_distribution == 'LinuxMint'
+    when: ansible_distribution == 'Raspberry Pi OS' or ansible_distribution == 'Ubuntu' or ansible_distribution == 'Linux Mint'
     block:
       - name: Ensure fonts directory on all systems
         file:
