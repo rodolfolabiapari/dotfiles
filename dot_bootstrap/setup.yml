@@ -105,33 +105,20 @@
             - 'org.videolan.VLC'
             - 'com.stremio.Stremio'
 
-  # - name: Change shell to zsh
-  #   user:
-  #     name: "{{ remote_regular_user }}"
-  #     shell: /usr/bin/zsh
+  - name: Brew Install on Macock
+    when: ansible_distribution == 'MacOSX'
+    block:
+      - name: Exibir distribuição do sistema operacional
+        debug:
+          msg: "A distribuição do sistema operacional é {{ ansible_distribution }}"
+          
 
-  # - name: Instalar pacotes usando brew formulae
-  #   ansible.builtin.homebrew:
-  #     name:
-  #       - btop
-  #     state: present
-  #   when: ansible_distribution == 'MacOSX'
+      - name: Install Homebrew
+        shell:
+          cmd: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+        args:
+          creates: /usr/local/bin/brew  # Verifica se o Homebrew já está instalado
 
-  # - name: Instalar aplicativos usando brew cask
-  #   ansible.builtin.homebrew:
-  #     name:
-  #         - sublime-text
-  #     state: present
-  #     install_options: "cask"
-  #   when: ansible_distribution == 'MacOSX'
-
-# TODO aplicacao para appstore 
-
-
-    # - name: Install Docker on MacOS
-    #   ansible.builtin.when: ansible_distribution == 'MacOSX'
-    #   community.general.homebrew:
-    #     name:
-    #       - docker
-    #       - docker-compose
-    #     state: present
+      - name: Run Brewfile
+        shell:
+          cmd: brew bundle --file="./dot_bootstrap/macock/Brewfile"
