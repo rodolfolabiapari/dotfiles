@@ -109,3 +109,6 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
 elif [[ "$OSTYPE" == "darwin"* ]]; then
   source ~/.config/darwinrc
 fi
+
+# DO NOT CHANGE THIS FILE BECAUSE IT IS MANAGED BY CHEZMOI READ MORE HERE 
+# https://github.com/logandonley/dotfiles

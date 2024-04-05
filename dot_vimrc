@@ -1,23 +1,35 @@
 " ativa a coloracao de sintaxe
 syntax on
+
 " arquivos modificados serao escondidos sem serem salvos ou descartados quando
 " muda-se par outro arquivo ou sair do vim
 set hidden
+
 " destaca todas as correspopndencias
 set hlsearch
+
 " ativa a pesquisa incremental, realcando a correspondencia parcial conforme
 " eh feita a digitacao
 set incsearch
+
 " define tamanho maximo de mapa de impressao de memoria. Tamanho maximo de 
 " buffer de edicao temporario para edicoes complexas
 set mmp=5000
+
 " desativa modo compatibilidade
 set nocp
+
 " deteccao automatica do tipo do arquivo e recuo
 filetype plugin indent on
+
 " tabulacao par 2 espacos
 set tabstop=2
+
 " recuo de 2 espacos para a tecla '>'
 set shiftwidth=2
+
 " insere espacos quando a tecla 'Tab' eh pressionada
 set expandtab
+
+" DO NOT CHANGE THIS FILE BECAUSE IT IS MANAGED BY CHEZMOI READ MORE HERE 
+" https://github.com/logandonley/dotfiles
