@@ -1,7 +1,7 @@
 ---
 - name: Machine setup
   hosts: localhost
-  become: true
+  become: false # sudo global falso
   connection: local
   gather_facts: true
   vars:
@@ -18,13 +18,15 @@
 
   - name: Exibir distribuição do sistema operacional
     debug:
-      msg: "A distribuição do sistema operacional é {{ ansible_distribution }}"
+      msg: "Distribuição {{ ansible_distribution }} do sistema {{ ansible_system }}"
       
   - name: Atualizar lista de pacotes
+    become: true
     apt:
       update_cache: yes
         
   - name: APT Install common packages for Raspberry Pi and Linux
+    become: true
     when: ansible_distribution == 'Raspberry Pi OS' or ansible_distribution == 'Ubuntu' or ansible_distribution == 'Linux Mint'
     block:
       - name: Install APT packages
@@ -105,13 +107,14 @@
             - 'org.videolan.VLC'
             - 'com.stremio.Stremio'
 
+
+
   # Copia o arquivo de config do vscode para os OS
   - name: Garantir a config do VSCode para todos os OS
-    hosts: localhost
-    tasks:
+    block:
       - name: Definir variáveis de caminho para o arquivo de configuração
         set_fact:
-          settings_json_src: "./config/settings.json"
+          settings_json_src: "$HOME/.local/share/chezmoi/dot_config/settings.json"
           settings_json_dest_macos: "{{ ansible_env.HOME }}/Library/Application Support/Code/User/settings.json"
           settings_json_dest_linux: "$HOME/.config/Code/User/settings.json"
 
@@ -129,6 +132,10 @@
           remote_src: yes
         when: ansible_system == 'Linux'
 
+  - name: APT Install common packages for Raspberry Pi and Linux
+    become: true
+    when: ansible_distribution == 'MacOSX'
+    block:
       - name: Install Homebrew
         shell:
           cmd: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
