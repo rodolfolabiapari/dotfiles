@@ -20,5 +20,6 @@
     "terminal.integrated.fontFamily": "MesloLGS NF",
     "workbench.settings.applyToAllProfiles": [
       "terminal.integrated.fontFamily"
-    ]
+    ],
+    "telemetry.telemetryLevel": "off"
 }
