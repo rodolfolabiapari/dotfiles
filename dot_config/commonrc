@@ -6,6 +6,7 @@ export GOPATH=$HOME/go/work
 export PATH=$PATH:$HOME/bin
 export PATH=$PATH:$HOME/.local/bin
 export EDITOR="vim"
+export GPG_TTY=$TTY
 
 
 # ALIAS
@@ -24,7 +25,6 @@ eval "$(zoxide init --cmd cd zsh)"
 
 # Commands
 chsh -s $(which zsh)
-
 
 # DO NOT CHANGE THIS FILE BECAUSE IT IS MANAGED BY CHEZMOI READ MORE HERE 
 # https://github.com/logandonley/dotfiles
