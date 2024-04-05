@@ -30,13 +30,70 @@
       - name: Install APT packages
         apt:
           name:
+            - ansible
+            - awscli
+            - bat
+            - bc
             - btop
+            - curl
+            - docker
+            - docker-compose
+            - flameshot
+            - flatpak
+            - gcc
+            - git
+            - google-cloud-cli
+            - google-cloud-sdk-gke-gcloud-auth-plugin
+            - google-cloud-sdk-terraform-tools
+            - gparted
+            - gpg
+            - graphviz
+            - grep
+            - htop
+            - ipcalc
+            - jq
+            - less
+            - openssl
+            - openvpn
+            - pciutils
+            - perl
+            - pwgen
+            - ruby-dev
+            - sed
+            - snap
+            - tar
+            - telnet
+            - terminator
+            - tmux
+            - traceroute
+            - tree
+            - ufw
+            - unzip
+            - vim
+            - xclip
+            - zip
+            - zoxide
+            - zsh
+            - zsh-syntax-highlighting
           state: present
 
       - name: Install SNAP packages
         community.general.snap:
           name:
+            - bare
+            - brave
+            - canonical-livepatch
+            - chezmoi
+            - code
+            - docker
+            - google-cloud-sdk
+            - helm
+            - postman
+            - rpi-imager
+            - spotify
             - sublime-text
+            - telegram-desktop
+            - zoom-client
           state: present
 
       - name: Install Flatpak packages
