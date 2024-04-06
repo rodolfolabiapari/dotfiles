@@ -22,6 +22,7 @@
       
   - name: Atualizar lista de pacotes
     become: true
+    when: ansible_system == 'Linux'
     apt:
       update_cache: yes
         
@@ -128,10 +129,9 @@
           src: "{{ settings_json_src }}"
           dest: "{{ settings_json_dest_linux }}"
           remote_src: yes
-        when: ansible_system == 'Linux'
+        when: ansible_distribution == 'Linux Mint'
 
   - name: APT Install common packages for Raspberry Pi and Linux
-    become: true
     when: ansible_distribution == 'MacOSX'
     block:
       - name: Install Homebrew
@@ -142,4 +142,4 @@
 
       - name: Run Brewfile
         shell:
-          cmd: brew bundle --file="./dot_bootstrap/macock/Brewfile"
+          cmd: brew bundle --file="{{ ansible_env.HOME }}/.local/share/chezmoi/dot_bootstrap/macock/Brewfile"

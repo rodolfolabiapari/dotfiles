@@ -1,6 +1,5 @@
 brew 'mas'
 mas 'xcode', id: 497799835
-
 brew 'bat'
 brew 'ipcalc'
 brew 'zoxide'
@@ -32,7 +31,7 @@ brew 'tree'
 brew 'wifi-password'
 brew 'taskwarrior'
 
-casc 'google-cloud-sdk'
+cask 'google-cloud-sdk'
 cask 'brave-browser'
 cask 'disk-inventory-x'
 cask 'flameshot'
