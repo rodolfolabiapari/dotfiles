@@ -94,7 +94,6 @@
             - docker
             - google-cloud-sdk
             - helm
-            - neovim --beta --classic
             - postman
             - rpi-imager
             - spotify
@@ -102,6 +101,14 @@
             - telegram-desktop
             - zoom-client
           state: present
+
+      - name: Install SNAP packages with --beta --classic options
+        community.general.snap:
+          name: 
+            - nvim
+          state: present
+          classic: yes
+          channel: beta
 
       - name: Install Flatpak packages
         command:
