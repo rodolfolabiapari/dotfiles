@@ -22,60 +22,65 @@
       
   - name: Atualizar lista de pacotes
     become: true
-    when: ansible_system == 'Linux'
     apt:
       update_cache: yes
+
         
-  - name: APT Install common packages for Raspberry Pi and Linux
+  - name: APT Install Basic/Essencial Linux Package
     become: true
-    when: ansible_distribution == 'Raspberry Pi OS' or ansible_distribution == 'Ubuntu' or ansible_distribution == 'Linux Mint'
+    when: ansible_system == 'Linux'
     block:
       - name: Install APT packages
         apt:
           name:
             - ansible
-            - awscli
             - bat
             - bc
-            - btop
             - curl
             - docker
             - docker-compose
-            - flameshot
             - flatpak
             - gcc
             - git
-            - google-cloud-cli
-            - google-cloud-sdk-gke-gcloud-auth-plugin
-            - google-cloud-sdk-terraform-tools
-            - gparted
             - gpg
-            - graphviz
             - grep
             - htop
             - ipcalc
             - jq
             - less
-            - pciutils
-            - perl
             - pwgen
-            - ruby-dev
             - sed
             - snap
             - tar
-            - taskwarrior
             - telnet
-            - terminator
             - tmux
             - traceroute
             - tree
-            - ufw
             - unzip
             - vim
             - xclip
             - zip
             - zoxide
             - zsh
+          state: present
+        
+  - name: APT Install Common packages for Linux
+    become: true
+    when: ansible_distribution == 'Ubuntu' or ansible_distribution == 'Linux Mint'
+    block:
+      - name: Install APT packages
+        apt:
+          name:
+            - awscli
+            - btop
+            - flameshot
+            - google-cloud-cli
+            - google-cloud-sdk-gke-gcloud-auth-plugin
+            - google-cloud-sdk-terraform-tools
+            - gparted
+            - graphviz
+            - taskwarrior
+            - terminator
             - zsh-syntax-highlighting
           state: present
 
@@ -89,6 +94,7 @@
             - docker
             - google-cloud-sdk
             - helm
+            - neovim --beta --classic
             - postman
             - rpi-imager
             - spotify
@@ -129,9 +135,10 @@
           src: "{{ settings_json_src }}"
           dest: "{{ settings_json_dest_linux }}"
           remote_src: yes
-        when: ansible_distribution == 'Linux Mint'
+        when: ansible_system == 'Linux'
 
   - name: APT Install common packages for Raspberry Pi and Linux
+    become: true
     when: ansible_distribution == 'MacOSX'
     block:
       - name: Install Homebrew
@@ -142,4 +149,4 @@
 
       - name: Run Brewfile
         shell:
-          cmd: brew bundle --file="{{ ansible_env.HOME }}/.local/share/chezmoi/dot_bootstrap/macock/Brewfile"
+          cmd: brew bundle --file="./dot_bootstrap/macock/Brewfile-clean"
