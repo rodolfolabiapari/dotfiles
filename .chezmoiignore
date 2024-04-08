@@ -1,2 +1,12 @@
 README.md
+chezmoi.code-workspace
 TODO.md
+
+# Lembrando que eh um ignore entao quando adicionado sera ignorado
+# ou seja, se nao eh igual a darwin, entao adiciona o arquivo a ser ignorado
+{{ if ne .chezmoi.os "darwin" }}
+/Library/Application Support/Code/User/settings.json
+{{ end }}
+{{ if ne .chezmoi.os "linux" }}
+.config/Code/User/settings.json
+{{ end }}

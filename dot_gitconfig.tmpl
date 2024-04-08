@@ -1,0 +1,32 @@
+[user]
+	email = {{ .email | quote }}
+	name = Rodolfo Labiapari Mansur @rodolfolabiapari
+	signingkey = 3A0990FAE12D319E
+[core]
+	editor = nvim
+  pager = delta
+    ; autocrlf = input
+[commit]
+	gpgsign = true
+[pull]
+	rebase = true
+[rebase]
+  autoStash = true
+[gpg]
+	program = gpg
+[merge]
+	default = recursive
+[push]
+  default = current
+[alias]
+  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+
+[delta]
+  line-numbers = true
+  syntax-theme = gruvbox
+  side-by-side = false
+
+  file-modified-label = modified:
+
+[interactive]
+  diffFilter = delta --color-only
