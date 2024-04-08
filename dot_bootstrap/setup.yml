@@ -49,6 +49,7 @@
             - jq
             - less
             - pwgen
+            - ripgrep
             - sed
             - snap
             - tar

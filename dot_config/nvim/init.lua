@@ -44,6 +44,7 @@ vim.keymap.set('n', '<C-p>', builtin.find_files, {})
 -- Cofigura o Live Grep usando o " fg"
 -- lembrando que o leader foi trocado de "\" para " "
 vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
+-- precisa do https://github.com/BurntSushi/ripgrep?tab=readme-ov-file#installation para funcionar
 
 
 -- Treesitter
@@ -59,3 +60,5 @@ configs.setup({
 -- Carrega e configura a cor no nvim
 require("catppuccin").setup()
 vim.cmd.colorscheme "catppuccin"
+
+
