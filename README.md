@@ -11,6 +11,20 @@ export GITHUB_USERNAME=rodolfolabiapari
 sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply $GITHUB_USERNAME
 ```
 
+```shell
+# install in short-lived linux (containers)
+# then remove all traces of chezmoi, including the source directory and 
+# chezmoi’s configuration directory
+export GITHUB_USERNAME=rodolfolabiapari
+sh -c "$(curl -fsLS https://chezmoi.io/get)" -- init --one-shot $GITHUB_USERNAME
+```
+
+## See changes before apply
+
+```shell
+chezmoi git pull -- --rebase && chezmoi diff
+```
+
 ## How to update afeter install
 
 ```shell
