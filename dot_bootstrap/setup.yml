@@ -22,6 +22,7 @@
       
   - name: Atualizar lista de pacotes
     become: true
+    when: ansible_system == 'Linux'
     apt:
       update_cache: yes
         
@@ -83,11 +84,6 @@
             - terminator
             - zsh-syntax-highlighting
           state: present
-        register: apt_install_result
-
-      - name: Exibir log de instalação de pacotes
-        debug:
-          var: apt_install_result
 
       - name: Install SNAP packages
         community.general.snap:
@@ -150,7 +146,6 @@
         when: ansible_system == 'Linux'
 
   - name: APT Install common packages for Raspberry Pi and Linux
-    become: true
     when: ansible_distribution == 'MacOSX'
     block:
       - name: Install Homebrew
@@ -158,12 +153,7 @@
           cmd: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
         args:
           creates: /usr/local/bin/brew  # Verifica se o Homebrew já está instalado
-        register: brew_install_result
-
-      - name: Exibir log de instalação do HomeBrew
-        debug:
-          var: brew_install_result
 
       - name: Run Brewfile
         shell:
-          cmd: brew bundle --file="./dot_bootstrap/macock/Brewfile-clean"
+          cmd: brew bundle --file="$HOME/.bootstrap/macock/Brewfile-clean"
