@@ -24,7 +24,6 @@
     become: true
     apt:
       update_cache: yes
-
         
   - name: APT Install Basic/Essencial Linux Package
     become: true
@@ -84,6 +83,11 @@
             - terminator
             - zsh-syntax-highlighting
           state: present
+        register: apt_install_result
+
+      - name: Exibir log de instalação de pacotes
+        debug:
+          var: apt_install_result
 
       - name: Install SNAP packages
         community.general.snap:
@@ -154,6 +158,11 @@
           cmd: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
         args:
           creates: /usr/local/bin/brew  # Verifica se o Homebrew já está instalado
+        register: brew_install_result
+
+      - name: Exibir log de instalação do HomeBrew
+        debug:
+          var: brew_install_result
 
       - name: Run Brewfile
         shell:
