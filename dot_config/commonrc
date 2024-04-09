@@ -22,6 +22,9 @@ export PATH=$PATH:$HOME/rlmg/bin
 # ALIAS
 alias cat="bat --paging=never"
 alias get="k get"
+alias grpe="grep "
+alias gerp="grep "
+alias gre="grep "
 alias k=kubectl
 alias ls="eza"
 # cria um pwc sem quebra de linha usando trim
