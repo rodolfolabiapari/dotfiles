@@ -1,8 +1,89 @@
 #!/bin/bash
 
-# .bootstrap/setup.yml hash: {{ include "dot_bootstrap/setup.yml" | sha256sum }}
+{{ if eq .chezmoi.os "linux" -}}
 
-if command -v ansible-playbook &> /dev/null; then
-    ANSIBLE_STDOUT_CALLBACK=debug ansible-playbook -vvv {{ joinPath .chezmoi.sourceDir "dot_bootstrap/setup.yml" | quote }} --ask-become-pass
+# Exibir distribuição do sistema operacional
+echo "Distribuição $(lsb_release -ds) do sistema $(uname -m)"
+
+# Atualizar lista de pacotes
+sudo apt update
+
+# Instalar pacotes básicos do Linux
+sudo apt install -y \
+    ansible \
+    bat \
+    bc \
+    curl \
+    docker \
+    docker-compose \
+    flatpak \
+    gcc \
+    git \
+    gpg \
+    grep \
+    htop \
+    ipcalc \
+    jq \
+    less \
+    pwgen \
+    ripgrep \
+    sed \
+    snapd \
+    tar \
+    telnet \
+    tmux \
+    traceroute \
+    tree \
+    ufw \
+    unzip \
+    vim \
+    xclip \
+    zip \
+    zoxide \
+    zsh
+
+# Instalar pacotes comuns para Ubuntu e Linux Mint
+if [[ $(lsb_release -is) == "Ubuntu" || $(lsb_release -is) == "LinuxMint" ]]; then
+    sudo apt install -y \
+        awscli \
+        btop \
+        flameshot \
+        google-cloud-cli \
+        google-cloud-sdk-gke-gcloud-auth-plugin \
+        google-cloud-sdk-terraform-tools \
+        gparted \
+        graphviz \
+        taskwarrior \
+        terminator \
+        zsh-syntax-highlighting
+
+    # Instalar pacotes SNAP
+    sudo snap install --classic \
+        brave \
+        canonical-livepatch \
+        chezmoi \
+        code \
+        docker \
+        go \
+        google-cloud-sdk \
+        helm \
+        postman \
+        rpi-imager \
+        spotify \
+        sublime-text \
+        telegram-desktop \
+        zoom-client
+
+    # Instalar pacotes SNAP com opções --beta --classic
+    sudo snap install --classic --beta nvim
+
+    # Instalar pacotes Flatpak
+    sudo flatpak install --system --noninteractive flathub \
+        org.videolan.VLC \
+        com.stremio.Stremio
 fi
 
+{{ else if eq .chezmoi.os "darwin" -}}
+echo "Running ansible-playbook for macock"
+
+{{ end -}}
