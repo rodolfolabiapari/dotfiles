@@ -1,6 +1,0 @@
-[data]
-  email = "rodolfolabiapari@gmail.com"
-
-encryption = "gpg"
-[gpg]
-    recipient = "..."

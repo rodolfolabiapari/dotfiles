@@ -1,0 +1,141 @@
+#!/bin/bash
+
+# exit on error
+set -e
+
+brew_not_exists() {
+  if [ -x "/usr/local/Homebrew/bin/brew" ]; then
+    echo "\"/usr/local/Homebrew/bin/brew\" exist"
+    return 1
+  elif [ -e "/opt/Homebrew/bin/brew" ]; then
+    echo "\"/opt/Homebrew/bin/brew\" exist"
+    return 1
+  else
+    echo "Brew does not exist"
+    return 0
+  fi
+  return 0
+}
+
+install_brew_on_mac() {
+  echo "Installing Brew"
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+}
+
+
+{{ if eq .chezmoi.os "lianux" -}}
+# Exibir distribuição do sistema operacional
+echo -e "\nDistro $(lsb_release -ds) of system $(uname -m)"
+
+echo -e "\nAPT Update"
+# Atualizar lista de pacotes
+sudo apt update
+
+echo -e "\nAPT Upgrade"
+sudo apt upgrade -y
+
+echo -e "\nAPT Install Basics"
+# Instalar pacotes basicos do Linux
+sudo apt install -y \
+    ansible \
+    bat \
+    bc \
+    curl \
+    docker \
+    docker-compose \
+    flatpak \
+    gcc \
+    git \
+    gpg \
+    grep \
+    htop \
+    ipcalc \
+    jq \
+    less \
+    pwgen \
+    ripgrep \
+    sed \
+    snap \
+    tar \
+    telnet \
+    tmux \
+    traceroute \
+    tree \
+    ufw \
+    unzip \
+    vim \
+    xclip \
+    zip \
+    zoxide \
+    zsh
+
+# Instalar pacotes comuns para Ubuntu e Linux Mint
+RELEASE=$(lsb_release -is)
+if [[ $(lsb_release -is) == "Ubuntu" || $(lsb_release -is) == "Linuxmint" ]]; then
+  echo -e "\nAPT Install More on $RELEASE"
+  sudo apt install -y \
+      awscli \
+      btop \
+      flameshot \
+      google-cloud-cli \
+      google-cloud-sdk-gke-gcloud-auth-plugin \
+      google-cloud-sdk-terraform-tools \
+      gparted \
+      graphviz \
+      taskwarrior \
+      terminator \
+      zsh-syntax-highlighting
+
+  echo -e "\nAPT Install Snap Packages on $RELEASE"
+  # Instalar pacotes SNAP
+  sudo snap install brave
+  sudo snap install canonical-livepatch 
+  sudo snap install chezmoi 
+  sudo snap install code 
+  sudo snap install docker 
+  sudo snap install go 
+  sudo snap install google-cloud-sdk 
+  sudo snap install helm 
+  sudo snap install postman 
+  sudo snap install rpi-imager 
+  sudo snap install spotify 
+  sudo snap install sublime-text 
+  sudo snap install telegram-desktop 
+  sudo snap install zoom-client
+
+  echo -e "\nAPT Install Snap Beta Packages on $RELEASE"
+  # Instalar pacotes SNAP com opções --beta --classic
+  sudo snap install --classic --beta nvim
+
+  echo -e "\nAPT Install Flatpak Packages on $RELEASE"
+  # Instalar pacotes Flatpak
+  sudo flatpak install --system --noninteractive flathub \
+      org.videolan.VLC \
+      com.stremio.Stremio
+else
+  echo "This is a $RELEASE release. Skipping some packages"
+
+fi
+
+sudo apt autoclean
+
+{{ else if eq .chezmoi.os "darwin" -}}
+
+# Se algo dentro dessa pasta tiver alteracao, altera ese arquivo
+# e consequentemente roda esse codigo novamente
+# .bootstrap/macock/Brewfile-clean hash: {{ include "dot_bootstrap/macock/Brewfile-clean" | sha256sum }}
+# .bootstrap/macock/Brewfile-full  hash: {{ include "dot_bootstrap/macock/Brewfile-full" | sha256sum }}
+
+echo -e "\nChecking Brew Instalation"
+
+if brew_not_exists ; then
+  install_brew_on_mac
+else
+  echo -e "Skipping Brew Installation"
+fi
+
+echo -e "\nInstalling Brew bundle package"
+brew bundle --file="$HOME/.local/share/chezmoi/dot_bootstrap/macock/Brewfile-clean"
+echo -e "Brew Bundle finished"
+
+{{ end -}}
