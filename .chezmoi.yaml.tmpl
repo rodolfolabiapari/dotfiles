@@ -1,9 +1,9 @@
-{{- $email    := promptStringOnce . "email" "Email address" -}}
-{{- $pgp      := promptBoolOnse . "pgp" "Does it use PGP" -}}
+{{- $email    := promptStringOnce . "email" "Email address"   -}}
+{{- $pgp      := promptBoolOnce   . "pgp"   "Does it use PGP" -}}
 
 data:
   email: {{ $email | quote }}
-  username: "Rodolfo Labiapari Mansur, MSc. | @rodolfolabiapari"
+  username: "Rodolfo Labiapari Mansur, MSc. @rodolfolabiapari"
   usePgp: {{ $pgp | quote }}
   signkey: 3A0990FAE12D319E
 format: yaml
