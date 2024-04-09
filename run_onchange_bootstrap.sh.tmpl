@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# TODO verificar se essa linha faz algo importante
-# .bootstrap/setup.yml hash: {{ include "dot_bootstrap/setup.yml" | sha256sum }}
-
 {{ if eq .chezmoi.os "linux" -}}
 echo "Running ansible-playbook for Linux"
 #!/bin/bash

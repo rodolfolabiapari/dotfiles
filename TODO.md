@@ -16,3 +16,7 @@ Sempre validar os TODOS nos codigos
 
 ## 
 incluir o zsh como fork com minhas alteracoes
+
+tmps
+# TODO verificar se essa linha faz algo importante
+# .bootstrap/setup.yml hash: {{ include "dot_bootstrap/setup.yml" | sha256sum }}

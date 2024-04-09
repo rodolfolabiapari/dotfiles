@@ -1,7 +1,6 @@
 brew 'bat'
 brew 'btop'
 brew 'chezmoi'
-brew 'eza'
 brew 'gnupg'
 brew 'gnu-sed'
 brew 'htop'
