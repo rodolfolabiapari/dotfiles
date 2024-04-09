@@ -1,7 +1,29 @@
 #!/bin/bash
 
-{{ if eq .chezmoi.os "linux" -}}
+# exit on error
+set -e
 
+brew_not_exists() {
+  if [ -x "/usr/local/Homebrew/bin/brew" ]; then
+    echo "\"/usr/local/Homebrew/bin/brew\" exist"
+    return 1
+  elif [ -e "/opt/Homebrew/bin/brew" ]; then
+    echo "\"/opt/Homebrew/bin/brew\" exist"
+    return 1
+  else
+    echo "Brew does not exist"
+    return 0
+  fi
+  return 0
+}
+
+install_brew_on_mac() {
+  echo "Installing Brew"
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+}
+
+
+{{ if eq .chezmoi.os "linux" -}}
 # Exibir distribuição do sistema operacional
 echo "Distribuição $(lsb_release -ds) do sistema $(uname -m)"
 
@@ -84,6 +106,22 @@ if [[ $(lsb_release -is) == "Ubuntu" || $(lsb_release -is) == "LinuxMint" ]]; th
 fi
 
 {{ else if eq .chezmoi.os "darwin" -}}
-echo "Running ansible-playbook for macock"
+
+# Se algo dentro dessa pasta tiver alteracao, altera ese arquivo
+# e consequentemente roda esse codigo novamente
+# .bootstrap/macock/Brewfile-clean hash: {{ include "dot_bootstrap/macock/Brewfile-clean" | sha256sum }}
+# .bootstrap/macock/Brewfile-full  hash: {{ include "dot_bootstrap/macock/Brewfile-full" | sha256sum }}
+
+echo -e "\nChecking Brew Instalation"
+
+if brew_not_exists ; then
+  install_brew_on_mac
+else
+  echo -e "Skipping Brew Installation"
+fi
+
+echo -e "\nInstalling Brew bundle package"
+brew bundle --file="$HOME/.local/share/chezmoi/dot_bootstrap/macock/Brewfile-clean"
+echo -e "Brew Bundle finished"
 
 {{ end -}}
