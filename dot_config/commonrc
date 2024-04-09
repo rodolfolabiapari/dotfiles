@@ -1,3 +1,4 @@
+
 # DO NOT CHANGE THIS FILE BECAUSE IT IS MANAGED BY CHEZMOI READ MORE HERE 
 # https://github.com/logandonley/dotfiles
 
@@ -5,9 +6,18 @@
 export EDITOR="nvim"
 export GOPATH=$HOME/go/work
 export GPG_TTY=$TTY
+export PATH=$PATH:/bin
+export PATH=$PATH:/opt/homebrew/bin
+export PATH=$PATH:/sbin
+export PATH=$PATH:/usr/bin
+export PATH=$PATH:/usr/local/bin
+export PATH=$PATH:/usr/sbin
+export PATH=$PATH:$HOME/.local/bin
 export PATH=$PATH:$HOME/.local/bin
 export PATH=$PATH:$HOME/bin
-
+export PATH=$PATH:$HOME/bin
+export PATH=$PATH:$HOME/homebrew/bin
+export PATH=$PATH:$HOME/rlmg/bin
 
 # ALIAS
 alias cat="bat --paging=never"
@@ -23,9 +33,6 @@ alias watch="watch "
 
 # EVALS
 eval "$(zoxide init --cmd cd zsh)"
-
-# Commands
-#chsh -s $(which zsh)
 
 # DO NOT CHANGE THIS FILE BECAUSE IT IS MANAGED BY CHEZMOI READ MORE HERE 
 # https://github.com/logandonley/dotfiles

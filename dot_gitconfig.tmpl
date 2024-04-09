@@ -1,0 +1,28 @@
+[user]
+  email = {{ .email | quote }}
+  name = {{ .username | quote }}
+{{- if (eq .chezmoi.username "fo097044") }}
+  signingKey = {{ .chezmoi.homeDir }}/.ssh/id_rsa.pub
+[gpg]
+  format = ssh
+{{- else }}
+  signingkey = {{ .signkey | quote }}
+[gpg]
+  program = gpg
+{{- end }}
+[core]
+  editor = nvim
+[commit]
+  gpgsign = true
+[pull]
+  rebase = true
+[merge]
+  default = recursive
+[push]
+  default = current
+[rebase]
+  autoStash = true
+[alias]
+  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+
+

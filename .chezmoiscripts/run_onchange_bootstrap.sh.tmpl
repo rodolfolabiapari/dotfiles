@@ -22,26 +22,8 @@ install_brew_on_mac() {
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 }
 
-brew_bundle() {
-  echo -e "\nInstalling Brew bundle package"
-  brew bundle --file="$HOME/.local/share/chezmoi/dot_bootstrap/macock/Brewfile-clean"
-  echo -e "Brew Bundle finished"
-}
 
-brew_upgrade() {
-  echo -e "\nRunning Brew Update and Upgrade"
-  brew update
-  brew upgrade
-  echo -e "Brew Upgrade and Upgrade finished"
-}
-
-brew_cleanup() {
-  echo -e "\nRunning Brew Cleanup"
-  brew cleanup
-  echo -e "Brew Cleanup finished"
-}
-
-{{ if eq .chezmoi.os "linux" -}}
+{{ if eq .chezmoi.os "lianux" -}}
 # Exibir distribuição do sistema operacional
 echo -e "\nDistro $(lsb_release -ds) of system $(uname -m)"
 
@@ -152,8 +134,8 @@ else
   echo -e "Skipping Brew Installation"
 fi
 
-brew_bundle
-brew_upgrade
-brew_cleanup
+echo -e "\nInstalling Brew bundle package"
+brew bundle --file="$HOME/.local/share/chezmoi/dot_bootstrap/macock/Brewfile-clean"
+echo -e "Brew Bundle finished"
 
 {{ end -}}
