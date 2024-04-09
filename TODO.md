@@ -16,3 +16,5 @@ Sempre validar os TODOS nos codigos
 
 ## 
 incluir o zsh como fork com minhas alteracoes
+
+e o p10k
