@@ -104,7 +104,7 @@ alias ohmyzsh="vim ~/.oh-my-zsh"
 
 # Init Chezmoi Includes
 # this line inclide the template "by passing a dictionary" argument
-{{ template "commonrc" dict "arch" .chezmoi.arch }}
+{{ template "commonrc" dict "arch" .chezmoi.arch "os" .chezmoi.os }}
 
 {{ if eq .chezmoi.os "darwin" }}
 {{   include "./dot_config/darwinrc" }}
