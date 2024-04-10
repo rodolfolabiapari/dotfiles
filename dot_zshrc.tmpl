@@ -103,12 +103,12 @@ alias ohmyzsh="vim ~/.oh-my-zsh"
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # Init Chezmoi Includes
-{{- include "./dot_config/commonrc" -}}
+{{ include "./dot_config/commonrc" }}
 
 {{- if eq .chezmoi.os "darwin" -}}
-{{-   include "./dot_config/darwinrc" -}}
+{{   include "./dot_config/darwinrc" }}
 {{- else if eq .chezmoi.os "linux" -}}
-{{-   include "./dot_config/linux-gnurc" -}}
+{{   include "./dot_config/linux-gnurc" }}
 {{- end -}}
 # End Chezmoi Includes
 
