@@ -1,9 +1,6 @@
 # DO NOT CHANGE THIS FILE BECAUSE IT IS MANAGED BY CHEZMOI READ MORE HERE 
 # https://github.com/rodolfolabipari/dotfiles
 
-# Sources
-source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
 # Exports
 export PATH=$PATH:/Library/Apple/usr/bin
 export PATH=$PATH:/Library/Frameworks/Python.framework/Versions/3.7/bin
@@ -30,6 +27,9 @@ vault_remain() {
   let "left_sec=(left_sec - (left_min*60))"
   echo ${left_hour}:${left_min}:${left_sec}
 }
+
+# Sources
+source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # DO NOT CHANGE THIS FILE BECAUSE IT IS MANAGED BY CHEZMOI READ MORE HERE 
 # https://github.com/rodolfolabipari/dotfiles
