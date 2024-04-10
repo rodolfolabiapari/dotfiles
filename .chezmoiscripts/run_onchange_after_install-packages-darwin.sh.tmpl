@@ -31,13 +31,12 @@ fi
 
 echo -e "\nInstalling Brew basics bundle package"
 brew bundle --no-lock --file=/dev/stdin <<EOF
-brew tap homebrew/cask-fonts
+tap 'homebrew/cask-fonts'
 brew 'mas'
 #mas 'xcode', id: 497799835
 brew 'bat'
 brew 'btop'
 brew 'chezmoi'
-brew 'font-hack-nerd-font'
 brew 'gnupg'
 brew 'gnu-sed'
 brew 'htop'
@@ -55,6 +54,7 @@ brew 'zoxide'
 brew 'zsh-syntax-highlighting'
 cask 'caffeine'
 cask 'flameshot'
+cask 'font-hack-nerd-font'
 cask 'iterm2'
 cask 'rectangle'
 cask 'spotify'
@@ -63,7 +63,7 @@ cask 'the-unarchiver'
 cask 'visual-studio-code'
 vscode '4ops.terraform'
 vscode 'ms-python.python'
-vscode 'ms-ceintl.vscode-language-pack-pt-br''
+vscode 'ms-ceintl.vscode-language-pack-pt-br'
 vscode 'golang.go'
 EOF
 

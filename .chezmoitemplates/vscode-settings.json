@@ -1,25 +1,26 @@
 {
-    "git.autofetch": true,
-    "editor.renderWhitespace": "all",
-    "editor.renderControlCharacters": true,
-    "go.formatTool": "goimports",
-    "go.useLanguageServer": true,
-    "workbench.colorTheme": "Default Light+",
-    "workbench.startupEditor": "newUntitledFile",
-    "window.zoomLevel": 1,
-    "git.openRepositoryInParentFolders": "always",
-    "diffEditor.hideUnchangedRegions.enabled": true,
     "aws.telemetry": false,
-    "workbench.iconTheme": "material-icon-theme",
+    "diffEditor.hideUnchangedRegions.enabled": true,
+    "editor.autoIndent": "none",
+    "editor.detectIndentation": false,
+    "editor.renderControlCharacters": true,
+    "editor.renderWhitespace": "all",
     "editor.rulers": [
         80, 120
     ],
     "editor.tabSize": 2,
-    "editor.detectIndentation": false,
-    "editor.autoIndent": "none",
+    "editor.wordWrap": "bounded",
+    "git.autofetch": true,
+    "git.openRepositoryInParentFolders": "always",
+    "go.formatTool": "goimports",
+    "go.useLanguageServer": true,
+    "telemetry.telemetryLevel": "off",
     "terminal.integrated.fontFamily": "MesloLGS NF",
+    "window.zoomLevel": 1,
+    "workbench.colorTheme": "Default Light+",
+    "workbench.iconTheme": "material-icon-theme",
     "workbench.settings.applyToAllProfiles": [
       "terminal.integrated.fontFamily"
     ],
-    "telemetry.telemetryLevel": "off"
+    "workbench.startupEditor": "newUntitledFile"
 }
