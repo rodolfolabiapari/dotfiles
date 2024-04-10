@@ -32,7 +32,8 @@ alias vim=nvim
 alias v=vim
 alias watch="watch "
 
-{{ if not (and (eq .chezmoi.arch "amd64") (eq .chezmoi.os "darwin") ) }}
+# this line receives the arch var by passing a dictionary argument
+{{ if eq .arch "marooned" }}
 alias ls="eza"
 eval "$(zoxide init --cmd cd zsh)"
 {{ end }}

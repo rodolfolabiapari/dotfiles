@@ -1,5 +1,5 @@
+{{- if eq .chezmoi.os "darwin" -}}
 #!/bin/bash
-{{ if eq .chezmoi.os "darwin" }}
 set -e
 
 brew_not_exists() {
@@ -31,11 +31,13 @@ fi
 
 echo -e "\nInstalling Brew basics bundle package"
 brew bundle --no-lock --file=/dev/stdin <<EOF
+brew tap homebrew/cask-fonts
 brew 'mas'
-mas 'xcode', id: 497799835
+#mas 'xcode', id: 497799835
 brew 'bat'
 brew 'btop'
 brew 'chezmoi'
+brew 'font-hack-nerd-font'
 brew 'gnupg'
 brew 'gnu-sed'
 brew 'htop'
@@ -53,22 +55,25 @@ brew 'zoxide'
 brew 'zsh-syntax-highlighting'
 cask 'caffeine'
 cask 'flameshot'
-cask 'font-meslo-for-powerlevel10k'
 cask 'iterm2'
 cask 'rectangle'
 cask 'spotify'
 cask 'sublime-text'
 cask 'the-unarchiver'
 cask 'visual-studio-code'
+vscode '4ops.terraform'
+vscode 'ms-python.python'
+vscode 'ms-ceintl.vscode-language-pack-pt-br''
+vscode 'golang.go'
 EOF
 
-{{ if not (eq .chezmoi.username "fo097044") }}
+{{ if not (eq .chezmoi.username "fo097044") -}}
+# not fo097044
 echo -e "\nInstalling Brew full bundle package"
 brew bundle --no-lock --file=/dev/stdin <<EOF
 brew 'aws-vault'
 brew 'awscli'
 brew 'docker'
-#brew 'eza'
 brew 'go'
 brew 'helm'
 brew 'ripgrep'
@@ -82,6 +87,22 @@ cask 'telegram-desktop'
 cask 'zoom'
 EOF
 {{ end }}
+
+{{- if not (eq .chezmoi.username "marooned") -}}
+# not marooned
+echo -e "\nInstalling Brew full bundle package"
+brew bundle --no-lock --file=/dev/stdin <<EOF
+brew 'aws-vault'
+brew 'awscli'
+brew 'docker'
+brew 'eza'
+brew 'go'
+brew 'helm'
+brew 'ripgrep'
+brew 'stern'
+brew 'task'
+EOF
+{{ end -}}
 
 echo -e "Brew Bundle finished"
 {{ end }}
