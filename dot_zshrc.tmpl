@@ -105,12 +105,12 @@ alias ohmyzsh="vim ~/.oh-my-zsh"
 # Init Chezmoi Includes
 {{ include "./dot_config/commonrc" }}
 
-{{- if eq .chezmoi.os "darwin" -}}
+{{ if eq .chezmoi.os "darwin" }}
 {{   include "./dot_config/darwinrc" }}
-{{- else if eq .chezmoi.os "linux" -}}
+{{ else if eq .chezmoi.os "linux" }}
 {{   include "./dot_config/linux-gnurc" }}
-{{- end -}}
+{{ end }}
 # End Chezmoi Includes
 
 # DO NOT CHANGE THIS FILE BECAUSE IT IS MANAGED BY CHEZMOI READ MORE HERE 
-# https://github.com/logandonley/dotfiles
+# https://github.com/rodolfolabipari/dotfiles

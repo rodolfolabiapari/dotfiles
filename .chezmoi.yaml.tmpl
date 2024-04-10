@@ -1,5 +1,5 @@
-{{- $email    := promptStringOnce . "email" "Email address"   -}}
-{{- $pgp      := promptBoolOnce   . "pgp"   "Does it use PGP" -}}
+{{ $email    := promptStringOnce . "email" "Email address"   }}
+{{ $pgp      := promptBoolOnce   . "pgp"   "Does it use PGP" }}
 
 data:
   email: {{ $email | quote }}

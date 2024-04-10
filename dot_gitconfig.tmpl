@@ -1,15 +1,15 @@
 [user]
   email = {{ .email | quote }}
   name = {{ .username | quote }}
-{{- if (eq .chezmoi.username "fo097044") }}
+{{ if (eq .chezmoi.username "fo097044") }}
   signingKey = {{ .chezmoi.homeDir }}/.ssh/id_rsa.pub
 [gpg]
   format = ssh
-{{- else }}
+{{ else }}
   signingkey = {{ .signkey | quote }}
 [gpg]
   program = gpg
-{{- end }}
+{{ end }}
 [core]
   editor = nvim
 [commit]

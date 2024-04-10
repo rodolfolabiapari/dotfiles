@@ -1,0 +1,87 @@
+#!/bin/bash
+{{ if eq .chezmoi.os "darwin" }}
+set -e
+
+brew_not_exists() {
+  if [ -x "/usr/local/Homebrew/bin/brew" ]; then
+    echo "\"/usr/local/Homebrew/bin/brew\" exist"
+    return 1
+  elif [ -e "/opt/Homebrew/bin/brew" ]; then
+    echo "\"/opt/Homebrew/bin/brew\" exist"
+    return 1
+  else
+    echo "Brew does not exist"
+    return 0
+  fi
+  return 0
+}
+
+install_brew_on_mac() {
+  echo "Installing Brew"
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+}
+
+echo -e "\nChecking Brew Instalation"
+
+if brew_not_exists ; then
+  install_brew_on_mac
+else
+  echo -e "Skipping Brew Installation"
+fi
+
+echo -e "\nInstalling Brew basics bundle package"
+brew bundle --no-lock --file=/dev/stdin <<EOF
+brew 'mas'
+mas 'xcode', id: 497799835
+brew 'bat'
+brew 'btop'
+brew 'chezmoi'
+brew 'gnupg'
+brew 'gnu-sed'
+brew 'htop'
+brew 'ipcalc'
+brew 'jq'
+brew 'mas'
+brew 'neovim'
+brew 'pwgen'
+brew 'ripgrep'
+brew 'telnet'
+brew 'tmux'
+brew 'tree'
+brew 'watch'
+brew 'zoxide'
+brew 'zsh-syntax-highlighting'
+cask 'caffeine'
+cask 'flameshot'
+cask 'font-meslo-for-powerlevel10k'
+cask 'iterm2'
+cask 'rectangle'
+cask 'spotify'
+cask 'sublime-text'
+cask 'the-unarchiver'
+cask 'visual-studio-code'
+EOF
+
+{{ if not (eq .chezmoi.username "fo097044") }}
+echo -e "\nInstalling Brew full bundle package"
+brew bundle --no-lock --file=/dev/stdin <<EOF
+brew 'aws-vault'
+brew 'awscli'
+brew 'docker'
+#brew 'eza'
+brew 'go'
+brew 'helm'
+brew 'ripgrep'
+brew 'stern'
+brew 'task'
+cask 'brave-browser'
+cask 'disk-inventory-x'
+cask 'google-cloud-sdk'
+cask 'smcfancontrol'
+cask 'telegram-desktop'
+cask 'zoom'
+EOF
+{{ end }}
+
+echo -e "Brew Bundle finished"
+{{ end }}

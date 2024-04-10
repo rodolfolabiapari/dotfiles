@@ -1,5 +1,5 @@
 # DO NOT CHANGE THIS FILE BECAUSE IT IS MANAGED BY CHEZMOI READ MORE HERE 
-# https://github.com/logandonley/dotfiles
+# https://github.com/rodolfolabipari/dotfiles
 
 # Sources
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -32,4 +32,4 @@ vault_remain() {
 }
 
 # DO NOT CHANGE THIS FILE BECAUSE IT IS MANAGED BY CHEZMOI READ MORE HERE 
-# https://github.com/logandonley/dotfiles
+# https://github.com/rodolfolabipari/dotfiles

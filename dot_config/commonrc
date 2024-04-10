@@ -1,5 +1,5 @@
 # DO NOT CHANGE THIS FILE BECAUSE IT IS MANAGED BY CHEZMOI READ MORE HERE 
-# https://github.com/logandonley/dotfiles
+# https://github.com/rodolfolabipari/dotfiles
 
 # EXPORTS
 export EDITOR="nvim"
@@ -32,10 +32,10 @@ alias vim=nvim
 alias v=vim
 alias watch="watch "
 
-{{- if not (and (eq .chezmoi.arch "amd64") (eq .chezmoi.os "darwin") ) -}}
+{{ if not (and (eq .chezmoi.arch "amd64") (eq .chezmoi.os "darwin") ) }}
 alias ls="eza"
 eval "$(zoxide init --cmd cd zsh)"
-{{- end -}}
+{{ end }}
 
 # DO NOT CHANGE THIS FILE BECAUSE IT IS MANAGED BY CHEZMOI READ MORE HERE 
-# https://github.com/logandonley/dotfiles
+# https://github.com/rodolfolabipari/dotfiles
