@@ -1,8 +1,9 @@
 README.md
 chezmoi.code-workspace
 TODO.md
-dot_bootstrap/
+
 .chezmoiscripts/
+.chezmoitemplates/
 
 # Lembrando que eh um ignore entao quando adicionado sera ignorado
 # ou seja, se nao eh igual a darwin, entao adiciona o arquivo a ser ignorado
