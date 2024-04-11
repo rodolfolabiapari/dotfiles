@@ -24,6 +24,7 @@ alias get="k get"
 alias grpe="grep "
 alias gerp="grep "
 alias gre="grep "
+alias grp="grep "
 alias k=kubectl
 # cria um pwc sem quebra de linha usando trim
 alias pwc="pwd | tr -d '\n' | pbcopy"

@@ -9,7 +9,7 @@
         80, 120
     ],
     "editor.tabSize": 2,
-    "editor.wordWrap": "bounded",
+    "editor.wordWrap": "on",
     "git.autofetch": true,
     "git.openRepositoryInParentFolders": "always",
     "go.formatTool": "goimports",
