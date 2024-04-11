@@ -2,6 +2,20 @@
 #!/bin/bash
 set -e
 
+
+# List of tap
+tap=(
+'homebrew/cask-fonts'
+)
+
+# List of brew
+brew=(
+)
+
+# List of cask
+cask=(
+)
+
 brew_not_exists() {
   if [ -x "/usr/local/Homebrew/bin/brew" ]; then
     echo "\"/usr/local/Homebrew/bin/brew\" exist"
@@ -29,9 +43,19 @@ else
   echo -e "Skipping Brew Installation"
 fi
 
+
+for t in ${tap[@]}; do
+  echo "installing $t"
+{{   if ne .chezmoi.username "root" -}}
+  sudo brew tap $t
+{{   else -}}
+  brew tap $t
+{{   end -}}
+done
+
+
 echo -e "\nInstalling Brew basics bundle package"
 brew bundle --no-lock --file=/dev/stdin <<EOF
-tap 'homebrew/cask-fonts'
 brew 'mas'
 #mas 'xcode', id: 497799835
 brew 'bat'

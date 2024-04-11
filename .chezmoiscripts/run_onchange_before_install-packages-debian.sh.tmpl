@@ -3,7 +3,7 @@
 set -eufo pipefail
 
 # Exibir distribuição do sistema operacional
-echo -e "\n\033[0;32m>>>>> Distro $(lsb_release -ds) of system $(uname -m) <<<<<\033[0m"
+echo -e "\n\033[0;32mDistro $(lsb_release -ds) of system $(uname -m)\033[0m"
 
 # List definitions
 
@@ -160,8 +160,12 @@ else
   echo "This is a $RELEASE release. Skipping some packages"
 fi
 
+echo -e "\nAutoClean"
 sudo apt autoclean
 
-echo -e "\033[0;32m>>>>> Finish Setting Up Ubuntu Packages <<<<<\033[0m"
+echo -e "\nAutoRemove"
+sudo apt autoremove -y
+
+echo -e "\033[0;32m>Finish Setting Up Ubuntu Packages\033[0m"
 
 {{ end -}}
