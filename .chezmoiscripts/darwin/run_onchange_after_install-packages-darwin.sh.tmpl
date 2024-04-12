@@ -46,11 +46,7 @@ fi
 
 for t in ${tap[@]}; do
   echo "installing $t"
-{{   if ne .chezmoi.username "root" -}}
-  sudo brew tap $t
-{{   else -}}
   brew tap $t
-{{   end -}}
 done
 
 
@@ -61,7 +57,6 @@ brew 'mas'
 brew 'bat'
 brew 'btop'
 brew 'chezmoi'
-brew 'fluxctl'
 brew 'gnupg'
 brew 'gnu-sed'
 brew 'htop'
@@ -129,4 +124,5 @@ EOF
 {{ end -}}
 
 echo -e "Brew Bundle finished"
-{{ end }}
+{{ end -}}
+
