@@ -105,6 +105,8 @@ vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.expandtab = true
 vim.opt.softtabstop = 2
+vim.opt.tabstop = 2
+vim.opt.shiftwidth = 2
 
 -- Enable mouse mode, can be useful for resizing splits for example!
 vim.opt.mouse = "a"
@@ -828,7 +830,7 @@ require("lazy").setup({
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
 		opts = {
-			ensure_installed = { "bash", "c", "html", "lua", "luadoc", "markdown", "vim", "vimdoc" },
+			ensure_installed = {"arduino", "bash", "c", "dockerfile", "git_config", "git_rebase", "gitcommit", "gitignore", "go", "gpg", "hcl", "helm", "html", "java", "javascript", "jq", "json", "lua", "luadoc", "markdown", "passwd", "pem", "python", "r", "regex", "rego", "ssh_config", "terraform", "tmux", "toml", "vim", "vimdoc", "yaml", "xml"},
 			-- Autoinstall languages that are not installed
 			auto_install = true,
 			highlight = {
