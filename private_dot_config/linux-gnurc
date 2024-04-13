@@ -1,4 +1,4 @@
-# DO NOT CHANGE THIS FILE BECAUSE IT IS MANAGED BY CHEZMOI READ MORE HERE 
+# DO NOT CHANGE THIS FILE BECAUSE IT IS MANAGED BY CHEZMOI READ MORE HERE
 # https://github.com/rodolfolabipari/dotfiles
 
 # Exports
@@ -27,7 +27,7 @@ vault_remain() {
 }
 
 # Sources
-source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
 
-# DO NOT CHANGE THIS FILE BECAUSE IT IS MANAGED BY CHEZMOI READ MORE HERE 
+# DO NOT CHANGE THIS FILE BECAUSE IT IS MANAGED BY CHEZMOI READ MORE HERE
 # https://github.com/rodolfolabipari/dotfiles

@@ -11,6 +11,8 @@
   program = gpg
 {{ end }}
 [core]
+  # Store global exclusions into a custom file.
+  excludesfile = ~/.gitignore_global
   editor = nvim
 [commit]
   gpgsign = true
@@ -18,7 +20,21 @@
   rebase = true
 [merge]
   default = recursive
+  # Include summaries of merged commits in newly created merge commit messages.
+  log = true
 [push]
   default = current
 [rebase]
   autoStash = true
+[fetch]
+  # Remove any remote-tracking references that no longer exist on the remote.
+  prune = true
+[help]
+    # Correct and execute mistyped commands.
+    autocorrect = 1
+[include]
+  # Include aliases.
+  path = .gitconfig_aliases
+
+  # Include extra configuration (if any).
+  path = .gitconfig_local

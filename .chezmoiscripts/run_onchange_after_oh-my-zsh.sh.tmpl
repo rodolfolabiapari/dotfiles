@@ -8,10 +8,4 @@ cp "$(chezmoi source-path)/.chezmoitemplates/p10k.zsh" "$ZSH/themes/powerlevel10
 
 echo -e "\nChanging chsh to zsh"
 
-
-{{ if eq .chezmoi.os "darwin" }}
-chsh -s /bin/zsh
-{{ else if eq .chezmoi.os "linux" }}
-chsh -s /usr/bin/zsh
-{{ end }}
-
+chsh -s $(which zsh)

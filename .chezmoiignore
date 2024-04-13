@@ -1,17 +1,34 @@
+# -*-mode:gitignore-*- vim:ft=gitignore
+
+# ~/.local/share/chezmoi/.chezmoiignore
+# =============================================================================
+# Read by chezmoi when chosing repository files to copy to home directory.
+#
+# This list defines globs to ignore, and supports Go's text/template language.
+# See https://www.chezmoi.io/docs/reference/#chezmoiignore
+
+*.gz
+LICENSE
 README.md
+com.googlecode.iterm2.plist
+
+# Ignore non-macOS files.
+{{ if ne .chezmoi.os "darwin" -}}
+dot_config/iterm
+dot_Brewfile
+/Library/Application Support/Code/User/settings.json
+{{- end }}
+{{ if ne .chezmoi.os "linux" }}
+.config/Code/User/settings.json
+{{ end }}
+
 chezmoi.code-workspace
 TODO.md
 
 .chezmoiscripts/
 .chezmoitemplates/
 
-# Lembrando que eh um ignore entao quando adicionado sera ignorado
-# ou seja, se nao eh igual a darwin, entao adiciona o arquivo a ser ignorado
-{{ if ne .chezmoi.os "darwin" }}
-/Library/Application Support/Code/User/settings.json
-{{ end }}
-{{ if ne .chezmoi.os "linux" }}
-.config/Code/User/settings.json
-{{ end }}
-
 my_buffer/
+
+# Caches for chezmoi ignore
+.oh-my-zsh/cache/completions/

@@ -63,22 +63,23 @@ terminator
 # List of snap packages to install
 snaps=(
 brave
-canonical-livepatch 
-chezmoi 
-code 
-docker 
-go 
-google-cloud-sdk 
-helm 
-nvim --classic --beta 
-postman 
-rpi-imager 
-spotify 
-sublime-text 
-telegram-desktop 
+canonical-livepatch
+chezmoi
+code
+docker
+go
+google-cloud-sdk
+helm
+nvim --classic --beta
+postman
+rpi-imager
+spotify
+sublime-text
+telegram-desktop
 zoom-client
 )
 
+echo -e "\nAPT add repositories"
 # Add Repositories
 for repository in ${repositories[@]}; do
   ppa_repo_source=${repository#ppa:}
@@ -101,7 +102,6 @@ echo -e "\nAPT Upgrade"
 sudo apt upgrade -y
 
 echo -e "\nAPT Install Basics"
-
 for package in ${basic_packages[@]}; do
   if ! $(dpkg-query -W -f='installed' $package &> /dev/null); then
     echo "installing $package"
@@ -166,6 +166,6 @@ sudo apt autoclean
 echo -e "\nAutoRemove"
 sudo apt autoremove -y
 
-echo -e "\033[0;32m>Finish Setting Up Ubuntu Packages\033[0m"
+echo -e "\n\033[0;32mFinish Setting Up Ubuntu Packages\033[0m"
 
 {{ end -}}
