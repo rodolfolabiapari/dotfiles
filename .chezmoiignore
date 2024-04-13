@@ -32,3 +32,5 @@ my_buffer/
 
 # Caches for chezmoi ignore
 .oh-my-zsh/cache/completions/
+.oh-my-zsh/cache/
+.oh-my-zsh/themes/powerlevel10k/
