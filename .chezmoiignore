@@ -13,3 +13,5 @@ TODO.md
 {{ if ne .chezmoi.os "linux" }}
 .config/Code/User/settings.json
 {{ end }}
+
+my_buffer/
