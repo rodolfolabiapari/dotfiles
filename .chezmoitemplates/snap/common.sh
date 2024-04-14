@@ -1,7 +1,14 @@
 # -*-mode:sh-*-
 # SNAP packs for common system
 
-sudo snap install <<EOF
-chezmoi
-nvim --classic --beta
-EOF
+# List of packages to install
+# This list accecpt comments
+packages=(
+  chezmoi
+  nvim --classic --beta
+)
+
+# Installing the packages
+for package in "${packages[@]}"; do
+  sudo snap install "$package"
+done
