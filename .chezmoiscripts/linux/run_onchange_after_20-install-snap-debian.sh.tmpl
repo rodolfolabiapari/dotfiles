@@ -1,0 +1,24 @@
+#!/bin/bash
+{{ if eq .chezmoi.os "linux" }}
+set -eufo pipefail
+
+# Enter sudo mode for system changes
+sudo su -
+
+# snap/common.sh hash: {{ include "./.chezmoitemplates/snap/common.sh" | sha256sum }}
+# snap/workplace.sh hash: {{ include "./.chezmoitemplates/snap/workplace.sh" | sha256sum }}
+
+echo -e "\nInstalling Basics SNAP packges"
+{{ template "snap/common.sh" }}
+
+{{ if (eq .chezmoi.arch "amd64") }}
+echo -e "\nInstalling SNAP Packages for workplace system"
+{{ template "snap/workplace.sh" }}
+{{ end }}
+
+# Exiting sudo user
+if [ "$USER" = "root" ]; then
+  exit
+fi
+
+{{ end }}

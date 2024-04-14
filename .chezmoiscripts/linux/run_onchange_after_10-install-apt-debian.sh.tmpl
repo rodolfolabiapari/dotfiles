@@ -1,0 +1,54 @@
+#!/bin/bash
+{{ if eq .chezmoi.os "linux" }}
+set -eufo pipefail
+
+# Enter sudo mode for system changes
+sudo su -
+
+# apt/common.sh hash: {{ include "./.chezmoitemplates/apt/common.sh" | sha256sum }}
+# apt/workplace.sh hash: {{ include "./.chezmoitemplates/apt/workplace.sh" | sha256sum }}
+
+# Exibir distribuição do sistema operacional
+echo -e "\n\033[0;32mDistro $(lsb_release -ds) of system $(uname -m)\033[0m"
+
+# List of ppa repositories to add
+repositories=()
+
+echo -e "\nAPT add new repositories"
+# Add Repositories
+for repository in ${repositories[@]}; do
+  ppa_repo_source=${repository#ppa:}
+  if ! $(apt-cache policy | grep http | awk '{print $2}' | sort -u | grep $ppa_repo_source &> /dev/null); then
+    echo "adding $repository repository to apt"
+    add-apt-repository -y $repository
+  fi
+done
+
+echo -e "\nAPT Update the list of repositories"
+apt update
+
+echo -e "\nAPT Upgrade the already installed packages"
+apt upgrade -y
+
+echo -e "\nAPT Install Basics APT packges"
+{{ template "apt/common.sh" }}
+
+{{ if (eq .chezmoi.arch "amd64") }}
+echo -e "\nInstalling Packages for workplace system"
+{{ template "apt/workplace.sh" }}
+{{ end }}
+
+echo -e "\nAutoClean"
+apt autoclean
+
+echo -e "\nAutoRemove"
+apt autoremove -y
+
+echo -e "\n\033[0;32mFinish Setting Up Ubuntu Packages\033[0m"
+
+# Exiting sudo user
+if [ "$USER" = "root" ]; then
+  exit
+fi
+
+{{ end }}
