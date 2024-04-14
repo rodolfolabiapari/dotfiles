@@ -4,9 +4,9 @@
 # Config file for brew packages installation
 set -e
 
-# brew/amd64 hash: {{ include "./.chezmoitemplates/brew/amd64.tmpl" | sha256sum }}
-# brew/arm hash: {{ include "./.chezmoitemplates/brew/arm.tmpl" | sha256sum }}
-# brew/common hash: {{ include "./.chezmoitemplates/brew/common.tmpl" | sha256sum }}
+# brew/amd64 hash: {{ include "./.chezmoitemplates/brew/amd64.sh" | sha256sum }}
+# brew/arm hash: {{ include "./.chezmoitemplates/brew/arm.sh" | sha256sum }}
+# brew/common hash: {{ include "./.chezmoitemplates/brew/common.sh" | sha256sum }}
 
 # List of tap
 tap=(
@@ -57,18 +57,18 @@ done
 
 # Install every tap on the tap list
 echo -e "\nInstalling Brew common bundle package"
-{{ template "brew/common.tmpl" }}
+{{ template "brew/common.sh" }}
 
 # Not fo machine
 {{ if (eq .chezmoi.arch "amd64") }}
 echo -e "\nInstalling Brew amd64 bundle package"
-{{ template "brew/amd64.tmpl" }}
+{{ template "brew/amd64.sh" }}
 {{ end }}
 
 # Not marooned machine
 {{ if (eq .chezmoi.arch "arm") }}
 echo -e "\nInstalling Brew arm bundle package"
-{{ template "brew/arm.tmpl" }}
+{{ template "brew/arm.sh" }}
 {{ end }}
 
 echo -e "Brew Bundle finished"

@@ -14,8 +14,11 @@
   # Store global exclusions into a custom file.
   excludesfile = ~/.gitignore_global
   editor = nvim
+# TODO Configure commit sign to rasp
+{{ if not (and (eq .chezmoi.arch "arm") (eq .chezmoi.os "linux") ) }}
 [commit]
   gpgsign = true
+{{ end }}
 [pull]
   rebase = true
 [merge]

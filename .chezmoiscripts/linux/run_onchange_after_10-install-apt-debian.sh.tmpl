@@ -31,11 +31,11 @@ echo -e "\nAPT Upgrade the already installed packages"
 apt upgrade -y
 
 echo -e "\nAPT Install Basics APT packges"
-{{ template "apt/common.tmpl" }}
+{{ template "apt/common.sh" }}
 
 {{ if (eq .chezmoi.arch "amd64") }}
 echo -e "\nInstalling Packages for workplace system"
-{{ template "apt/workplace.tmpl" }}
+{{ template "apt/workplace.sh" }}
 {{ end }}
 
 echo -e "\nAutoClean"
