@@ -2,9 +2,6 @@
 {{ if eq .chezmoi.os "linux" }}
 set -eufo pipefail
 
-# Enter sudo mode for system changes
-sudo su -
-
 # flatpak/workplace.sh hash: {{ include "./.chezmoitemplates/flatpak/workplace.sh" | sha256sum }}
 
 # TODO: Do i really need those? This is commented
@@ -12,10 +9,5 @@ sudo su -
 #echo -e "\nInstalling FLATPAK Packages for workplace system"
 {{/* template "flatpak/workplace.sh" */}}
 #{{ end }}
-
-# Exiting sudo user
-if [ "$USER" = "root" ]; then
-  exit
-fi
 
 {{ end }}

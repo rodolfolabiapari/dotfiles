@@ -2,9 +2,6 @@
 {{ if eq .chezmoi.os "linux" }}
 set -eufo pipefail
 
-# Enter sudo mode for system changes
-sudo su -
-
 # apt/common.sh hash: {{ include "./.chezmoitemplates/apt/common.sh" | sha256sum }}
 # apt/workplace.sh hash: {{ include "./.chezmoitemplates/apt/workplace.sh" | sha256sum }}
 
@@ -45,10 +42,5 @@ echo -e "\nAutoRemove"
 apt autoremove -y
 
 echo -e "\n\033[0;32mFinish Setting Up Ubuntu Packages\033[0m"
-
-# Exiting sudo user
-if [ "$USER" = "root" ]; then
-  exit
-fi
 
 {{ end }}
