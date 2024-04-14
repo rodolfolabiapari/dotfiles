@@ -1,7 +1,7 @@
 # -*-mode:sh-*-
 # SNAP packs for workplace system
 
-snap install <<EOF
+sudo snap install <<EOF
 brave
 canonical-livepatch
 code

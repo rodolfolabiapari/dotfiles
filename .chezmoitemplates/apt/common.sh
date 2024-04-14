@@ -1,7 +1,7 @@
 # -*-mode:sh-*-
 # APT packs for workplace system
 
-apt install -y <<EOF
+sudo apt install -y <<EOF
 ansible
 bat                       # Beautiful cat
 btop                      # Beautiful top

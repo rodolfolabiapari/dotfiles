@@ -1,7 +1,7 @@
 # -*-mode:sh-*-
 # SNAP packs for common system
 
-snap install <<EOF
+sudo snap install <<EOF
 chezmoi
 nvim --classic --beta
 EOF
