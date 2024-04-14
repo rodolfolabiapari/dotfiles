@@ -31,6 +31,9 @@ alias k=kubectl
 # cria um pwc sem quebra de linha usando trim
 alias pwc="pwd | tr -d '\n' | pbcopy"
 alias sl=ls
+alias tm="tmux "
+alias tmu="tmux "
+alias tmx="tmux "
 alias vim=nvim
 alias v=vim
 alias vi=vim

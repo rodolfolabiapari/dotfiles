@@ -11,7 +11,7 @@
 
 {{ $email    := promptStringOnce . "email" "Email address"   }}
 {{ $pgp      := promptBoolOnce   . "pgp"   "Does it use PGP" }}
-
+# TODO deve ter uma opcao de nao ter pgp nem ssh para assinatura de commit
 data:
   email: {{ $email | quote }}
   username: "Rodolfo Labiapari Mansur, MSc. @rodolfolabiapari"
