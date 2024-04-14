@@ -20,7 +20,10 @@ export PATH=$PATH:$HOME/rlmg/bin
 export ZSH=$HOME/.oh-my-zsh
 
 # ALIAS
+{{ if (eq .os "linux") }}
+# Does not have bat on linux. Just batcat
 alias bat="batcat "
+{{ end }}
 alias cat="bat --paging=never"
 alias get="k get"
 alias grpe="grep "
@@ -190,8 +193,8 @@ alias docs='cd $HOME/Documents'
 alias dt='cd $HOME/Desktop'
 
 # Post sources
-source $HOME/.local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source $HOME/.local/share/powerlevel10k/powerlevel10k.zsh-theme
+source $ZSH/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $ZSH/custom/themes/powerlevel10k/powerlevel10k.zsh-theme
 
 # DO NOT CHANGE THIS FILE BECAUSE IT IS MANAGED BY CHEZMOI READ MORE HERE
 # https://github.com/rodolfolabipari/dotfiles
