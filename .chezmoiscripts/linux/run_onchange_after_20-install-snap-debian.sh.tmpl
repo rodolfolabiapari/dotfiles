@@ -5,15 +5,15 @@ set -eufo pipefail
 # Enter sudo mode for system changes
 sudo su -
 
-# snap/common.sh hash: {{ include "./.chezmoitemplates/snap/common.sh" | sha256sum }}
-# snap/workplace.sh hash: {{ include "./.chezmoitemplates/snap/workplace.sh" | sha256sum }}
+# snap/common.tmpl hash: {{ include "./.chezmoitemplates/snap/common.tmpl" | sha256sum }}
+# snap/workplace.tmpl hash: {{ include "./.chezmoitemplates/snap/workplace.tmpl" | sha256sum }}
 
 echo -e "\nInstalling Basics SNAP packges"
-{{ template "snap/common.sh" }}
+{{ template "snap/common.tmpl" }}
 
 {{ if (eq .chezmoi.arch "amd64") }}
 echo -e "\nInstalling SNAP Packages for workplace system"
-{{ template "snap/workplace.sh" }}
+{{ template "snap/workplace.tmpl" }}
 {{ end }}
 
 # Exiting sudo user

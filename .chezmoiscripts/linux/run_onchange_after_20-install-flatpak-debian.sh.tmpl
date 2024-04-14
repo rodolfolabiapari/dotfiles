@@ -5,12 +5,12 @@ set -eufo pipefail
 # Enter sudo mode for system changes
 sudo su -
 
-# flatpak/workplace.sh hash: {{ include "./.chezmoitemplates/flatpak/workplace.sh" | sha256sum }}
+# flatpak/workplace.sh hash: {{ include "./.chezmoitemplates/flatpak/workplace.tmpl" | sha256sum }}
 
 # TODO: Do i really need those? This is commented
 #{{ if (eq .chezmoi.arch "amd64") }}
 #echo -e "\nInstalling FLATPAK Packages for workplace system"
-{{/* template "flatpak/workplace.sh" */}}
+{{/* template "flatpak/workplace.tmpl" */}}
 #{{ end }}
 
 # Exiting sudo user

@@ -57,18 +57,18 @@ done
 
 # Install every tap on the tap list
 echo -e "\nInstalling Brew common bundle package"
-{{ template "brew/common.sh" }}
+{{ template "brew/common.tmpl" }}
 
 # Not fo machine
 {{ if (eq .chezmoi.arch "amd64") }}
 echo -e "\nInstalling Brew amd64 bundle package"
-{{ template "brew/amd64.sh" }}
+{{ template "brew/amd64.tmpl" }}
 {{ end }}
 
 # Not marooned machine
 {{ if (eq .chezmoi.arch "arm") }}
 echo -e "\nInstalling Brew arm bundle package"
-{{ template "brew/arm.sh" }}
+{{ template "brew/arm.tmpl" }}
 {{ end }}
 
 echo -e "Brew Bundle finished"
