@@ -4,7 +4,7 @@ set -eufo pipefail
 # p10k.zsh hash: {{ include "./.chezmoitemplates/p10k.zsh" | sha256sum }}
 
 echo -e "\nCopying the p10k internal file for vault"
-cp "$(chezmoi source-path)/.chezmoitemplates/p10k.zsh" "$ZSH/themes/powerlevel10k/internal/p10k.zsh"
+cp "$(chezmoi source-path)/.chezmoitemplates/p10k.zsh" "/usr/share/powerlevel10k/internal/p10k.zsh"
 
 echo -e "\nChanging chsh to zsh"
 # Check if zsh is default

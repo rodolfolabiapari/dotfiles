@@ -1,17 +1,19 @@
 # -*-mode:sh-*-
 # Brew file for all macock machines
 
-brew bundle --no-lock --file=/dev/stdin <<EOF
-EOF
+# Installing the packages
+for package in "${packages[@]}"; do
+  echo "$package" | brew bundle --no-lock --file -
+done
 
+# Temporary Brewfile
+temp_brewfile=$(mktemp)
+# trap command is configured to remove the temporary file $temp_brewfile when
+# the script ends (when the shell is exited with EXIT).
+trap 'rm -f "$temp_brewfile"' EXIT
 
-
-# -*-mode:sh-*-
-# Brew file for arm
-
-# List of packages to install
-# This list accecpt comments
-packages=(
+# Write packages to temporary Brewfile using cat and redirection
+cat <<EOF > "$temp_brewfile"
   brew 'mas'                       # Mac Apple Store cli from Brew
   #mas 'xcode', id: 497799835      # Xcode from MAS cli
   brew 'bat'                       # Beautiful cat
@@ -60,9 +62,7 @@ packages=(
   vscode 'vscode-icons-team.vscode-icons'
   vscode 'wayou.vscode-todo-highlight'
   vscode 'yzhang.markdown-all-in-one'
-)
+EOF
 
-# Installing the packages
-for package in "${packages[@]}"; do
-  echo "$package" | brew bundle --no-lock --file -
-done
+# Install packages using brew bundle
+brew bundle --no-lock --file="$temp_brewfile"

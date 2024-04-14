@@ -171,8 +171,8 @@ else
 fi
 
 # this line receives the arch var by passing a dictionary argument
-{{ if (and (eq .arch "arm") (eq .os "linux")) or
-      (and (eq .arch "amd64") (eq .os "darwin"))}}
+{{ if (or (and (eq .arch "arm") (eq .os "linux"))
+      (and (eq .arch "amd64") (eq .os "darwin")))}}
 # TODO not found eza for pi, until now
 # TODO not found eza builded to amd64 darwin
 unalias ls
@@ -190,7 +190,8 @@ alias docs='cd $HOME/Documents'
 alias dt='cd $HOME/Desktop'
 
 # Post sources
-source $ZSH/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/powerlevel10k/powerlevel10k.zsh-theme
 
 # DO NOT CHANGE THIS FILE BECAUSE IT IS MANAGED BY CHEZMOI READ MORE HERE
 # https://github.com/rodolfolabipari/dotfiles
