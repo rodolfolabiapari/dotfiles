@@ -1,0 +1,39 @@
+# -*-mode:sh-*-
+# Brew file for all macock machines
+
+brew bundle --no-lock --file=/dev/stdin <<EOF
+brew 'mas'                       # Mac Apple Store cli from Brew
+#mas 'xcode', id: 497799835      # Xcode from MAS cli
+brew 'bat'                       # Beautiful cat
+brew 'btop'                      # Beaultiful top
+brew 'chezmoi'
+brew 'gnupg'
+brew 'gnu-sed'
+brew 'htop'
+brew 'ipcalc'
+brew 'jq'
+brew 'kubent'
+brew 'neovim'
+brew 'pwgen'                     # Password generator
+brew 'ripgrep'                   # Used in nvim telescope
+brew 'telnet'
+brew 'tmux'
+brew 'tree'
+brew 'task'                      # I want to try it some day
+brew 'watch'
+brew 'zoxide'                    # Smart cd
+cask 'caffeine'
+cask 'flameshot'
+cask 'font-hack-nerd-font'       # Best font ever for everything
+cask 'iterm2'
+cask 'rectangle'                 # Window manager for macock
+cask 'spotify'
+cask 'sublime-text'
+cask 'the-unarchiver'
+cask 'visual-studio-code'
+vscode '4ops.terraform'          # Terraform syntax
+vscode 'ms-python.python'
+vscode 'ms-python.debugpy'
+vscode 'ms-ceintl.vscode-language-pack-pt-br'
+vscode 'golang.go'
+EOF

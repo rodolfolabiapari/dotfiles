@@ -1,25 +1,30 @@
-{{- if eq .chezmoi.os "darwin" -}}
 #!/bin/bash
+{{ if eq .chezmoi.os "darwin" }}
+# -*-mode:sh-*-  vim:ft=sh
+# Config file for brew packages installation
 set -e
 
+# brew/amd64 hash: {{ include "./.chezmoitemplates/brew/amd64.tmpl" | sha256sum }}
+# brew/arm hash: {{ include "./.chezmoitemplates/brew/arm.tmpl" | sha256sum }}
+# brew/common hash: {{ include "./.chezmoitemplates/brew/common.tmpl" | sha256sum }}
 
 # List of tap
 tap=(
-'homebrew/cask-fonts'
-)
+'homebrew/cask-fonts')
 
 # List of brew
-brew=(
-)
+brew=()
 
 # List of cask
-cask=(
-)
+cask=()
 
+# Check if brew bin exist
 brew_not_exists() {
+  # Check if brew exist in amd64
   if [ -x "/usr/local/Homebrew/bin/brew" ]; then
     echo "\"/usr/local/Homebrew/bin/brew\" exist"
     return 1
+  # Check if brew exist in arm
   elif [ -e "/opt/Homebrew/bin/brew" ]; then
     echo "\"/opt/Homebrew/bin/brew\" exist"
     return 1
@@ -30,99 +35,41 @@ brew_not_exists() {
   return 0
 }
 
+# Install brew. It does not update if already installed
 install_brew_on_mac() {
   echo "Installing Brew"
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 }
 
+# Check if brew exist in machine
 echo -e "\nChecking Brew Instalation"
-
 if brew_not_exists ; then
   install_brew_on_mac
 else
   echo -e "Skipping Brew Installation"
 fi
 
-
+# Install every tap on the tap list
 for t in ${tap[@]}; do
   echo "installing $t"
   brew tap $t
 done
 
+# Install every tap on the tap list
+echo -e "\nInstalling Brew common bundle package"
+{{ template "brew/common.tmpl" }}
 
-echo -e "\nInstalling Brew basics bundle package"
-brew bundle --no-lock --file=/dev/stdin <<EOF
-brew 'mas'
-#mas 'xcode', id: 497799835
-brew 'bat'
-brew 'btop'
-brew 'chezmoi'
-brew 'gnupg'
-brew 'gnu-sed'
-brew 'htop'
-brew 'ipcalc'
-brew 'jq'
-brew 'kubent'
-brew 'neovim'
-brew 'pwgen'
-brew 'ripgrep'
-brew 'telnet'
-brew 'tmux'
-brew 'tree'
-brew 'watch'
-brew 'zoxide'
-cask 'caffeine'
-cask 'flameshot'
-cask 'font-hack-nerd-font'
-cask 'iterm2'
-cask 'rectangle'
-cask 'spotify'
-cask 'sublime-text'
-cask 'the-unarchiver'
-cask 'visual-studio-code'
-vscode '4ops.terraform'
-vscode 'ms-python.python'
-vscode 'ms-ceintl.vscode-language-pack-pt-br'
-vscode 'golang.go'
-EOF
-
-{{ if not (eq .chezmoi.username "fo097044") -}}
-# not fo097044
-echo -e "\nInstalling Brew full bundle package"
-brew bundle --no-lock --file=/dev/stdin <<EOF
-brew 'aws-vault'
-#brew 'awscli'
-brew 'docker'
-brew 'go'
-brew 'helm'
-brew 'ripgrep'
-brew 'stern'
-brew 'task'
-cask 'brave-browser'
-cask 'disk-inventory-x'
-cask 'google-cloud-sdk'
-cask 'smcfancontrol'
-cask 'telegram-desktop'
-cask 'zoom'
-EOF
+# Not fo machine
+{{ if (eq .chezmoi.arch "amd64") }}
+echo -e "\nInstalling Brew amd64 bundle package"
+{{ template "brew/amd64.tmpl" }}
 {{ end }}
 
-{{- if not (eq .chezmoi.username "marooned") -}}
-# not marooned
-echo -e "\nInstalling Brew full bundle package"
-brew bundle --no-lock --file=/dev/stdin <<EOF
-brew 'aws-vault'
-brew 'awscli'
-brew 'docker'
-brew 'eza'
-brew 'go'
-brew 'helm'
-brew 'ripgrep'
-brew 'stern'
-brew 'task'
-EOF
-{{ end -}}
+# Not marooned machine
+{{ if (eq .chezmoi.arch "arm") }}
+echo -e "\nInstalling Brew arm bundle package"
+{{ template "brew/arm.tmpl" }}
+{{ end }}
 
 echo -e "Brew Bundle finished"
-{{ end -}}
-
+{{ end }}

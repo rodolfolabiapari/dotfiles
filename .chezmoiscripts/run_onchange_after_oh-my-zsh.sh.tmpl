@@ -7,5 +7,4 @@ echo -e "\nCopying the p10k internal file for vault"
 cp "$(chezmoi source-path)/.chezmoitemplates/p10k.zsh" "$ZSH/themes/powerlevel10k/internal/p10k.zsh"
 
 echo -e "\nChanging chsh to zsh"
-
 sudo chsh -s $(which zsh)

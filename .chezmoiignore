@@ -13,11 +13,11 @@ README.md
 com.googlecode.iterm2.plist
 
 # Ignore non-macOS files.
-{{ if ne .chezmoi.os "darwin" -}}
+{{ if ne .chezmoi.os "darwin" }}
 dot_config/iterm
 dot_Brewfile
 /Library/Application Support/Code/User/settings.json
-{{- end }}
+{{ end }}
 {{ if ne .chezmoi.os "linux" }}
 .config/Code/User/settings.json
 {{ end }}

@@ -1,3 +1,14 @@
+# -*-mode:conf-toml-*- vim:ft=yaml
+
+# ~/.local/share/chezmoi/.chezmoi.yaml.tmpl
+# =============================================================================
+# Used to customize configuration when doing a `chezmoi init`.
+#
+# This template file will trigger prompts to fill-in machine-specific
+# templateable values. The resulting file is then created at
+# `~/.config/chezmoi/chezmoi.toml`
+# See https://www.chezmoi.io/docs/how-to/
+
 {{ $email    := promptStringOnce . "email" "Email address"   }}
 {{ $pgp      := promptBoolOnce   . "pgp"   "Does it use PGP" }}
 

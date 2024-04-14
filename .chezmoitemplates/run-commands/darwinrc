@@ -28,8 +28,5 @@ vault_remain() {
   echo ${left_hour}:${left_min}:${left_sec}
 }
 
-# Sources
-source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
 # DO NOT CHANGE THIS FILE BECAUSE IT IS MANAGED BY CHEZMOI READ MORE HERE 
 # https://github.com/rodolfolabipari/dotfiles

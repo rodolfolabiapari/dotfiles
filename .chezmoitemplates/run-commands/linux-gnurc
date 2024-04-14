@@ -26,8 +26,5 @@ vault_remain() {
   echo ${left_min}:${left_sec}
 }
 
-# Sources
-source $HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
-
 # DO NOT CHANGE THIS FILE BECAUSE IT IS MANAGED BY CHEZMOI READ MORE HERE
 # https://github.com/rodolfolabipari/dotfiles

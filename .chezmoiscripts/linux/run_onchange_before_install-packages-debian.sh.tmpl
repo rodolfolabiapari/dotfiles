@@ -85,11 +85,11 @@ for repository in ${repositories[@]}; do
   ppa_repo_source=${repository#ppa:}
   if ! $(apt-cache policy | grep http | awk '{print $2}' | sort -u | grep $ppa_repo_source &> /dev/null); then
     echo "adding $repository repository to apt"
-{{ if ne .chezmoi.username "root" -}}
+{{ if ne .chezmoi.username "root" }}
     sudo add-apt-repository -y $repository
-{{ else -}}
+{{ else }}
     add-apt-repository -y $repository
-{{ end -}}
+{{ end }}
     echo "false"
   fi
 done
@@ -105,11 +105,11 @@ echo -e "\nAPT Install Basics"
 for package in ${basic_packages[@]}; do
   if ! $(dpkg-query -W -f='installed' $package &> /dev/null); then
     echo "installing $package"
-{{ if ne .chezmoi.username "root" -}}
+{{ if ne .chezmoi.username "root" }}
     sudo apt install -y $package
-{{ else -}}
+{{ else }}
     apt install -y ${basic_packages[@]}
-{{ end -}}
+{{ end }}
   fi
 done
 
@@ -132,24 +132,24 @@ if [[ $(lsb_release -is) == "Ubuntu" || $(lsb_release -is) == "Linuxmint" ]]; th
   for package in ${other_packages[@]}; do
     if ! $(dpkg-query -W -f='installed' $package &> /dev/null); then
       echo "installing $package"
-  {{ if ne .chezmoi.username "root" -}}
+  {{ if ne .chezmoi.username "root" }}
       sudo apt install -y $package
-  {{ else -}}
+  {{ else }}
       apt install -y ${other_packages[@]}
-  {{ end -}}
+  {{ end }}
     fi
   done
 
-  {{ if (eq .chezmoi.osRelease.id "ubuntu") -}}
+  {{ if (eq .chezmoi.osRelease.id "ubuntu") }}
   for snap in ${snaps[@]}; do
     echo "installing $snap using snap"
-  {{   if ne .chezmoi.username "root" -}}
+  {{   if ne .chezmoi.username "root" }}
     sudo snap install $snap
-  {{   else -}}
+  {{   else }}
     snap install $snap
-  {{   end -}}
+  {{   end }}
   done
-  {{ end -}}
+  {{ end }}
 
   echo -e "\nAPT Install Flatpak Packages on $RELEASE"
   # Instalar pacotes Flatpak
@@ -168,4 +168,4 @@ sudo apt autoremove -y
 
 echo -e "\n\033[0;32mFinish Setting Up Ubuntu Packages\033[0m"
 
-{{ end -}}
+{{ end }}

@@ -14,6 +14,9 @@
     "git.openRepositoryInParentFolders": "always",
     "go.formatTool": "goimports",
     "go.useLanguageServer": true,
+    "files.associations": {
+        "*.tmpl": "shellscript"
+    },
     "telemetry.telemetryLevel": "off",
     "terminal.integrated.fontFamily": "MesloLGS NF",
     "window.zoomLevel": 1,
