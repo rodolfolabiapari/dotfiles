@@ -3,6 +3,7 @@
     "diffEditor.hideUnchangedRegions.enabled": true,
     "editor.autoIndent": "none",
     "editor.detectIndentation": false,
+    "editor.fontSize": 11,
     "editor.renderControlCharacters": true,
     "editor.renderWhitespace": "all",
     "editor.rulers": [
