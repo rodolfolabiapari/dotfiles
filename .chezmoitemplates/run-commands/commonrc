@@ -170,7 +170,7 @@ else
     alias poweroff='sudo /sbin/poweroff'
 fi
 
-{{/* # this line receives the arch var by passing a dictionary argument */ }}
+# this line receives the arch var by passing a dictionary argument
 {{ if (and (eq .arch "arm") (eq .os "linux")) or
       (and (eq .arch "amd64") (eq .os "darwin"))}}
 # TODO not found eza for pi, until now
