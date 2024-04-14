@@ -6,7 +6,6 @@
 packages=(
   ansible
   bat                       # Beautiful cat
-  btop                      # Beautiful top
   curl
   flatpak                   # Install package manager
   gcc                       # Mother loves y
@@ -36,6 +35,4 @@ packages=(
 )
 
 # Installing the packages
-for package in "${packages[@]}"; do
-  sudo apt install -y "$package"
-done
+sudo apt install -y "${packages[@]}"

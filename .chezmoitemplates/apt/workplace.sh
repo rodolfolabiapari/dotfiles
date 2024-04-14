@@ -15,6 +15,4 @@ packages=(
 )
 
 # Installing the packages
-for package in "${packages[@]}"; do
-  sudo apt install -y "$package"
-done
+sudo apt install -y "${packages[@]}"

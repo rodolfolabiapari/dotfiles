@@ -17,17 +17,20 @@ packages=(
   brew 'bat'                       # Beautiful cat
   brew 'btop'                      # Beaultiful top
   brew 'chezmoi'                   # Installing chezmoi via managed packager
+  brew 'figlet'                    # nice bit fancy fonts for terminal outputs
   brew 'gnupg'
   brew 'gnu-sed'
   brew 'htop'
   brew 'ipcalc'                    # Calculate IP ranges from cli
   brew 'jq'
   brew 'kubent'    # Kube not Truble https://github.com/doitintl/kube-no-trouble
+  brew "neofetch"               # System information tool http://www.figlet.org/
   brew 'neovim'
   brew 'pwgen'                     # Password generator
   brew 'ripgrep'                   # Used in nvim 
   brew 'telnet'
   brew 'tmux'
+  brew 'toilet'                # big fancy fonts http://caca.zoy.org/wiki/toilet
   brew 'tree'
   brew 'task'                      # I want to try it some day
   brew 'watch'                     # It is absurd this not come default. Shame

@@ -13,7 +13,7 @@ export GITHUB_USERNAME=rodolfolabiapari
 sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply $GITHUB_USERNAME
 ```
 
-Raspberry Pi Model B Plus Rev 1.2 using Raspbian GNU/Linux 11 (bullseye) armv6l:
+Raspberry Pi Model B Plus Rev 1.2 using Raspbian GNU/Linux 11 (bullseye) armv6l/armhf:
 
 ```shell
 # Install go for armv6l
