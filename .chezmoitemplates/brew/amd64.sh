@@ -9,8 +9,8 @@ trap 'rm -f "$temp_brewfile"' EXIT
 
 # Write packages to temporary Brewfile using cat and redirection
 cat <<EOF > "$temp_brewfile"
-  docker
-  go
+  brew 'docker'
+  brew 'go'
   cask 'brave-browser'
   cask 'disk-inventory-x'
   cask 'google-cloud-sdk'
