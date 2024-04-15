@@ -6,8 +6,10 @@ set -eufo pipefail
 {{ if not (eq .chezmoi.hostname "raspberrypi") }}
 # Validate if I am using Cinnamon
 if [ "${XDG_CURRENT_DESKTOP}" = "X-Cinnamon" ]; then
+  echo -e "\nUpdating Cinnamon Spice packages"
   # If true, update all spices
-  sudo cinnamon-spice-updater --update-all
+  # Do not run this as root!
+  cinnamon-spice-updater --update-all
 fi
 {{ end }}
 
