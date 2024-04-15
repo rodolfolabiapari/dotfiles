@@ -1,4 +1,4 @@
-# DO NOT CHANGE THIS FILE BECAUSE IT IS MANAGED BY CHEZMOI READ MORE HERE 
+# DO NOT CHANGE THIS FILE BECAUSE IT IS MANAGED BY CHEZMOI READ MORE HERE
 # https://github.com/rodolfolabipari/dotfiles
 
 # Exports
@@ -15,6 +15,9 @@ export PATH=$PATH:$HOME/Library/Python/3.9/bin
 # utiliza pacotes pre-compilados
 export HOMEBREW_BUILD_BOTTLE=1
 
+# Remove BIN from quarantine
+alias quarentena="xattr -d com.apple.quarantine "
+
 # Functions
 vault_remain() {
   local now=$(TZ=UTC date -j +%Y-%m-%dT%H:%M:%SZ)
@@ -28,5 +31,6 @@ vault_remain() {
   echo ${left_hour}:${left_min}:${left_sec}
 }
 
-# DO NOT CHANGE THIS FILE BECAUSE IT IS MANAGED BY CHEZMOI READ MORE HERE 
+# DO NOT CHANGE THIS FILE BECAUSE IT IS MANAGED BY CHEZMOI READ MORE HERE
 # https://github.com/rodolfolabipari/dotfiles
+

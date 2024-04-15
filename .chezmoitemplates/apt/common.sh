@@ -19,7 +19,6 @@ packages=(
   pwgen                     # Password generator
   ripgrep                   # Used in nvim telescope
   sed
-  snapd                     # Install package manager
   tar
   telnet
   tmux
