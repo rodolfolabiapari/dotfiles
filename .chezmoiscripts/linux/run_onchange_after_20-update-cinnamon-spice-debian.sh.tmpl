@@ -2,10 +2,13 @@
 {{ if eq .chezmoi.os "linux" }}
 set -eufo pipefail
 
+# There is no this ENV in rasp
+{{ if not (eq .chezmoi.hostname "raspberrypi") }}
 # Validate if I am using Cinnamon
 if [ "${XDG_CURRENT_DESKTOP}" = "X-Cinnamon" ]; then
   # If true, update all spices
   sudo cinnamon-spice-updater --update-all
 fi
+{{ end }}
 
 {{ end }}

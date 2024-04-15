@@ -1,4 +1,4 @@
-# DO NOT CHANGE THIS FILE BECAUSE IT IS MANAGED BY CHEZMOI READ MORE HERE 
+# DO NOT CHANGE THIS FILE BECAUSE IT IS MANAGED BY CHEZMOI READ MORE HERE
 # https://github.com/rodolfolabipari/dotfiles
 
 # Altera globalmente o Contrl-b para Control-s
@@ -46,10 +46,16 @@ bind-key -T copy-mode-vi V send-keys -X rectangle-toggle  # Alternância entre s
 # Sets
 # Configurações gerais
 set -g mouse on                                      # Ativa o suporte ao mouse
+set -g status-position top                           # Posição da barra de status
+{{ if (eq .chezmoi.hostname "raspberrypi") }}
+set -g pane-active-border-style 'fg=default bg=default'  # Estilo da borda do painel ativo
+set -g pane-border-style 'fg=default bg=default'        # Estilo da borda do painel
+set -g status-style 'bg=default fg=default dim'         # Estilo da barra de status
+{{ else }}
 set -g pane-active-border-style 'bg=color234 fg=color46'  # Estilo da borda do painel ativo
 set -g pane-border-style 'fg=color233 bg=color234'   # Estilo da borda do painel
-set -g status-position top                           # Posição da barra de status
 set -g status-style 'bg=color233 fg=color15 dim'     # Estilo da barra de status
+{{ end }}
 
 # Fix the slow escape-time for vim
 # Ajusta o tempo de escape para interações mais suaves com o Vim
@@ -71,7 +77,7 @@ set -g @catppuccin_host "off"                       # Exibição do nome do host
 set -g @catppuccin_user "off"                       # Exibição do nome do usuário
 set -g @catppuccin_window_tabs_enabled on           # Habilita guias de janela
 
-# Catppuccin theme 
+# Catppuccin theme
 # Config 1 https://github.com/catppuccin/tmux?tab=readme-ov-file#config-1
 set -g @catppuccin_window_right_separator "█ "
 set -g @catppuccin_window_number_position "right"
@@ -88,5 +94,5 @@ set -g @catppuccin_status_right_separator "█"
 # Has to be the last line
 run '~/.tmux/plugins/tpm/tpm'
 
-# DO NOT CHANGE THIS FILE BECAUSE IT IS MANAGED BY CHEZMOI READ MORE HERE 
+# DO NOT CHANGE THIS FILE BECAUSE IT IS MANAGED BY CHEZMOI READ MORE HERE
 # https://github.com/rodolfolabipari/dotfiles

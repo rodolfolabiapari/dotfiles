@@ -25,16 +25,23 @@ export ZSH=$HOME/.oh-my-zsh
 alias bat="batcat "
 {{ end }}
 alias cat="bat --paging=never"
+alias CAT="cat "
 alias get="k get"
 alias grpe="grep "
 alias gerp="grep "
 alias gre="grep "
 alias grp="grep "
 alias g="git "
-alias k=kubectl
+alias G="git "
+alias k="kubectl "
+alias K="kubectl "
 # cria um pwc sem quebra de linha usando trim
 alias pwc="pwd | tr -d '\n' | pbcopy"
+alias PWC="pwc"
+alias PWD="pwd"
 alias sl=ls
+alias LS="ls "
+alias SL="ls "
 alias tm="tmux "
 alias tmu="tmux "
 alias tmx="tmux "
@@ -46,7 +53,9 @@ alias sz="source ~/.zshrc && echo \"~/.zshrc reloaded.\"" # Reload zsh
 
 # Makes file commands verbose.
 alias cp='cp -v';
+alias CP="cp"
 alias mv='mv -v';
+alias MV="mv "
 # Creates parent directories on demand.
 alias mkdir='mkdir -pv'
 
