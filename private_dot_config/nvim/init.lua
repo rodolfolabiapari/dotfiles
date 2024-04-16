@@ -776,8 +776,8 @@ require("lazy").setup({
     name = "catppuccin",
     priority = 1000,
     init = function()
-      vim.cmd.colorscheme("catppuccin-latte")
-      -- vim.cmd.colorscheme("catppuccin-frappe")
+      -- vim.cmd.colorscheme("catppuccin-latte")  --light
+      vim.cmd.colorscheme("catppuccin-frappe") -- dark
     end,
   },
 
@@ -830,7 +830,42 @@ require("lazy").setup({
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
     opts = {
-      ensure_installed = {"arduino", "bash", "c", "dockerfile", "git_config", "git_rebase", "gitcommit", "gitignore", "go", "gpg", "hcl", "helm", "html", "java", "javascript", "jq", "json", "lua", "luadoc", "markdown", "passwd", "pem", "python", "r", "regex", "rego", "ssh_config", "terraform", "tmux", "toml", "vim", "vimdoc", "yaml", "xml"},
+      ensure_installed = {
+        "arduino",
+        "bash",
+        "c",
+        "dockerfile",
+        "git_config",
+        "git_rebase",
+        "gitcommit",
+        "gitignore",
+        "go",
+        "gpg",
+        "hcl",
+        "helm",
+        "html",
+        "java",
+        "javascript",
+        "jq",
+        "json",
+        "lua",
+        "luadoc",
+        "markdown",
+        "passwd",
+        "pem",
+        "python",
+        "r",
+        "regex",
+        "rego",
+        "ssh_config",
+        "terraform",
+        "tmux",
+        "toml",
+        "vim",
+        "vimdoc",
+        "yaml",
+        "xml",
+      },
       -- Autoinstall languages that are not installed
       auto_install = true,
       highlight = {

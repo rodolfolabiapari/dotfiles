@@ -9,8 +9,12 @@ trap 'rm -f "$temp_brewfile"' EXIT
 
 # Write packages to temporary Brewfile using cat and redirection
 cat <<EOF > "$temp_brewfile"
+  brew 'c2048'                     # 2048 game
   brew 'docker'
+  brew 'imagemagick'               # Converts and resizes images
+  brew 'mailsy'                    # Creates tmp email
   brew 'go'
+  brew 'wifi-password'             # Show wifi password
   cask 'brave-browser'
   cask 'disk-inventory-x'
   cask 'google-cloud-sdk'

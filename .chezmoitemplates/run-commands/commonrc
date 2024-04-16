@@ -33,8 +33,8 @@ alias gre="grep "
 alias grp="grep "
 alias g="git "
 alias G="git "
-alias k="kubectl "
-alias K="kubectl "
+alias k=kubectl
+alias K=kubectl
 # cria um pwc sem quebra de linha usando trim
 alias pwc="pwd | tr -d '\n' | pbcopy"
 alias PWC="pwc"
