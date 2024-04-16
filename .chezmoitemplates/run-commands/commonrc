@@ -338,8 +338,13 @@ function print_error() {
 
 
 # Post sources
+# Load ZSH Syntax
 source $ZSH/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# ZSH syntax using catppuccin theme
+source $ZSH/custom/plugins/zsh-syntax-highlighting/themes/catppuccin/themes/catppuccin_frappe-zsh-syntax-highlighting.zsh
+# Load p10k
 source $ZSH/custom/themes/powerlevel10k/powerlevel10k.zsh-theme
+
 
 # DO NOT CHANGE THIS FILE BECAUSE IT IS MANAGED BY CHEZMOI READ MORE HERE
 # https://github.com/rodolfolabipari/dotfiles

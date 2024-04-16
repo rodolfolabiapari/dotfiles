@@ -31,8 +31,6 @@ my_buffer/
 assets
 
 # Externals
-.config/nvim/
-private_dot_config/nvim/
 .oh-my-zsh/cache/
 .oh-my-zsh/custom/
 .oh-my-zsh/custom/themes/powerlevel10k/
