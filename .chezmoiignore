@@ -28,6 +28,7 @@ dot_Brewfile
 .chezmoiscripts/
 .chezmoitemplates/
 my_buffer/
+assets
 
 # Caches
 .oh-my-zsh/cache/

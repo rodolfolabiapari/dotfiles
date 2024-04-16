@@ -20,6 +20,7 @@ cat <<EOF > "$temp_brewfile"
   brew 'btop'                      # Beaultiful top
   brew 'chezmoi'                   # Installing chezmoi via managed packager
   brew 'figlet'                    # nice bit fancy fonts for terminal outputs
+  brew 'gh'                        # Github cli
   brew 'gnupg'
   brew 'gnu-sed'
   brew 'htop'
