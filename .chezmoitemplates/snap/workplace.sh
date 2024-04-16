@@ -25,4 +25,4 @@ for package in "${packages[@]}"; do
 done
 
 echo "Granting glab access to SSH keys"
-sudo snap connecct glab:ssh-keys
+sudo snap connect glab:ssh-keys
