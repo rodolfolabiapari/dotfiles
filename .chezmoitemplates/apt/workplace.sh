@@ -6,6 +6,7 @@
 packages=(
   awscli
   flameshot                                # Screen shot
+  gh                                       # Github cli
   google-cloud-cli
   google-cloud-sdk-gke-gcloud-auth-plugin
   google-cloud-sdk-terraform-tools

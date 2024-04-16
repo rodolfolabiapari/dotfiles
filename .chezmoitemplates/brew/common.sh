@@ -21,6 +21,7 @@ cat <<EOF > "$temp_brewfile"
   brew 'chezmoi'                   # Installing chezmoi via managed packager
   brew 'figlet'                    # nice bit fancy fonts for terminal outputs
   brew 'gh'                        # Github cli
+  brew 'glab'                      # Gitlab cli
   brew 'gnupg'
   brew 'gnu-sed'
   brew 'htop'

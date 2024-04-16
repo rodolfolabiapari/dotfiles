@@ -7,7 +7,8 @@ packages=(
   brave
   canonical-livepatch
   code
-  go # TODO: there is go to armv6l armhf?
+  glab                             # Gitlab cli
+  go                               # TODO: there is go to armv6l armhf?
   google-cloud-sdk
   helm
   postman
@@ -22,3 +23,6 @@ packages=(
 for package in "${packages[@]}"; do
   sudo snap install "$package"
 done
+
+echo "Granting glab access to SSH keys"
+sudo snap connecct glab:ssh-keys
