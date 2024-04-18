@@ -344,11 +344,15 @@ function print_error() {
 
 # Post sources
 # Load ZSH Syntax
-source $ZSH/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+#source $ZSH/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # ZSH syntax using catppuccin theme
-source $ZSH/custom/plugins/zsh-syntax-highlighting/themes/catppuccin/themes/catppuccin_frappe-zsh-syntax-highlighting.zsh
+#source $ZSH/custom/plugins/zsh-syntax-highlighting/themes/catppuccin/themes/catppuccin_frappe-zsh-syntax-highlighting.zsh
 # Load p10k
-source $ZSH/custom/themes/powerlevel10k/powerlevel10k.zsh-theme
+source $HOME/.local/share/powerlevel10k/powerlevel10k.zsh-theme
+# undoing p10k vars to always show theses informations
+typeset -g POWERLEVEL9K_AWS_SHOW_ON_COMMAND
+typeset -g POWERLEVEL9K_KUBECONTEXT_SHOW_ON_COMMAND
+
 
 
 # DO NOT CHANGE THIS FILE BECAUSE IT IS MANAGED BY CHEZMOI READ MORE HERE

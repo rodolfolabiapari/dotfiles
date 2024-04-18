@@ -31,7 +31,7 @@ cat <<EOF > "$temp_brewfile"
   brew "neofetch"               # System information tool http://www.figlet.org/
   brew 'neovim'
   brew 'pwgen'                     # Password generator
-  brew 'ripgrep'                   # Used in nvim 
+  brew 'ripgrep'                   # Used in nvim
   brew 'telnet'
   brew 'tmux'
   brew 'toilet'                # big fancy fonts http://caca.zoy.org/wiki/toilet
@@ -41,7 +41,7 @@ cat <<EOF > "$temp_brewfile"
   brew 'zoxide'                    # Smart cd
   cask 'caffeine'                  # Forces do not sleep
   cask 'flameshot'                 # Screen shot app
-  cask 'font-hack-nerd-font'       # Best font ever for everything
+  cask 'font-meslo-lg-nerd-font'   # Best font ever for everything
   cask 'iterm2'                    # Terminal emulator
   cask 'rectangle'                 # Window manager for macock
   cask 'spotify'
@@ -68,3 +68,4 @@ EOF
 
 # Install packages using brew bundle
 brew bundle --no-lock --file="$temp_brewfile"
+
