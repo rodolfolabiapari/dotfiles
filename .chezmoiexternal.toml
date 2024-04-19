@@ -33,6 +33,7 @@
     url = "https://github.com/romkatv/powerlevel10k.git"
     refreshPeriod = "168h"
 
+# My neovim/nvim configuration
 [".config/nvim/"]
     type = "git-repo"
     url = "https://github.com/rodolfolabiapari/kickstart.nvim.git"
