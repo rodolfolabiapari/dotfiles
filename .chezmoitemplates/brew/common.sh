@@ -28,6 +28,7 @@ cat <<EOF > "$temp_brewfile"
   brew 'htop'
   brew 'ipcalc'                    # Calculate IP ranges from cli
   brew 'jq'
+  brew 'kubecolor'                 # Kubectl colorized
   brew 'kubent'    # Kube not Truble https://github.com/doitintl/kube-no-trouble
   brew "neofetch"               # System information tool http://www.figlet.org/
   brew 'neovim'
