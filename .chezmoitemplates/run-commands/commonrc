@@ -27,9 +27,9 @@ export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 # ------------------------------------------------------------
 {{ if (eq .os "linux") }}
 # Does not have bat on linux. Just batcat
-alias bat=batcat
+command -v batcat > /dev/null 2>&1 && alias bat=batcat
 {{ end }}
-alias cat="bat --paging=never"
+command -v bat > /dev/null 2>&1 && alias cat="bat --paging=never"
 alias CAT=cat
 alias quit=exit
 alias q=exit
@@ -53,6 +53,7 @@ alias tm=tmux
 alias tmu=tmux
 alias tmx=tmux
 alias vim=nvim
+alias vin=nvim
 alias v=vim
 alias vi=vim
 alias sz="source ~/.zshrc && echo \"~/.zshrc reloaded.\"" # Reload zsh
@@ -349,11 +350,6 @@ function print_error() {
 #source $ZSH/custom/plugins/zsh-syntax-highlighting/themes/catppuccin/themes/catppuccin_frappe-zsh-syntax-highlighting.zsh
 # Load p10k
 source $HOME/.local/share/powerlevel10k/powerlevel10k.zsh-theme
-# undoing p10k vars to always show theses informations
-typeset -g POWERLEVEL9K_AWS_SHOW_ON_COMMAND
-typeset -g POWERLEVEL9K_KUBECONTEXT_SHOW_ON_COMMAND
-
-
 
 # DO NOT CHANGE THIS FILE BECAUSE IT IS MANAGED BY CHEZMOI READ MORE HERE
 # https://github.com/rodolfolabipari/dotfiles

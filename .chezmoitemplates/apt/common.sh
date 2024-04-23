@@ -5,7 +5,7 @@
 # This list accecpt comments
 packages=(
   ansible
-  bat                       # Beautiful cat
+  #bat                       # Beautiful cat. It is very old in apt
   curl
   flatpak                   # Install package manager
   gcc                       # Mother loves y

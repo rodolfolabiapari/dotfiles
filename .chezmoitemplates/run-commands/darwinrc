@@ -18,7 +18,7 @@ export HOMEBREW_BUILD_BOTTLE=1
 # Remove BIN from quarantine
 alias quarentena="xattr -d com.apple.quarantine "
 # Alias for kubecolor
-alias kubectl="kubecolor"
+command -v kubecolor >/dev/null 2>&1 && alias kubectl="kubecolor"
 
 # Functions
 vault_remain() {
