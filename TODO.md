@@ -17,7 +17,7 @@ arrumar o .gitconfig
 
 https://github.com/spicetify/spicetify-marketplace
 
-
+chaves apis tokens em lugar secret e criptografado
 
 ## debian
 

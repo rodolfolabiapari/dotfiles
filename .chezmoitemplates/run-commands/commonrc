@@ -195,7 +195,7 @@ fi
 # TODO not found eza builded to amd64 darwin
 unalias ls
 {{ else }}
-alias ls="eza"
+alias ls="eza --icons=always"
 eval "$(zoxide init --cmd cd zsh)"
 {{ end }}
 
