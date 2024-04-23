@@ -42,7 +42,6 @@ cat <<EOF > "$temp_brewfile"
   brew 'watch'                     # It is absurd this not come default. Shame
   brew 'zoxide'                    # Smart cd
   cask 'caffeine'                  # Forces do not sleep
-  cask 'flameshot'                 # Screen shot app
   cask 'font-meslo-lg-nerd-font'   # Best font ever for everything
   cask 'iterm2'                    # Terminal emulator
   cask 'rectangle'                 # Window manager for macock

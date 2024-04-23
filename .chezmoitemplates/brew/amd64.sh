@@ -11,12 +11,13 @@ trap 'rm -f "$temp_brewfile"' EXIT
 cat <<EOF > "$temp_brewfile"
   brew 'c2048'                     # 2048 game
   brew 'docker'
+  brew 'go'
   brew 'imagemagick'               # Converts and resizes images
   brew 'mailsy'                    # Creates tmp email
-  brew 'go'
   brew 'wifi-password'             # Show wifi password
   cask 'brave-browser'
   cask 'disk-inventory-x'
+  cask 'flameshot'                 # Screen shot app
   cask 'google-cloud-sdk'
   cask 'smcfancontrol'             # Control fan of machine
   cask 'telegram-desktop'
