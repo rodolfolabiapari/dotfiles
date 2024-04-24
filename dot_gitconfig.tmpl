@@ -48,7 +48,8 @@
 #A syntax-highlighting pager for git, diff, and grep output
 # https://github.com/dandavison/delta
 [core]
-    pager = delta
+    # Set diff always as paging
+    pager = delta --paging always
 
 [interactive]
     diffFilter = delta --color-only
