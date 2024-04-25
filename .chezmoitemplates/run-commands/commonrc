@@ -25,10 +25,6 @@ export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
 # Alias
 # ------------------------------------------------------------
-{{ if (eq .os "linux") }}
-# Does not have bat on linux. Just batcat
-command -v batcat > /dev/null 2>&1 && alias bat=batcat
-{{ end }}
 command -v bat > /dev/null 2>&1 && alias cat="bat --paging=never"
 alias CAT=cat
 alias quit=exit
