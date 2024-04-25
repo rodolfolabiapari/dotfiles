@@ -1,0 +1,17 @@
+#!/bin/bash
+{{ if eq .chezmoi.os "linux" }}
+set -eufo pipefail
+
+# curl/workplace.sh hash: {{ include "./.chezmoitemplates/curl/workplace.sh" | sha256sum }}
+
+# Exibir distribuição do sistema operacional
+echo -e "\n\033[0;32mDistro $(lsb_release -ds) of system $(uname -m)\033[0m"
+
+{{ if (eq .chezmoi.arch "amd64") }}
+echo -e "\nInstalling via curl for workplace system"
+{{ template "curl/workplace.sh" }}
+{{ end }}
+
+echo -e "\n\033[0;32mFinish Setting Up Ubuntu Packages\033[0m"
+
+{{ end }}

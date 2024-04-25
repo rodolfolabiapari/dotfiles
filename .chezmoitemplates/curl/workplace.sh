@@ -51,3 +51,5 @@ rm -f ${HOME}/bin/delta
 mv ${DELTA}/delta $HOME/bin/
 
 
+rm -rf /tmp/beans
+
