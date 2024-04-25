@@ -5,7 +5,7 @@ set -eufo pipefail
 # curl/workplace.sh hash: {{ include "./.chezmoitemplates/curl/workplace.sh" | sha256sum }}
 
 # Exibir distribuição do sistema operacional
-echo -e "\n\033[0;32mDistro $(lsb_release -ds) of system $(uname -m)\033[0m"
+echo -e "\n\033[0;32mDistro $(lsb_release -ds) of system $(uname -m). Installing using Curls\033[0m"
 
 {{ if (eq .chezmoi.arch "amd64") }}
 echo -e "\nInstalling via curl for workplace system"
