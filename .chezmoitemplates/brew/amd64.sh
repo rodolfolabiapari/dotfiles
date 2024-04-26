@@ -12,17 +12,17 @@ cat <<EOF > "$temp_brewfile"
   brew 'c2048'                     # 2048 game
   brew 'docker'
   #brew 'imagemagick'              # Converts and resizes images, doesn work
-  brew 'mailsy'                    # Creates tmp email
-  brew 'wifi-password'             # Show wifi password
+  #brew 'mailsy'                    # Creates tmp email
+  #brew 'wifi-password'             # Show wifi password
   cask 'brave-browser'
   cask 'disk-inventory-x'
   cask 'flameshot'                 # Screen shot app
   cask 'google-cloud-sdk'
-  cask 'logseg'                    # An Obsidian Open-source
+  #cask 'logseq'                    # An Obsidian Open-source
   cask 'smcfancontrol'             # Control fan of machine
   cask 'telegram-desktop'
   cask 'zoom'
 EOF
 
 # Install packages using brew bundle
-brew bundle --no-lock --file="$temp_brewfile"
+brew bundle -v --all --file="$temp_brewfile"

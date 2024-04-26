@@ -21,7 +21,6 @@ cat <<EOF > "$temp_brewfile"
   brew 'chezmoi'                   # Installing chezmoi via managed packager
   brew 'figlet'                    # nice bit fancy fonts for terminal outputs
   brew 'gh'                        # Github cli
-  brew 'git-delta'                 # Bealtiful diff
   brew 'glab'                      # Gitlab cli
   brew 'gnupg'
   brew 'gnu-sed'
@@ -38,7 +37,7 @@ cat <<EOF > "$temp_brewfile"
   brew 'tmux'
   brew 'toilet'                # big fancy fonts http://caca.zoy.org/wiki/toilet
   brew 'tree'
-  brew 'task'                      # I want to try it some day
+  #brew 'task'                      # I want to try it some day
   brew 'watch'                     # It is absurd this not come default. Shame
   brew 'zoxide'                    # Smart cd
   cask 'caffeine'                  # Forces do not sleep
@@ -68,5 +67,5 @@ cat <<EOF > "$temp_brewfile"
 EOF
 
 # Install packages using brew bundle
-brew bundle --no-lock --file="$temp_brewfile"
+brew bundle -v --all --file="$temp_brewfile"
 

@@ -13,6 +13,7 @@ cat <<EOF > "$temp_brewfile"
   brew 'awscli'
   brew 'docker'
   brew 'eza'              # Beautiful ls. Does not work in amd64
+  brew 'git-delta'        # Bealtiful diff
   brew 'go'
   brew 'helm'             # Package manager for kubernetes deployments
   brew 'stern'            # Regex logs for kubernetes pod
