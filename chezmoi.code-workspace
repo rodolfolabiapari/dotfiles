@@ -1,0 +1,17 @@
+{
+	"folders": [
+    {
+      "path": "."
+    },
+    {
+      "path": ".."
+    },
+    {
+      "path": "../../../.config/nvim"
+    },
+    {
+      "path": "../../../.oh-my-zsh/"
+    }
+  ],
+  "settings": {}
+}

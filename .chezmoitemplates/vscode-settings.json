@@ -1,31 +1,34 @@
 {
-    "aws.telemetry": false,
-    "diffEditor.hideUnchangedRegions.enabled": true,
-    "editor.autoIndent": "none",
-    "editor.detectIndentation": false,
-    "editor.fontSize": 11,
-    "editor.renderControlCharacters": true,
-    "editor.renderWhitespace": "all",
-    "editor.rulers": [
-        80, 120
-    ],
-    "editor.tabSize": 2,
-    "editor.wordWrap": "on",
-    "git.autofetch": true,
-    "git.openRepositoryInParentFolders": "always",
-    "go.formatTool": "goimports",
-    "go.useLanguageServer": true,
-    "files.associations": {
-        "*.tmpl": "shellscript"
-    },
-    "telemetry.telemetryLevel": "off",
-    "terminal.integrated.fontFamily": "MesloLGS NF",
-    "terminal.integrated.fontSize": 10,
-    "window.zoomLevel": 1,
-    "workbench.colorTheme": "Default Light+",
-    "workbench.iconTheme": "material-icon-theme",
-    "workbench.settings.applyToAllProfiles": [
-      "terminal.integrated.fontFamily"
-    ],
-    "workbench.startupEditor": "newUntitledFile"
+  "aws.telemetry": false,
+  "diffEditor.hideUnchangedRegions.enabled": true,
+  "cSpell.words": [
+      "chezmoi"
+  ],
+  "editor.autoIndent": "none",
+  "editor.detectIndentation": false,
+  "editor.fontSize": 11,
+  "editor.renderControlCharacters": true,
+  "editor.renderWhitespace": "all",
+  "editor.rulers": [
+    80, 120
+  ],
+  "editor.tabSize": 2,
+  "editor.wordWrap": "on",
+  "git.autofetch": true,
+  "git.openRepositoryInParentFolders": "always",
+  "go.formatTool": "goimports",
+  "go.useLanguageServer": true,
+  "files.associations": {
+    "*.tmpl": "shellscript"
+  },
+  "telemetry.telemetryLevel": "off",
+  "terminal.integrated.fontFamily": "MesloLGS NF",
+  "terminal.integrated.fontSize": 10,
+  "window.zoomLevel": 1,
+  "workbench.colorTheme": "Default Light+",
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.settings.applyToAllProfiles": [
+    "terminal.integrated.fontFamily"
+  ],
+  "workbench.startupEditor": "newUntitledFile"
 }

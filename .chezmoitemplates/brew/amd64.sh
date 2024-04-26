@@ -11,8 +11,7 @@ trap 'rm -f "$temp_brewfile"' EXIT
 cat <<EOF > "$temp_brewfile"
   brew 'c2048'                     # 2048 game
   brew 'docker'
-  brew 'go'
-  brew 'imagemagick'               # Converts and resizes images
+  #brew 'imagemagick'              # Converts and resizes images, doesn work
   brew 'mailsy'                    # Creates tmp email
   brew 'wifi-password'             # Show wifi password
   cask 'brave-browser'
