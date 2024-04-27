@@ -22,6 +22,7 @@ cat <<EOF > "$temp_brewfile"
   cask 'smcfancontrol'             # Control fan of machine
   cask 'telegram-desktop'
   cask 'zoom'
+  #mas  '682658836'                 # Garage Band Apples
 EOF
 
 # Install packages using brew bundle

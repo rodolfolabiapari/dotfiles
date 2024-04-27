@@ -35,6 +35,7 @@ alias gerp=grep
 alias gre=grep
 alias grp=grep
 alias g="git "
+alias gti="git "
 alias G="git "
 alias k=kubectl
 alias K=kubectl
