@@ -3,6 +3,13 @@
 
 # Altera globalmente o Contrl-b para Control-s
 set -g prefix C-s
+# Change base index of windows to 1
+set -g base-index 1
+# renumber windows when any window is closed
+set -g renumber-windows on
+
+# Foce vi navigation
+setw -g mode-keys vi
 
 # Permite recarregar o .tmux.conf usando o comando C-r
 unbind r
@@ -13,8 +20,11 @@ bind r source-file ~/.tmux.conf               # Recarregar o arquivo de configur
 set -g @plugin 'catppuccin/tmux'                 # Recursos adicionais para Tmux
 set -g @plugin 'christoomey/vim-tmux-navigator'  # Navegação entre Vim e Tmux
 set -g @plugin 'tmux-plugins/tmp'                # Gerenciamento de Tmux Plugins
-set -g @plugin 'tmux-plugins/tmux-sensible'      # Configurações sensíveis padrão
+#set -g @plugin 'tmux-plugins/tmux-sensible'      # Configurações sensíveis padrão
 set -g @plugin 'tmux-plugins/tmux-yank'          # Melhorias na área de transferência
+set -g @plugin 'tmux-plugins/tmux-cpu'           # CPU on tmux
+set -g @plugin 'jamesoff/tmux-loadavg'           # CPU on tmux
+
 
 # Binds
 # Define atalhos para diversas funcionalidades
@@ -71,8 +81,7 @@ set-option -sa terminal-overrides ",xterm*:Tc"
 # Theme
 # Configurações relacionadas ao tema
 set -g @catppuccin_date_time "%d/%m/%Y %H:%M:%S"    # Formato da data e hora
-set -g @catppuccin_flavour 'latte'                  # Tema geral claro
-#set -g @catppuccin_flavour 'frappe'                 # Tema geral escuro
+set -g @catppuccin_flavour 'frappe'                 # Tema geral escuro
 set -g @catppuccin_host "off"                       # Exibição do nome do host
 set -g @catppuccin_user "off"                       # Exibição do nome do usuário
 set -g @catppuccin_window_tabs_enabled on           # Habilita guias de janela
@@ -80,16 +89,20 @@ set -g @catppuccin_window_tabs_enabled on           # Habilita guias de janela
 # Catppuccin theme
 # Config 1 https://github.com/catppuccin/tmux?tab=readme-ov-file#config-1
 set -g @catppuccin_window_right_separator "█ "
-set -g @catppuccin_window_number_position "right"
+set -g @catppuccin_window_number_position "left"
 set -g @catppuccin_window_middle_separator " | "
 
 set -g @catppuccin_window_default_fill "none"
 
 set -g @catppuccin_window_current_fill "all"
 
-set -g @catppuccin_status_modules_right "application session"
+set -g @catppuccin_status_modules_right "cpu load application session"
 set -g @catppuccin_status_left_separator "█"
 set -g @catppuccin_status_right_separator "█"
+
+set -g @catppuccin_status_fill "all"
+set -g @catppuccin_status_connect_separator "yes"
+
 
 # Has to be the last line
 run '~/.tmux/plugins/tpm/tpm'
