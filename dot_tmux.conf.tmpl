@@ -7,6 +7,8 @@ set -g prefix C-s
 set -g base-index 1
 # renumber windows when any window is closed
 set -g renumber-windows on
+# configue colors to tmux show p10k theme
+set -g default-terminal "screen-256color"
 
 # Foce vi navigation
 setw -g mode-keys vi
@@ -103,7 +105,6 @@ set -g @catppuccin_status_right_separator "█"
 
 set -g @catppuccin_status_fill "all"
 set -g @catppuccin_status_connect_separator "yes"
-
 
 # Has to be the last line
 run '~/.tmux/plugins/tpm/tpm'
