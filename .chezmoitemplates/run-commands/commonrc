@@ -13,6 +13,7 @@ export PATH=$PATH:/usr/local/bin
 export PATH=$PATH:/usr/sbin
 export PATH=$PATH:$HOME/.local/bin
 export PATH=$PATH:$HOME/.local/bin
+export PATH=$PATH:$HOME/.tmux/plugins/tmuxifier/bin
 export PATH=$PATH:$HOME/bin
 export PATH=$PATH:$HOME/bin
 export PATH=$PATH:$HOME/homebrew/bin
@@ -196,6 +197,8 @@ unalias ls
 alias ls="eza --icons=always"
 eval "$(zoxide init --cmd cd zsh)"
 {{ end }}
+
+eval "$(tmuxifier init -)"
 
 # Common paths
 # -----------------------------------------------------------------------------
