@@ -1202,7 +1202,7 @@ prompt_aws() {
     typeset -g P9K_AWS_REGION=${kv#$prefix}
   fi
 
-  _p9k_prompt_segment "$0$state" red white 'AWS_ICON' 0 '' "${P9K_AWS_PROFILE//\%/%%} $(vault_remain)" # p10k v1.20.0
+  _p9k_prompt_segment "$0$state" red white 'AWS_ICON' 0 '' "${P9K_AWS_PROFILE//\%/%%}"
 }
 
 _p9k_prompt_aws_init() {
