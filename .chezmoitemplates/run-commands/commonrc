@@ -26,7 +26,7 @@ export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
 # Alias
 # ------------------------------------------------------------
-command -v bat > /dev/null 2>&1 && alias cat="bat --paging=never"
+#command -v bat > /dev/null 2>&1 && alias cat="bat --paging=never"
 alias CAT=cat
 alias quit=exit
 alias q=exit
