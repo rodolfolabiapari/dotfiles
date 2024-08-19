@@ -16,7 +16,6 @@ packages=(
   ipcalc
   jq
   less
-  obsidian
   pwgen                     # Password generator
   ripgrep                   # Used in nvim telescope
   sed

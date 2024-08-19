@@ -21,6 +21,7 @@ packages=(
   core                      # lastest snapd version
   chezmoi
   nvim
+  obsidian
 )
 
 # Installing the packages
