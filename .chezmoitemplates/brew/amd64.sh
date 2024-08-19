@@ -19,6 +19,7 @@ cat <<EOF > "$temp_brewfile"
   cask 'flameshot'                 # Screen shot app
   cask 'google-cloud-sdk'
   #cask 'logseq'                    # An Obsidian Open-source
+  cask 'obisidan'
   cask 'smcfancontrol'             # Control fan of machine
   cask 'telegram-desktop'
   cask 'zoom'
