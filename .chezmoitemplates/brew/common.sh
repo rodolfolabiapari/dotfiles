@@ -29,6 +29,7 @@ cat <<EOF > "$temp_brewfile"
   brew 'jq'
   brew 'kubecolor'                 # Kubectl colorized
   brew 'kubent'    # Kube not Truble https://github.com/doitintl/kube-no-trouble
+  brew 'lazygit'
   brew "neofetch"               # System information tool http://www.figlet.org/
   brew 'neovim'
   brew 'pwgen'                     # Password generator
