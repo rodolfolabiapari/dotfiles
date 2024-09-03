@@ -47,6 +47,7 @@ alias PWD=pwd
 alias sl=ls
 alias LS=ls
 alias SL=ls
+alias t=todo.sh
 alias tm=tmux
 alias tmu=tmux
 alias tmx=tmux

@@ -12,7 +12,9 @@ export PATH=$PATH:$HOME/bin/jmeter/bin
 export PATH=$PATH:$HOME/Library/Python/2.7/bin
 export PATH=$PATH:$HOME/Library/Python/3.7/bin
 export PATH=$PATH:$HOME/Library/Python/3.9/bin
+export PATH=$PATH:$HOME/.iac/bin
 # utiliza pacotes pre-compilados
+#
 export HOMEBREW_BUILD_BOTTLE=1
 
 # Remove BIN from quarantine
