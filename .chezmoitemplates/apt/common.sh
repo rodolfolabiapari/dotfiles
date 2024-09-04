@@ -13,11 +13,15 @@ packages=(
   gpg
   grep
   htop
+  i3
   ipcalc
   jq
+  kitty
   less
+  picom
   pwgen                     # Password generator
   ripgrep                   # Used in nvim telescope
+  rofi
   sed
   tar
   telnet
