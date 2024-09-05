@@ -48,13 +48,13 @@ bind -n M-L resize-pane -R 2                  # Redimensiona para a direita
 # Setting up clipboard
 # Configurações para manipulação da área de transferência
 bind P paste-buffer                           # Cola o conteúdo do buffer
-#bind-key -T copy-mode-vi v send-keys -X begin-selection  # Inicia seleção em modo de cópia
+bind-key -T copy-mode-vi v send-keys -X begin-selection  # Inicia seleção em modo de cópia
 bind-key -T copy-mode-vi V send-keys -X rectangle-toggle  # Alternância entre seleção linear e retangular
 # A linha abaixo foi comentada pois eu quero que a selecao do mouse continue
 #unbind -T copy-mode-vi Enter                 # Desvincula a tecla Enter do modo de cópia
-#bind-key -T copy-mode-vi y send-keys -X copy-pipe-and-cancel 'wl-copy'  # Copia texto selecionado para o clipboard
-#bind-key -T copy-mode-vi Enter send-keys -X copy-pipe-and-cancel 'wl-copy'  # Copia texto selecionado para o clipboard
-#bind-key -T copy-mode-vi MouseDragEnd1Pane send-keys -X copy-pipe-and-cancel 'wl-copy'  # Copia texto selecionado para o clipboard
+bind-key -T copy-mode-vi y send-keys -X copy-pipe-and-cancel 'xclip -selection clipboard'  # Copia texto selecionado para o clipboard
+#bind-key -T copy-mode-vi Enter send-keys -X copy-pipe-and-cancel 'xclip -selection clipboard'  # Copia texto selecionado para o clipboard
+bind-key -T copy-mode-vi MouseDragEnd1Pane send-keys -X copy-pipe-and-cancel 'xclip -selection clipboard'  # Copia texto selecionado para o clipboard
 
 # Sets
 # Configurações gerais
@@ -84,7 +84,7 @@ set-option -sa terminal-overrides ",xterm*:Tc"
 # Theme
 # Configurações relacionadas ao tema
 set -g @catppuccin_date_time "%d/%m/%Y %H:%M:%S"    # Formato da data e hora
-set -g @catppuccin_flavour 'frappe'                 # Tema geral escuro
+set -g @catppuccin_flavour 'mocha'                  # Tema geral escuro
 set -g @catppuccin_host "off"                       # Exibição do nome do host
 set -g @catppuccin_user "off"                       # Exibição do nome do usuário
 set -g @catppuccin_window_tabs_enabled on           # Habilita guias de janela
