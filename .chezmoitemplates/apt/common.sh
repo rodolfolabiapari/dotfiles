@@ -10,6 +10,7 @@ packages=(
   flatpak                   # Install package manager
   gcc                       # Mother loves y
   git
+  git-remote-gcrypt          # usado com pass para encrypt do repo git
   gpg
   grep
   htop
@@ -18,6 +19,7 @@ packages=(
   jq
   kitty
   less
+  pass
   picom
   pwgen                     # Password generator
   ripgrep                   # Used in nvim telescope
@@ -32,6 +34,7 @@ packages=(
   unzip
   vim
   xclip                     # Clip in cli
+  zbar-tools                # Traduz qrcode para texto (usado com pass)
   zip
   zoxide                    # Smart cd
   zsh
