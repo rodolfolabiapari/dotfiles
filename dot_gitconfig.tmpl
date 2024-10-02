@@ -1,3 +1,7 @@
+# for delta configuration:
+# A syntax-highlighting pager for git, diff, and grep output
+# https://github.com/dandavison/delta
+
 [user]
   email = {{ .email | quote }}
   name = {{ .username | quote }}
@@ -14,6 +18,10 @@
   # Store global exclusions into a custom file.
   excludesfile = ~/.gitignore_global
   editor = nvim
+
+  # Set diff always as paging
+  pager = delta --paging always
+
 # TODO Configure commit sign to rasp
 {{ if not (and (eq .chezmoi.arch "arm") (eq .chezmoi.os "linux") ) }}
 [commit]
@@ -23,8 +31,12 @@
   default = recursive
   # Include summaries of merged commits in newly created merge commit messages.
   log = true
+  conflictstyle = diff3
+  ff = false
 [push]
   default = current
+[pull]
+  rebase = false
 [rebase]
   autoStash = true
 [fetch]
@@ -42,13 +54,6 @@
 [init]
   defaultBranch = master
 
-## Delta
-#A syntax-highlighting pager for git, diff, and grep output
-# https://github.com/dandavison/delta
-[core]
-    # Set diff always as paging
-    pager = delta --paging always
-
 [interactive]
     diffFilter = delta --color-only
 
@@ -59,9 +64,6 @@
     # delta detects terminal colors automatically; set one of these to disable auto-detection
     # dark = true
     # light = true
-
-[merge]
-    conflictstyle = diff3
 
 [diff]
     colorMoved = default
