@@ -19,6 +19,7 @@ fi
 # This list accecpt comments
 packages=(
   core                      # lastest snapd version
+  cointop
   chezmoi
   nvim
   obsidian
