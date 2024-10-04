@@ -1,0 +1,6 @@
+# configurando o mouse para o modo natural
+
+# xinput --list
+# xinput --list-props "LIFT Mouse"
+
+xinput set-prop "LIFT Mouse" 604 1
