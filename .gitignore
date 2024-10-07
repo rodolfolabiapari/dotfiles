@@ -12,3 +12,7 @@
 dot_vim_runtime
 node_modules
 my_buffer
+
+# Sensible files
+private_dot_config/cointop/config.toml
+
