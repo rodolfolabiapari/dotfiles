@@ -8,7 +8,7 @@ packages=(
   #bat                       # Beautiful cat. It is very old in apt
   curl
   flatpak                   # Install package manager
-  fzf                        # Install fuzzy finder
+  #fzf                        # old in apt
   gcc                       # Mother loves y
   git
   git-remote-gcrypt          # usado com pass para encrypt do repo git
