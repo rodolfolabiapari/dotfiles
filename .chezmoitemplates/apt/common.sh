@@ -8,6 +8,7 @@ packages=(
   #bat                       # Beautiful cat. It is very old in apt
   curl
   flatpak                   # Install package manager
+  fzf                        # Install fuzzy finder
   gcc                       # Mother loves y
   git
   git-remote-gcrypt          # usado com pass para encrypt do repo git
@@ -25,6 +26,7 @@ packages=(
   ripgrep                   # Used in nvim telescope
   rofi
   sed
+  snapd
   tar
   telnet
   tmux

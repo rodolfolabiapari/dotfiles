@@ -19,7 +19,9 @@ cat <<EOF > "$temp_brewfile"
   brew 'bat'                       # Beautiful cat
   brew 'btop'                      # Beaultiful top
   brew 'chezmoi'                   # Installing chezmoi via managed packager
+  brew 'cointop'                   # top for coins
   brew 'figlet'                    # nice bit fancy fonts for terminal outputs
+  brew 'fzf'                       # fuzzy finder
   brew 'gh'                        # Github cli
   brew 'glab'                      # Gitlab cli
   brew 'gnupg'

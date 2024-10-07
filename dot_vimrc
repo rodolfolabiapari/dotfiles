@@ -12,7 +12,7 @@ set hlsearch
 " eh feita a digitacao
 set incsearch
 
-" define tamanho maximo de mapa de impressao de memoria. Tamanho maximo de 
+" define tamanho maximo de mapa de impressao de memoria. Tamanho maximo de
 " buffer de edicao temporario para edicoes complexas
 set mmp=5000
 
@@ -31,5 +31,5 @@ set shiftwidth=2
 " insere espacos quando a tecla 'Tab' eh pressionada
 set expandtab
 
-" DO NOT CHANGE THIS FILE BECAUSE IT IS MANAGED BY CHEZMOI READ MORE HERE 
+" DO NOT CHANGE THIS FILE BECAUSE IT IS MANAGED BY CHEZMOI READ MORE HERE
 " https://github.com/rodolfolabipari/dotfiles
