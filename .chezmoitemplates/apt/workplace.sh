@@ -4,7 +4,7 @@
 # List of packages to install
 # This list accecpt comments
 packages=(
-  awscli
+  #awscli                                  # nao esta sendo isntalado via apt
   flameshot                                # Screen shot
   gh                                       # Github cli
   google-cloud-cli
@@ -16,4 +16,5 @@ packages=(
 )
 
 # Installing the packages
+echo "apt/workplace.sh"
 sudo apt install -y "${packages[@]}"

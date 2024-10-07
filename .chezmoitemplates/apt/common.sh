@@ -26,7 +26,7 @@ packages=(
   ripgrep                   # Used in nvim telescope
   rofi
   sed
-  snapd
+  #snapd                     # esta sendo instlando na pasta snap
   tar
   telnet
   tmux
@@ -43,4 +43,5 @@ packages=(
 )
 
 # Installing the packages
+echo "Running apt/common.sh"
 sudo apt install -y "${packages[@]}"
