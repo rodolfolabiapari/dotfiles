@@ -32,8 +32,8 @@
 [merge]
   default = recursive
   # Include summaries of merged commits in newly created merge commit messages.
-  log = true
   conflictstyle = diff3
+  log = true
   ff = false
 
 [push]
@@ -62,37 +62,21 @@
 [init]
   defaultBranch = master
 
-# Delta
-# github dandavison/delta
-#[core]
-#  # Set diff always as paging
-#  pager = delta --paging always
-#
-#[interactive]
-#  diffFilter = delta --color-only
-#
-#[delta]
-#  navigate = true    # use n and N to move between diff sections
-#  side-by-side = true
-#
-#  # delta detects terminal colors automatically; set one of these to disable auto-detection
-#  # dark = true
-#  # light = true
-#
-#[diff]
-#  colorMoved = default
 
-# git_diff_wrapper com vimdiff (nvim)
+# git_diff_wrapper com vimdiff (nvim -d)
 [diff]
   external = git_diff_wrapper
 
 [difftool]
   # be able to abort all diffs with `:cq` or `:cquit`
   trsutExitCode = true
+
 [pager]
   diff =
+
 [color]
   ui = auto
+
 [mergetool "threesome"]
   cmd = "vim -f $BASE $LOCAL $REMOTE $MERGED -c 'ThreesomeInit'"
   trustExitCode = true

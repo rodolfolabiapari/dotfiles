@@ -355,7 +355,7 @@ source $HOME/.local/share/zsh-syntax-highlighting-catppuccin/themes/catppuccin/t
 # Load p10k
 source $HOME/.local/share/powerlevel10k/powerlevel10k.zsh-theme
 
-# shell Integrationfzf
+# shell Integration for fzf
 source <(fzf --zsh)
 
 # DO NOT CHANGE THIS FILE BECAUSE IT IS MANAGED BY CHEZMOI READ MORE HERE
