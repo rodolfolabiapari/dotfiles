@@ -348,9 +348,10 @@ function print_error() {
 
 # Post sources
 # Load ZSH Syntax
-#source $ZSH/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $HOME/.local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # ZSH syntax using catppuccin theme
-#source $ZSH/custom/plugins/zsh-syntax-highlighting/themes/catppuccin/themes/catppuccin_frappe-zsh-syntax-highlighting.zsh
+source $HOME/.local/share/zsh-syntax-highlighting-catppuccin/themes/catppuccin/themes/catppuccin_frappe-zsh-syntax-highlighting.zsh
+
 # Load p10k
 source $HOME/.local/share/powerlevel10k/powerlevel10k.zsh-theme
 
