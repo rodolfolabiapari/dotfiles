@@ -1,13 +1,27 @@
+# Pacotes Tmux
 # Installs tpm manager
 [".local/share/tmux/plugins/tpm"]
     type = "git-repo"
     url = "https://github.com/tmux-plugins/tpm.git"
     refreshPeriod = "168h"
 
-# Installs bin fzf, apt has old version
-[".local/share/fzf"]
+# tmux catppuccin theme
+[".local/share/tmux/plugins/catppuccin"]
     type = "git-repo"
-    url = "https://github.com/junegunn/fzf.git"
+    url = "https://github.com/catppuccin/tmux.git"
+    refreshPeriod = "168h"
+
+
+# Pacotes ZSH
+# ZSH catppuccin Highlighting
+[".local/share/zsh-syntax-highlighting-catppuccin"]
+    type = "git-repo"
+    url = "https://github.com/catppuccin/zsh-syntax-highlighting.git"
+    refreshPeriod = "168h"
+
+[".local/share/powerlevel10k"]
+    type = "git-repo"
+    url = "https://github.com/romkatv/powerlevel10k.git"
     refreshPeriod = "168h"
 
 # Installs ohmyzsh
@@ -30,15 +44,6 @@
     url = "https://github.com/zsh-users/zsh-syntax-highlighting.git"
     refreshPeriod = "168h"
 
-#[".local/share/zsh-syntax-highlighting-catppuccin"]
-#    type = "git-repo"
-#    url = "https://github.com/catppuccin/zsh-syntax-highlighting.git"
-#    refreshPeriod = "168h"
-
-[".local/share/powerlevel10k"]
-    type = "git-repo"
-    url = "https://github.com/romkatv/powerlevel10k.git"
-    refreshPeriod = "168h"
 
 # My neovim/nvim configuration
 [".config/nvim/"]
@@ -46,7 +51,18 @@
     url = "https://github.com/rodolfolabiapari/kickstart.nvim.git"
     refreshPeriod = "168h"
 
+
+# Pacotes Sublime
 [".config/sublime-text-3/Packages/Catppuccin"]
     type = "git-repo"
     url = "https://github.com/catppuccin/sublime-text.git"
     refreshPeriod = "168h"
+
+
+# Binarios
+# Installs bin fzf, apt has old version
+[".local/share/fzf"]
+    type = "git-repo"
+    url = "https://github.com/junegunn/fzf.git"
+    refreshPeriod = "168h"
+
