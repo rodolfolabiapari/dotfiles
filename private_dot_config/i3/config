@@ -20,7 +20,7 @@ exec --no-startup-id picom
 
 # polybar
 exec_always --no-startup-id killall polybar
-exec_always --no-startup-id ~/.config/polybar/launch_polybar.sh
+exec_always --no-startup-id ~/.config/polybar/launch.sh --hack
 
 # Monitors
 exec_always --no-startup-id xrandr --output HDMI-1-1 --auto --left-of eDP-1-1
