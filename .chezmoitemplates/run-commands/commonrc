@@ -4,7 +4,7 @@
 # EXPORTS
 export EDITOR="nvim"
 export GOPATH=$HOME/go/work
-export GPG_TTY=$TTY
+export GPG_TTY=$(tty)
 export PATH=$PATH:/bin
 export PATH=$PATH:/opt/homebrew/bin
 export PATH=$PATH:/sbin
