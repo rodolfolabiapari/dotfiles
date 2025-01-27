@@ -11,6 +11,7 @@ trap 'rm -f "$temp_brewfile"' EXIT
 cat <<EOF > "$temp_brewfile"
   brew 'aws-vault'        # Easy way to connect to AWS Environment via cli
   brew 'awscli'
+  brew 'bat-extras'       # extras scripts for bat
   brew 'docker'
   brew 'eza'              # Beautiful ls. Does not work in amd64
   brew 'git-delta'        # Bealtiful diff

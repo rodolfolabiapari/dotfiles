@@ -58,9 +58,19 @@
     url = "https://github.com/catppuccin/sublime-text.git"
     refreshPeriod = "168h"
 
+# bat-extras for bat command para ubuntu executar ./build --install
+# no mac eh instalado via brew
+[".local/share/bat-extras"]
+    type = "git-repo"
+    url = "https://github.com/eth-p/bat-extras.git"
+    refreshPeriod = "168h"
+
+
 
 # Binarios
 # Installs bin fzf, apt has old version
+# It is necessary to run ./install to install or
+# upgrade fzf
 [".local/share/fzf"]
     type = "git-repo"
     url = "https://github.com/junegunn/fzf.git"
