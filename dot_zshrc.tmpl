@@ -109,6 +109,7 @@ alias ohmyzsh="vim ~/.oh-my-zsh"
 {{ if eq .chezmoi.os "darwin" }}
 {{   template "run-commands/darwinrc" }}
 {{ if (eq .chezmoi.arch "arm") }}
+# Necessario para utilizar o pass m outro diretorio
 PASSWORD_STORE_DIR="~/od/home/dot_password-store"
 {{ end }}
 {{ else if eq .chezmoi.os "linux" }}
