@@ -1,83 +1,98 @@
-# for delta configuration:
-# A syntax-highlighting pager for git, diff, and grep output
-# https://github.com/dandavison/delta
-
+# User configuration
 [user]
   email = {{ .email | quote }}
   name = {{ .username | quote }}
-{{ if (eq .chezmoi.username "fo097044") }}
+
+{{- if (eq .chezmoi.username "fo097044") }}
+  # Sign commits with SSH key for specific user
   signingKey = {{ .chezmoi.homeDir }}/.ssh/id_rsa.pub
 
 [gpg]
   format = ssh
-{{ else }}
+{{- else }}
+  # Specify the signing key for GPG
   signingkey = {{ .signkey | quote }}
 
+# Configure the GPG program to use
 [gpg]
   program = gpg
-{{ end }}
+{{- end }}
 
+# Core Git configuration
 [core]
-  # Store global exclusions into a custom file.
+  # Store global exclusions into a custom file
   excludesfile = ~/.gitignore_global
+  # Set editor to nvim
   editor = nvim
 
-# TODO Configure commit sign to rasp
-{{ if not (and (eq .chezmoi.arch "arm") (eq .chezmoi.os "linux") ) }}
-
+{{- if not (and (eq .chezmoi.arch "arm") (eq .chezmoi.os "linux") ) }}
+  # TODO: Configure commit signing for Raspberry Pi
 [commit]
+  # Enable commit signing by default
   gpgsign = true
-{{ end }}
+{{- end }}
 
+[credential]
+  # Store credentials to not ask everytime
+  helper = store
+
+# Merge settings
 [merge]
-  default = recursive
-  # Include summaries of merged commits in newly created merge commit messages.
+  # Include summaries of merged commits in newly created merge commit messages
   conflictstyle = diff3
   log = true
   ff = false
 
+# Push settings
 [push]
+  # Push changes to the current branch by default
   default = current
 
+# Pull settings
 [pull]
+  # Disable rebase for pull
   rebase = false
 
+# Rebase settings
 [rebase]
+  # Automatically stash changes before rebasing
   autoStash = true
 
+# Fetch settings
 [fetch]
-  # Remove any remote-tracking references that no longer exist on the remote.
+  # Remove any remote-tracking references that no longer exist on the remote
   prune = true
 
+# Help settings
 [help]
-  # Correct and execute mistyped commands.
+  # Enable autocorrection for mistyped commands
   autocorrect = 1
 
+# Include external configuration files
 [include]
-  # Include aliases.
+  # Include Git aliases configuration
   path = .gitconfig_aliases
-  # Include extra configuration (if any).
+  # Include any additional Git configuration
   path = .gitconfig_local
 
+# Default branch name for new repositories
 [init]
   defaultBranch = master
 
-
-# git_diff_wrapper com vimdiff (nvim -d)
-# Config para utilizar com o git_diff_wrapper
+# Git diff wrapper with vimdiff
+# Config for using with git_diff_wrapper
 [diff]
   external = git_diff_wrapper
 
+# Diff tool configuration
 [difftool]
-  # be able to abort all diffs with `:cq` or `:cquit`
+  # Allow aborting all diffs with `:cq` or `:cquit`
   trustExitCode = true
 
+# Pager configuration for diff
 [pager]
   diff =
 
+# Color UI settings
 [color]
   ui = auto
-
-[mergetool "threesome"]
-  cmd = "vim -f $BASE $LOCAL $REMOTE $MERGED -c 'ThreesomeInit'"
-  trustExitCode = true
