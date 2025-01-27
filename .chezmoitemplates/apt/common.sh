@@ -5,7 +5,7 @@
 # This list accecpt comments
 packages=(
   ansible
-  #bat                       # Beautiful cat. It is very old in apt
+  bat                       # Beautiful cat
   curl
   flatpak                   # Install package manager
   #fzf                        # old in apt
