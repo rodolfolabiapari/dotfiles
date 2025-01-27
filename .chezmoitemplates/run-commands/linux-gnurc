@@ -14,6 +14,9 @@ command -v xclip >/dev/null 2>&1 && alias pbpaste="xclip -selection clipboard -o
 command -v wg-quick >/dev/null 2>&1 && alias wireguard_down='sudo wg-quick down wg0'
 command -v wg-quick >/dev/null 2>&1 && alias wireguard_up='sudo wg-quick up wg0'
 
+# loading fzf git installed configuration
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
 # Functions
 vault_remain() {
   local now=$(TZ=UTC date -u +%Y-%m-%dT%H:%M:%SZ)
