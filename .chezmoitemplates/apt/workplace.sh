@@ -1,4 +1,7 @@
-# -*-mode:sh-*-
+#!/bin/bash
+# -*- mode:bash; tab-with=2; indent-tabs-mode=0; -*-
+# vim:ft=bash
+
 # APT packs for workplace system
 
 # List of packages to install

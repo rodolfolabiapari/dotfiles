@@ -1,6 +1,8 @@
-# -*-mode:sh-*-
-# SNAP packs for common system
 #!/bin/bash
+# -*- mode:bash; tab-with=2; indent-tabs-mode=0; -*-
+# vim:ft=bash
+
+# SNAP packs for common system
 
 # Verify if snap command is already installed
 if ! command -v snap &> /dev/null; then

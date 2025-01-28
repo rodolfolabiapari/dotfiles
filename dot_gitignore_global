@@ -1,4 +1,5 @@
-# -*-mode:gitignore-*- vim:ft=gitignore
+# -*- mode:gitignore -*-
+# vim:ft=gitignore
 
 # ~/.gitignore_global
 # =============================================================================

@@ -1,4 +1,5 @@
-# -*-mode:ini-*- vim:ft=dosini
+# -*- mode:ini-*-
+# vim:ft=dosini
 
 # ~/.local/share/chezmoi/.editorconfig
 # =============================================================================
