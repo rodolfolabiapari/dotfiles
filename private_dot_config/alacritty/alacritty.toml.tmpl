@@ -8,6 +8,8 @@
   normal = { family = "MesloLGS Nerd Font", style = "Regular" }
   bold = { family = "MesloLGS Nerd Font", style = "Bold" }
   italic = { family = "MesloLGS Nerd Font", style = "Italic" }
+  # Alacritty font is based in ddp
+  # use   WINIT_X11_SCALE_FACTOR="2" to resolve it
 {{- if eq .chezmoi.os "darwin" }}
 {{- if (eq .chezmoi.arch "arm64") }}
   size = 15.0
@@ -55,4 +57,4 @@
 # Variáveis de ambiente
 [env]
   TERM = "xterm-256color"
-
+  WINIT_X11_SCALE_FACTOR="2"
