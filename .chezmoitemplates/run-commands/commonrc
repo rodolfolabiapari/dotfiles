@@ -212,8 +212,8 @@ alias dt='cd $HOME/Desktop'
 
 # Bat batcat cat alias configurations
 # colorize help pages
-alias -g -- -h='-h 2>&1 | batcat --language=help --style=plain'
-alias -g -- --help='--help 2>&1 | batcat --language=help --style=plain'
+alias -- -h='-h 2>&1 | batcat --language=help --style=plain'
+alias -- --help='--help 2>&1 | batcat --language=help --style=plain'
 # Configure bat to colorize man pager
 # https://github.com/sharkdp/bat?tab=readme-ov-file#man
 export MANPAGER="sh -c 'sed -u -e \"s/\\x1B\[[0-9;]*m//g; s/.\\x08//g\" | batcat -p -lman'"
@@ -358,7 +358,7 @@ function print_error() {
 # Load ZSH Syntax
 source $HOME/.local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # ZSH syntax using catppuccin theme
-source $HOME/.local/share/zsh-syntax-highlighting-catppuccin/themes/catppuccin/themes/catppuccin_frappe-zsh-syntax-highlighting.zsh
+source $HOME/.local/share/zsh-syntax-highlighting-catppuccin/themes/catppuccin_frappe-zsh-syntax-highlighting.zsh
 
 # Load p10k
 source $HOME/.local/share/powerlevel10k/powerlevel10k.zsh-theme
