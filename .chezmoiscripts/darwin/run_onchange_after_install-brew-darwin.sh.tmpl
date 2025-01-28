@@ -67,7 +67,7 @@ echo -e "\nInstalling Brew amd64 bundle package"
 {{ end }}
 
 # Not marooned machine
-{{ if (eq .chezmoi.arch "arm") }}
+{{ if (eq .chezmoi.arch "arm64") }}
 echo -e "\nInstalling Brew arm bundle package"
 {{ template "brew/arm.sh" }}
 {{ end }}
