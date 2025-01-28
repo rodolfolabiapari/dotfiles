@@ -24,7 +24,6 @@ export ZSH=$HOME/.oh-my-zsh
 
 # Alias
 # ------------------------------------------------------------
-alias bat=batcat
 alias cat=bat
 alias CAT=cat
 alias quit=exit
@@ -208,16 +207,6 @@ eval "$(tmuxifier init -)"
 alias dls='cd $HOME/Downloads'
 alias docs='cd $HOME/Documents'
 alias dt='cd $HOME/Desktop'
-
-
-# Bat batcat cat alias configurations
-# colorize help pages
-alias -- -h='-h 2>&1 | batcat --language=help --style=plain'
-alias -- --help='--help 2>&1 | batcat --language=help --style=plain'
-# Configure bat to colorize man pager
-# https://github.com/sharkdp/bat?tab=readme-ov-file#man
-export MANPAGER="sh -c 'sed -u -e \"s/\\x1B\[[0-9;]*m//g; s/.\\x08//g\" | batcat -p -lman'"
-
 
 
 # Functions Procedures Methods

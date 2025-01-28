@@ -1,0 +1,46 @@
+# Alacritty Configuration File
+
+# Fonte
+[font]
+  normal = { family = "MesloLGS Nerd Font", style = "Regular" }
+  bold = { family = "MesloLGS Nerd Font", style = "Bold" }
+  italic = { family = "MesloLGS Nerd Font", style = "Italic" }
+  size = 4.0
+
+# Cores
+[colors]
+  [colors.primary]
+  background = "0x1E1E2E"
+  foreground = "0xDCDCDC"
+
+  [colors.normal]
+  black = "0x1E1E2E"
+  red = "0xF28C8C"
+  green = "0xA6E22E"
+  yellow = "0xF4BF75"
+  blue = "0x66D9EF"
+  magenta = "0xAE81FF"
+  cyan = "0xA1EFE4"
+  white = "0xF0F0F0"
+
+  [colors.bright]
+  black = "0x2E2E2E"
+  red = "0xF28C8C"
+  green = "0xA6E22E"
+  yellow = "0xF4BF75"
+  blue = "0x66D9EF"
+  magenta = "0xAE81FF"
+  cyan = "0xA1EFE4"
+  white = "0xFFFFFF"
+
+# Tamanho da janela
+[window]
+  padding = { x = 5, y = 5 }
+  decorations = "full"
+  dynamic_title = true
+  option_as_alt = "Both"
+
+# Variáveis de ambiente
+[env]
+  TERM = "xterm-256color"
+
