@@ -8,7 +8,16 @@
   normal = { family = "MesloLGS Nerd Font", style = "Regular" }
   bold = { family = "MesloLGS Nerd Font", style = "Bold" }
   italic = { family = "MesloLGS Nerd Font", style = "Italic" }
+{{- if eq .chezmoi.os "darwin" }}
+{{- if (eq .chezmoi.arch "arm") }}
+  size = 15.0
+{{- else }}
   size = 4.0
+{{- end }}
+{{- else if eq .chezmoi.os "linux" }}
+  size = 4.0
+{{- end }}
+
 
 # Cores
 [colors]
