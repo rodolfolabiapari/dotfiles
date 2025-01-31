@@ -86,6 +86,10 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
+# Configuracao de Histórico
+setopt HIST_IGNORE_SPACE  # Don't save when prefixed with space
+setopt HIST_IGNORE_DUPS   # Don't save duplicate lines
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -98,6 +102,21 @@ export LANG=en_US.UTF-8
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
+
+# Habilita modo vi no zsh
+bindkey -v
+export KEYTIMEOUT=1
+# Volta o ctrl-r na busca historica
+bindkey ^R history-incremental-search-backward
+bindkey ^S history-incremental-search-forward
+# edit line inv vim buffer ctrl-v
+autoload edit-command-line; zle -N eit-command-line
+bindkey '^v' edit-command-line
+# use vim keys in tab complete menu:
+bindkey -M menuselect 'h' vi-backward-char
+bindkey -M menuselect 'j' vi-down-line-or-history
+bindkey -M menuselect 'k' vi-up-line-or-history
+bindkey -M menuselect 'l' vi-forward-char
 
 alias zshconfig="vim ~/.zshrc"
 alias ohmyzsh="vim ~/.oh-my-zsh"
@@ -113,7 +132,7 @@ alias ohmyzsh="vim ~/.oh-my-zsh"
 {{   template "run-commands/darwinrc" }}
 {{ if (eq .chezmoi.arch "arm64") }}
 # Necessario para utilizar o pass em outro diretorio
-PASSWORD_STORE_DIR="~/od/home/dot_password-store"
+export PASSWORD_STORE_DIR="${HOME}/od/home/dot_password-store"
 {{ end }}
 {{ else if eq .chezmoi.os "linux" }}
 {{   template "run-commands/linux-gnurc" }}
