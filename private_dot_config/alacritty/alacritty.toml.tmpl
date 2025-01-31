@@ -49,7 +49,7 @@
 
 # Tamanho da janela
 [window]
-  padding = { x = 5, y = 5 }
+  padding = { x = 5, y = 0 }
   decorations = "full"
   dynamic_title = true
   option_as_alt = "Both"
@@ -58,3 +58,8 @@
 [env]
   TERM = "xterm-256color"
   WINIT_X11_SCALE_FACTOR="2"
+
+[terminal]
+  [terminal.shell]
+  program = "tmux"
+
