@@ -15,13 +15,12 @@ cat <<EOF > "$temp_brewfile"
   brew 'c2048'                     # 2048 game
   brew 'docker'
   #brew 'imagemagick'              # Converts and resizes images, doesn work
-  #brew 'mailsy'                    # Creates tmp email
+  brew 'mailsy'                    # Creates tmp email
   #brew 'wifi-password'             # Show wifi password
   cask 'brave-browser'
   cask 'disk-inventory-x'
   cask 'flameshot'                 # Screen shot app
   cask 'google-cloud-sdk'
-  #cask 'logseq'                    # An Obsidian Open-source
   cask 'obisidan'
   cask 'smcfancontrol'             # Control fan of machine
   cask 'telegram-desktop'

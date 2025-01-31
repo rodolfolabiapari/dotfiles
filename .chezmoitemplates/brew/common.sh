@@ -43,7 +43,8 @@ cat <<EOF > "$temp_brewfile"
   brew 'tmux'
   brew 'toilet'                # big fancy fonts http://caca.zoy.org/wiki/toilet
   brew 'tree'
-  #brew 'task'                      # I want to try it some day
+  brew 'task'                      # I want to try it some day
+  brew 'vit'                       # Visual Interactive Taskwarrior aka vi
   brew 'watch'                     # It is absurd this not come default. Shame
   brew 'zoxide'                    # Smart cd
   cask 'caffeine'                  # Forces do not sleep

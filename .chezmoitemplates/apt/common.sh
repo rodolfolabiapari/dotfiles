@@ -31,6 +31,7 @@ packages=(
   sed
   #snapd                     # esta sendo instlando na pasta snap
   tar
+  taskwarrior               # aka task no macocks
   telnet
   tmux
   traceroute
@@ -38,7 +39,9 @@ packages=(
   ufw
   unzip
   vim
+  vit                       # Visualize Interactive Taskwarrior
   xclip                     # Clip in cli
+  zathura                   # Pdf reader like vi
   zbar-tools                # Traduz qrcode para texto (usado com pass)
   zip
   zoxide                    # Smart cd
