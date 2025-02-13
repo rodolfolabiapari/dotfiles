@@ -2,6 +2,7 @@
 # https://github.com/rodolfolabipari/dotfiles
 
 # EXPORTS
+export COINTOP_CONFIG="${HOME}/.config/cointop/config.toml"
 export EDITOR="nvim"
 export GOPATH=$HOME/go/work
 export GPG_TTY=$(tty)
