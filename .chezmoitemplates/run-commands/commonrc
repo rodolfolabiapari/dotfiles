@@ -7,6 +7,7 @@ export GOPATH=$HOME/go/work
 export GPG_TTY=$(tty)
 export PATH=$PATH:/bin
 export PATH=$PATH:/opt/homebrew/bin
+export PATH=$PATH:/opt/homebrew/sbin
 export PATH=$PATH:/sbin
 export PATH=$PATH:/usr/bin
 export PATH=$PATH:/usr/local/bin

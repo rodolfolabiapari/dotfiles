@@ -23,6 +23,7 @@ cat <<EOF > "$temp_brewfile"
   brew 'btop'                      # Beaultiful top
   brew 'chezmoi'                   # Installing chezmoi via managed packager
   brew 'cointop'                   # top for coins
+  brew 'coreutils'                 # Binarios basicos como o timeout
   brew 'figlet'                    # nice bit fancy fonts for terminal outputs
   brew 'fzf'                       # fuzzy finder
   brew 'gh'                        # Github cli
@@ -39,6 +40,7 @@ cat <<EOF > "$temp_brewfile"
   brew 'neovim'
   brew 'pwgen'                     # Password generator
   brew 'ripgrep'                   # Used in nvim
+  brew 'shfmt'                     # Formater for bash in nvim
   brew 'telnet'
   brew 'tmux'
   brew 'toilet'                # big fancy fonts http://caca.zoy.org/wiki/toilet
