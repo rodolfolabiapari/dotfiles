@@ -7,11 +7,12 @@
 # List of packages to install
 # This list accecpt comments
 packages=(
+  #fzf                        # old in apt
+  #snapd                     # esta sendo instlando na pasta snap
   ansible
   bat                       # Beautiful cat
   curl
   flatpak                   # Install package manager
-  #fzf                        # old in apt
   gcc                       # Mother loves y
   git
   git-remote-gcrypt          # usado com pass para encrypt do repo git
@@ -30,7 +31,6 @@ packages=(
   rofi
   sed
   shfmt # Bash formater for nvim
-  #snapd                     # esta sendo instlando na pasta snap
   tar
   taskwarrior               # aka task no macocks
   telnet
@@ -41,10 +41,8 @@ packages=(
   unzip
   vim
   vit                       # Visualize Interactive Taskwarrior
-  xclip                     # Clip in cli
-  zathura                   # Pdf reader like vi
-  zbar-tools                # Traduz qrcode para texto (usado com pass)
   xclip # Clip in cli
+  zathura                   # Pdf reader like vi
   zbar-tools # Traduz qrcode para texto (usado com pass)
   zip
   zoxide                    # Smart cd
