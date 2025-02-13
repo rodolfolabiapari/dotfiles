@@ -8,6 +8,13 @@ This automated setup is currently only configured for Fedora machines.
 
 Normal system use:
 
+### Macocks
+
+To MacOS system, install xcode from brew, using brew
+```sh
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
 ```shell
 export GITHUB_USERNAME=rodolfolabiapari
 sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply $GITHUB_USERNAME

@@ -21,7 +21,7 @@ cat <<EOF > "$temp_brewfile"
   cask 'disk-inventory-x'
   cask 'flameshot'                 # Screen shot app
   cask 'google-cloud-sdk'
-  cask 'obisidan'
+  cask 'obsidian'
   cask 'smcfancontrol'             # Control fan of machine
   cask 'telegram-desktop'
   cask 'zoom'

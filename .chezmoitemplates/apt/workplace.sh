@@ -7,6 +7,7 @@
 # List of packages to install
 # This list accecpt comments
 packages=(
+  anki                                     # Flashcard program
   #awscli                                  # nao esta sendo isntalado via apt
   flameshot                                # Screen shot
   gh                                       # Github cli
