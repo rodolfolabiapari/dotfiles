@@ -22,8 +22,8 @@ exec_always --no-startup-id killall polybar
 exec_always --no-startup-id ~/.config/polybar/launch.sh --hack
 
 # Monitors
-#exec_always --no-startup-id xrandr --output HDMI-1-1 --auto --left-of eDP-1-1
-exec_always --no-startup-id xrandr --output eDP-1-1 --mode 1920x1080 --pos 1920x0 --rotate normal --output HDMI-1-1 --mode 1920x1080 --pos 0x0 --rotate normal --output DP-1-1 --off --output HDMI-1-2 --off
+exec_always --no-startup-id xrandr --output HDMI-1-1 --auto --left-of eDP-1-1
+#exec_always --no-startup-id xrandr --output eDP-1-1 --mode 1920x1080 --pos 1920x0 --rotate normal --output HDMI-1-1 --mode 1920x1080 --pos 0x0 --rotate normal --output DP-1-1 --off --output HDMI-1-2 --off
 
 # Keyboard
 exec_always --no-startup-id setxkbmap us intl
@@ -127,7 +127,7 @@ set $ws2 "2"
 set $ws3 "3"
 set $ws4 "4: Terminal "
 set $ws5 "5: Browser"
-set $ws6 "6"
+set $ws6 "6: Obsidian"
 set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
@@ -257,7 +257,8 @@ bindsym XF86AudioPrev exec playerctl previous
 # Spotify na janela correta
 # pra isso precisa utilizar a ferramenta xprop
 # para identificar a class correta
-assign [class="Brave"] $ws2
+assign [class="Brave"] $ws5
+assign [class="Obsidian"] $ws6
 assign [class="Spotify"] $ws10
 
 # Wallpaper using feh command
