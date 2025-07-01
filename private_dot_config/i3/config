@@ -83,17 +83,55 @@ exec --no-startup-id dex --autostart --environment i3
 
 # Bloqueio de Tela (xss-lock e i3lock)
 # xss-lock captura um bloqueio de suspensão e usa i3lock para bloquear a tela antes da suspensão.
-# exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
+# executa o xss-lock em background
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
-bindsym $mod+Shift+x exec i3lock --color "$bg-color"
 
 
 # Wallpaper (feh)
-exec_always feh --bg-fill /home/iay/Pictures/wallpaper-chip.jpg
+exec_always feh --bg-fill "$HOME/Pictures/wallpaper-chip.jpg"
+
+
+# Teclas Multimídia
+# Use pactl to adjust volume in PulseAudio.
+set $refresh_i3status killall -SIGUSR1 i3status
+
+# --- Workspaces e Atribuições de Janelas ---
+# Definir nomes para os workspaces
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4: Terminal "
+set $ws5 "5: Browser"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10: Music "
+
+
+# Atribuir Janelas a Workspaces Específicos (usando xprop para identificar a classe)
+assign [class="Brave"] $ws5 # Alterei de $ws2 para $ws5 para combinar com "Browser"
+assign [class="Spotify"] $ws10
+
+# --- Barra de Status (i3bar padrão - COMENTADA pois você usa Polybar) ---
+# bar {
+#         status_command i3status
+#         position top
+# }
+
+
+
+# ===========================================================================
+# Configuracao de atalhos
+# adiciona um bind para bloquear
+bindsym $mod+Shift+x exec i3lock --color "$base"
+# atalho para suspender o sistema
+bindsym $mod+Shift+z exec systemctl suspend
+
 
 # --- Atalhos de Teclado (Keybinds) ---
 # Usar Mouse+$mod para arrastar janelas flutuantes
@@ -153,13 +191,10 @@ bindsym Ctrl+Print exec maim | xclip -selection clipboard -t image/png
 bindsym Ctrl+$mod+Print exec maim --window $(xdotool getactivewindow) | xclip -selection clipboard -t image/png
 bindsym Ctrl+Shift+Print exec maim --select | xclip -selection clipboard -t image/png
 
-# Teclas Multimídia
-# Use pactl to adjust volume in PulseAudio.
-set $refresh_i3status killall -SIGUSR1 i3status
 # Controle de Volume (PulseAudio)
 # source https://faq.i3wm.org/question/3747/enabling-multimedia-keys/?answer=3759#post-id-3759
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% # aumentar volume
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% # diminuir volume
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% # aumentar volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% # diminuir volume
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mutar/desmutar
 
 # Controle de Brilho da Tela
@@ -179,19 +214,6 @@ bindsym XF86AudioPrev exec playerctl previous
 bindsym $mod+Shift+c reload # recarregar configuração
 bindsym $mod+Shift+r restart # reiniciar i3 (mantém layout)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Você pressionou o atalho de saída. Deseja realmente sair do i3? Isso encerrará sua sessão X.' -B 'Sim, sair do i3' 'i3-msg exit'"
-
-# --- Workspaces e Atribuições de Janelas ---
-# Definir nomes para os workspaces
-set $ws1 "1"
-set $ws2 "2"
-set $ws3 "3"
-set $ws4 "4: Terminal "
-set $ws5 "5: Browser"
-set $ws6 "6"
-set $ws7 "7"
-set $ws8 "8"
-set $ws9 "9"
-set $ws10 "10: Music "
 
 # Trocar para Workspace
 bindsym $mod+1 workspace number $ws1
@@ -217,9 +239,6 @@ bindsym $mod+Shift+8 move container to workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
 
-# Atribuir Janelas a Workspaces Específicos (usando xprop para identificar a classe)
-assign [class="Brave"] $ws5 # Alterei de $ws2 para $ws5 para combinar com "Browser"
-assign [class="Spotify"] $ws10
 
 # --- Modos Especiais (Ex: Modo de Redimensionamento) ---
 bindsym $mod+r mode "resize"
@@ -232,7 +251,7 @@ mode "resize" {
     bindsym j resize shrink width 10 px or 10 ppt
     bindsym k resize grow height 10 px or 10 ppt
     bindsym l resize shrink height 10 px or 10 ppt
-    bindsym ccedilla resize grow width 10 px or 10 ppt
+    bindsym semicolon resize grow width 10 px or 10 ppt
 
     # Mesmos atalhos, mas para as setas
     bindsym Left resize shrink width 10 px or 10 ppt
@@ -246,8 +265,3 @@ mode "resize" {
     bindsym $mod+r mode "default"
 }
 
-# --- Barra de Status (i3bar padrão - COMENTADA pois você usa Polybar) ---
-# bar {
-#         status_command i3status
-#         position top
-# }

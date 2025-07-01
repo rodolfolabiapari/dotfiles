@@ -11,6 +11,7 @@ packages=(
   #snapd                     # esta sendo instlando na pasta snap
   ansible
   bat                       # Beautiful cat
+  brightnessctl             # Modifica brilho via teclado
   curl
   flatpak                   # Install package manager
   gcc                       # Mother loves y
@@ -26,6 +27,7 @@ packages=(
   less
   pass
   picom
+  playerctl                 # controle de música pelo teclado
   pwgen                     # Password generator
   ripgrep                   # Used in nvim telescope
   rofi
