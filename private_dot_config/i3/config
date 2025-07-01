@@ -56,6 +56,7 @@ font pango:MesloLGS Nerd Font Bold 12
 
 # --- Comandos de Inicialização Automática (exec e exec_always) ---
 # Compositor (Picom)
+# ele suaviza bordas, cria transparencia e sombras
 # apt install picom
 # ~/.config/picom
 exec --no-startup-id picom
@@ -198,17 +199,17 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mutar/desmutar
 
 # Controle de Brilho da Tela
-bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # aumentar brilho
-bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # diminuir brilho
+bindsym XF86MonBrightnessUp exec "brightnessctl set +10% && notify-send '🔆 Aumentar brilho'"
+bindsym XF86MonBrightnessDown exec "brightnessctl set 10%- && notify-send '🔅 Diminuir brilho'"
 
 # Controle do Touchpad (exemplo, ajuste o caminho do script)
 # bindsym XF86TouchpadToggle exec /some/path/toggletouchpad.sh # alternar touchpad
 
 # Controles do Player de Mídia
-bindsym XF86AudioPlay exec playerctl play
-bindsym XF86AudioPause exec playerctl pause
-bindsym XF86AudioNext exec playerctl next
-bindsym XF86AudioPrev exec playerctl previous
+bindsym XF86AudioNext exec "playerctl next && notify-send '⏭ Próxima faixa'"
+bindsym XF86AudioPrev exec "playerctl previous && notify-send '⏮ Faixa anterior'"
+bindsym XF86AudioPlay exec "playerctl play-pause && notify-send '⏯ Play/Pause'"
+
 
 # Recarregar, Reiniciar e Sair do i3
 bindsym $mod+Shift+c reload # recarregar configuração
