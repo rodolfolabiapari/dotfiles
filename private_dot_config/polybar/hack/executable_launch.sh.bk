@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+
+# Add this script to your wm startup file.
+
+DIR="$HOME/.config/polybar/hack"
+
+# Terminate already running bar instances
+killall -q polybar
+
+# Wait until the processes have been shut down
+while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
+
+# Launch the bar
+#polybar -q top -c "$DIR"/config.ini &
+#polybar -q bottom -c "$DIR"/config.ini &
+
+# Get monitor names
+MONITORS=$(xrandr --query | grep " connected" | cut -d" " -f1)
+
+for MONITOR in $MONITORS; do
+    case "$MONITOR" in
+        eDP-1)
+            MONITOR=$MONITOR polybar -q top_primary -c "$DIR/config.ini" &
+            MONITOR=$MONITOR polybar -q bottom_primary -c "$DIR/config.ini" &
+            ;;
+        HDMI-1)
+            MONITOR=$MONITOR polybar -q top_secondary -c "$DIR/config.ini" &
+            MONITOR=$MONITOR polybar -q bottom_secondary -c "$DIR/config.ini" &
+            ;;
+    esac
+done
