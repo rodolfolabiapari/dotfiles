@@ -1,3 +1,11 @@
+# Welcome
+
+## Como funciona o `chezmoi data`
+
+São variáveis de ambientes e elas são configuradas no arquivo
+`.chezmoi.yaml.tmpl`. Dados mais sensíveis podem ser lidos via prompt como é
+possível ver [nesse link](https://github.com/rodolfolabiapari/dotfiles/blob/8657fcb6bac4283cb499ba053a268c6753fa8a47/.chezmoi.yaml.tmpl#L13).
+
 # Possiveis melhorias
 
 - aplicacoes do rasp

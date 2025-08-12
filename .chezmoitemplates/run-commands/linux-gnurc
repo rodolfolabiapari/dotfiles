@@ -6,6 +6,8 @@ export PATH=$PATH:/snap/bin
 export PATH=$PATH:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/local/go/bin
 export PATH=$PATH:$HOME/.local/bin
 export PATH=$PATH:$HOME/.npm-global/bin
+export PATH=$PATH:$HOME/.gems/bin
+export GEM_HOME="$HOME/.gems"
 
 # Alias
 alias bat=batcat
