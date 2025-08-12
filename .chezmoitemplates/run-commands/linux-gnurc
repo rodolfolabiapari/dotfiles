@@ -27,7 +27,7 @@ alias -- -h='-h 2>&1 | batcat --language=help --style=plain'
 alias -- --help='--help 2>&1 | batcat --language=help --style=plain'
 # Configure bat to colorize man pager
 # https://github.com/sharkdp/bat?tab=readme-ov-file#man
-export MANPAGER="sh -c 'sed -u -e \"s/\\x1B\[[0-9;]*m//g; s/.\\x08//g\" | batcat -p -lman'"
+export MANPAGER="sh -c 'sed -u -e \"s/\\x1B\[[0-9;]*m//g; s/.\\x08//g\" | batcat --plain --paging=auto -lman'"
 
 
 # loading fzf git installed configuration
