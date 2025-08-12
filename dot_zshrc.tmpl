@@ -130,10 +130,6 @@ alias ohmyzsh="vim ~/.oh-my-zsh"
 
 {{ if eq .chezmoi.os "darwin" }}
 {{   template "run-commands/darwinrc" }}
-{{ if (eq .chezmoi.arch "arm64") }}
-# Necessario para utilizar o pass em outro diretorio
-export PASSWORD_STORE_DIR="${HOME}/od/home/dot_password-store"
-{{ end }}
 {{ else if eq .chezmoi.os "linux" }}
 {{   template "run-commands/linux-gnurc" }}
 {{ end }}
