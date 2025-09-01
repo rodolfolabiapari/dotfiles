@@ -43,7 +43,6 @@ context.misc=project:OUTROS or project:TERMINAL or project:MISC or project:inbox
 project.sup=project:PIT or project:SUPORTE or project:GMUD or +pit or +gmud or +suporte or +jira
 project.all=project:PROJECT or project:P or +proj or +project or +pro or project:OUTROS or project:TERMINAL or project:MISC or project:inbox or project:PIT or project:SUPORTE or project:GMUD or +pit or +gmud or +suporte or +jira
 
-# Default project for new tasks
 default.project=inbox
 default.priority=L
 news.versoin=3.4.1
