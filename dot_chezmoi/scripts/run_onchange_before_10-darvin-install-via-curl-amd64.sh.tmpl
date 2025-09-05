@@ -5,7 +5,7 @@
 {{ if eq .chezmoi.os "darwin" }}
 set -eufo pipefail
 
-# curl/darwin/amd64.sh hash: {{ include "./.chezmoitemplates/curl/darwin/amd64.sh" | sha256sum }}
+# curl/darwin/amd64.sh hash: {{ include "./dot_chezmoi/parameters/curl/darwin/amd64.sh" | sha256sum }}
 
 # Exibir distribuição do sistema operacional
 echo -e "\n\033[0;32mSystem $(uname -m). Installing using Curls\033[0m"
