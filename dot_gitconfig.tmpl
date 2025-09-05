@@ -27,6 +27,7 @@
   excludesfile = ~/.gitignore_global
   # Set editor to nvim
   editor = nvim
+  preloadindex = true
 
 {{- if not (and (eq .chezmoi.arch "arm64") (eq .chezmoi.os "linux") ) }}
   # TODO: Configure commit signing for Raspberry Pi
@@ -99,3 +100,8 @@
 # Color UI settings
 [color]
   ui = auto
+
+[status]
+  branch = true
+  showStash = true
+  showUntrackedFiles = all
