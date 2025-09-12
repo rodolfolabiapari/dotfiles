@@ -5,12 +5,12 @@
 {{ if eq .chezmoi.os "linux" }}
 set -eufo pipefail
 
-# flatpak/workplace.sh hash: {{ include "./dot_chezmoi/parameters/flatpak/workplace.sh" | sha256sum }}
+# flatpak/workplace.sh hash: {{ include "./dot_chezmoi/scripts/parameters/flatpak/workplace.sh" | sha256sum }}
 
 # TODO: Do i really need those? This is commented
 #{{ if (eq .chezmoi.arch "amd64") }}
 #echo -e "\nInstalling FLATPAK Packages for workplace system"
-{{/* template "flatpak/workplace.sh" */}}
+# {{/* template "flatpak/workplace.sh" */}}
 #{{ end }}
 
 {{ end }}

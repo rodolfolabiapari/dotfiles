@@ -5,17 +5,17 @@
 {{ if eq .chezmoi.os "linux" }}
 set -eufo pipefail
 
-# snap/common.sh hash: {{ include "./dot_chezmoi/parameters/snap/common.sh" | sha256sum }}
-# snap/workplace.sh hash: {{ include "./dot_chezmoi/parameters/snap/workplace.sh" | sha256sum }}
+# snap/common.sh hash: {{ include "./dot_chezmoi/scripts/parameters/snap/common.sh" | sha256sum }}
+# snap/workplace.sh hash: {{ include "./dot_chezmoi/scripts/parameters/snap/workplace.sh" | sha256sum }}
 
 {{ if (eq .chezmoi.arch "amd64") }}
 # TODO Snapd has error on arm
 # server does not start
 echo -e "\nInstalling Basics SNAP packges"
-{{ template "snap/common.sh" }}
+{{ include "./dot_chezmoi/scripts/parameters/snap/common.sh" }}
 
 echo -e "\nInstalling SNAP Packages for workplace system"
-{{ template "snap/workplace.sh" }}
+{{ include "./dot_chezmoi/scripts/parameters/snap/workplace.sh" }}
 {{ end }}
 
 {{ end }}
