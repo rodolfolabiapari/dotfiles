@@ -1,4 +1,6 @@
 # -*- mode:json; tab-with=2; indent-tabs-mode=0; -*-
 # vim:ft=json
 
-{{ template "vscode-settings.json" . }}
+# vscode_settings.json hash: {{ include "./dot_chezmoi/scripts/parameters/vscode-settings.json" | sha256sum }}
+
+{{ include "./dot_chezmoi/scripts/parameters/vscode-settings.json" }}
