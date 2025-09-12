@@ -10,11 +10,21 @@ launch_bar() {
 	# Wait until the processes have been shut down
 	while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 
+  MAIN_MONITOR="eDP-1-1"
+  SECONDARY_MONITOR="HDMI-1-1"
+
 	# Launch the bar
 	if [[ "$style" == "hack" || "$style" == "cuts" ]]; then
 		for m in $(polybar --list-monitors | cut -d":" -f1); do
-			MONITOR=$m polybar -q top -c "$dir/$style/config.ini" &
-			MONITOR=$m polybar -q bottom -c "$dir/$style/config.ini" &
+			#MONITOR=$m polybar -q top -c "$dir/$style/config.ini" &
+			#MONITOR=$m polybar -q bottom -c "$dir/$style/config.ini" &
+    if [[ "$m" == "eDP-1-1" ]]; then
+      MONITOR=$m polybar -q top_primary -c "$dir/$style/config.ini" &
+      MONITOR=$m polybar -q bottom_primary -c "$dir/$style/config.ini" &
+    elif [[ "$m" == "HDMI-1-1" ]]; then
+      MONITOR=$m polybar -q top_secondary -c "$dir/$style/config.ini" &
+      MONITOR=$m polybar -q bottom_secondary -c "$dir/$style/config.ini" &
+    fi
 		done
 
 	elif [[ "$style" == "pwidgets" ]]; then

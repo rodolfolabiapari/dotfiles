@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# -*- mode:bash; tab-with=2; indent-tabs-mode=0; -*-
+# vim:ft=bash
+
+set -eufo pipefail
+
+# Install fonts downloaded from .chezmoiexternal.toml
+echo "Updating Cache of Fonts"
+{{ if eq .chezmoi.os "linux" }}
+arquivo="${HOME}/.local/share/fonts/meslo/.uuid"
+# Check if .uuid not exists
+if [ ! -e "$arquivo" ]; then
+    echo "Executing fc-cache $HOME/.local/share/fonts"
+    # Executa fc-cache no diretório
+    sudo fc-cache -f -v $HOME/.local/share/fonts/
+fi
+{{ end }}

@@ -6,9 +6,9 @@
 # Config file for brew packages installation
 set -e
 
-# brew/amd64 hash: {{ include "./.chezmoitemplates/brew/amd64.sh" | sha256sum }}
-# brew/arm hash: {{ include "./.chezmoitemplates/brew/arm.sh" | sha256sum }}
-# brew/common hash: {{ include "./.chezmoitemplates/brew/common.sh" | sha256sum }}
+# brew/amd64 hash: {{ include "./dot_chezmoi/parameters/brew/amd64.sh" | sha256sum }}
+# brew/arm hash: {{ include "./dot_chezmoi/parameters/brew/arm.sh" | sha256sum }}
+# brew/common hash: {{ include "./dot_chezmoi/parameters/brew/common.sh" | sha256sum }}
 
 # List of tap
 tap=()

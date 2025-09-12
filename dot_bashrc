@@ -11,16 +11,27 @@ case $- in
       *) return;;
 esac
 
-# don't put duplicate lines or lines starting with space in the history.
-# See bash(1) for more options
-HISTCONTROL=ignoreboth
+# Source global definitions at /etc/
+if [ -f /etc/bashrc ]; then
+    . /etc/bashrc
+fi
 
-# append to the history file, don't overwrite it
-shopt -s histappend
+# Enable history substitution, etc.
+set -o history
+set -o histexpand
 
-# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
-HISTFILESIZE=2000
+# Bash options
+shopt -s histappend       # Append history rather than overwriting
+shopt -s histverify       # Show command before executing if it's a history substitution
+shopt -s autocd           # Automatically cd to a directory if it's the only argument
+shopt -s cdspell          # Correct minor errors in directory names when using cd
+
+# Ignore duplicate commands in history
+export HISTCONTROL=ignoredups
+
+# Set history length
+export HISTSIZE=10000
+export HISTFILESIZE=10000
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -118,6 +129,8 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
+export EDITOR=nvim
 
 #SSH-agent
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"

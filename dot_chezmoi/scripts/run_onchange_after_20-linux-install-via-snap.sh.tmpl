@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+# -*- mode:bash; tab-with=2; indent-tabs-mode=0; -*-
+# vim:ft=bash
+
+{{ if eq .chezmoi.os "linux" }}
+set -eufo pipefail
+
+# snap/common.sh hash: {{ include "./dot_chezmoi/scripts/parameters/snap/common.sh" | sha256sum }}
+# snap/workplace.sh hash: {{ include "./dot_chezmoi/scripts/parameters/snap/workplace.sh" | sha256sum }}
+
+{{ if (eq .chezmoi.arch "amd64") }}
+# TODO Snapd has error on arm
+# server does not start
+echo -e "\nInstalling Basics SNAP packges"
+{{ include "./dot_chezmoi/scripts/parameters/snap/common.sh" }}
+
+echo -e "\nInstalling SNAP Packages for workplace system"
+{{ include "./dot_chezmoi/scripts/parameters/snap/workplace.sh" }}
+{{ end }}
+
+{{ end }}

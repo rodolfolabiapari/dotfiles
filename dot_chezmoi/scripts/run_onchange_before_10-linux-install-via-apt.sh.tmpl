@@ -1,12 +1,12 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # -*- mode:bash; tab-with=2; indent-tabs-mode=0; -*-
 # vim:ft=bash
 
 {{ if eq .chezmoi.os "linux" }}
 set -eufo pipefail
 
-# apt/common.sh hash: {{ include "./.chezmoitemplates/apt/common.sh" | sha256sum }}
-# apt/workplace.sh hash: {{ include "./.chezmoitemplates/apt/workplace.sh" | sha256sum }}
+# apt/common.sh hash: {{ include "dot_chezmoi/scripts/parameters/apt/common.sh" | sha256sum }}
+# apt/workplace.sh hash: {{ include "dot_chezmoi/scripts/parameters/apt/workplace.sh" | sha256sum }}
 
 # Exibir distribuição do sistema operacional
 echo -e "\n\033[0;32mDistro $(lsb_release -ds) of system $(uname -m)\033[0m"
@@ -19,10 +19,14 @@ echo -e "\nAPT add new repositories"
 for repository in ${repositories[@]}; do
   ppa_repo_source=${repository#ppa:}
   if ! $(apt-cache policy | grep http | awk '{print $2}' | sort -u | grep $ppa_repo_source &> /dev/null); then
-    echo "adding $repository repository to apt"
+    echo -e "adding $repository repository to apt"
     add-apt-repository -y $repository
   fi
 done
+
+echo -e "\nVerificando e arrumando pacotes quebrados"
+sudo dpkg --configure -a
+sudo apt --fix-broken install
 
 echo -e "\nAPT Update the list of repositories"
 sudo apt update
@@ -31,11 +35,11 @@ echo -e "\nAPT Upgrade the already installed packages"
 sudo apt upgrade -y
 
 echo -e "\nAPT Install Basics APT packges"
-{{ template "apt/common.sh" }}
+{{ include "dot_chezmoi/scripts/parameters/apt/common.sh" }}
 
 {{ if (eq .chezmoi.arch "amd64") }}
 echo -e "\nInstalling Packages for workplace system"
-{{ template "apt/workplace.sh" }}
+{{ include "dot_chezmoi/scripts/parameters/apt/workplace.sh" }}
 {{ end }}
 
 sudo echo -e "\nAutoClean"
