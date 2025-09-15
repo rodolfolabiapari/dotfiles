@@ -1,35 +1,78 @@
-" ativa a coloracao de sintaxe
+" DO NOT CHANGE THIS FILE BECAUSE IT IS MANAGED BY CHEZMOI READ MORE HERE
+" https://github.com/rodolfolabipari/dotfiles
+
+"==================== Configurações Essenciais ====================
+" desativa o modo de compatibilidade com o vi, permitindo funcionalidades
+" avançadas do vim
+set nocompatible
+
+" Ativa a coloração de sintaxe
 syntax on
+
+" Ativa a detecção automática do tipo de arquivo e recuo
+filetype plugin indent on
+
+"==================== Configurações de Usabilidade ====================
+" Ativa a numeração de linha
+set number
+
+" Exibe a numeração de linha relativa (muito útil para navegar rapidamente)
+set relativenumber
+
+" Habilita o uso do mouse em todos os modos
+set mouse=a
+
+" Permite desfazer alterações mesmo após fechar o arquivo
+set undofile
+
+" Define o diretório onde os arquivos de undo serão salvos
+set undodir=~/.vim/undo
+
+" Mostra o cursor na tela (útil para ver em qual linha e coluna você está)
+set ruler
+
+" Garante que linhas longas quebram em vez de continuar na mesma linha
+set wrap
+
+" Ativa o recuo automático para novas linhas
+set autoindent
+
+" Ativa o recuo inteligente, alinhando automaticamente
+set smartindent
 
 " arquivos modificados serao escondidos sem serem salvos ou descartados quando
 " muda-se par outro arquivo ou sair do vim
 set hidden
 
-" destaca todas as correspopndencias
-set hlsearch
-
-" ativa a pesquisa incremental, realcando a correspondencia parcial conforme
-" eh feita a digitacao
-set incsearch
-
 " define tamanho maximo de mapa de impressao de memoria. Tamanho maximo de
 " buffer de edicao temporario para edicoes complexas
 set mmp=5000
 
-" desativa modo compatibilidade
-set nocp
+"==================== Configurações de Busca e Substituição ====================
+" Destaca todas as correspondências da busca
+set hlsearch
 
-" deteccao automatica do tipo do arquivo e recuo
-filetype plugin indent on
+" Ativa a pesquisa incremental
+set incsearch
 
-" tabulacao par 2 espacos
+" Ignora a diferença entre maiúsculas e minúsculas ao buscar
+set ignorecase
+
+" Ativa a sensibilidade ao caso se a busca incluir uma letra maiúscula
+set smartcase
+
+"==================== Configurações de Indentação ====================
+" Insere espaços quando a tecla 'Tab' é pressionada
+set expandtab
+
+" Define a largura de um tab em 2 espaços
 set tabstop=2
 
-" recuo de 2 espacos para a tecla '>'
+" Define a largura do recuo em 2 espaços
 set shiftwidth=2
 
-" insere espacos quando a tecla 'Tab' eh pressionada
-set expandtab
+" Define a largura de recuo para a inserção de espaços
+set softtabstop=2
 
 " DO NOT CHANGE THIS FILE BECAUSE IT IS MANAGED BY CHEZMOI READ MORE HERE
 " https://github.com/rodolfolabipari/dotfiles
