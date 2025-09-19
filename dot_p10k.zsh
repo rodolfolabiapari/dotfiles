@@ -116,6 +116,7 @@
     # battery               # internal battery
     # wifi                  # wifi speed
     # example               # example user-defined segment (see prompt_example function below)
+    whoami
   )
 
   # Defines character set used by powerlevel10k. It's best to let `p10k configure` set it for you.
@@ -1699,6 +1700,14 @@
     # instant_prompt_example. This will give us the same `example` prompt segment in the instant
     # and regular prompts.
     prompt_example
+  }
+
+  # Adicao de usuario para provas de GMUD em prints
+  function prompt_whoami () {
+    p10k segment -f 208 -t "$(whoami)"
+  }
+  function instant_prompt_whoami () {
+    prompt_whoami
   }
 
   # User-defined prompt segments can be customized the same way as built-in segments.
