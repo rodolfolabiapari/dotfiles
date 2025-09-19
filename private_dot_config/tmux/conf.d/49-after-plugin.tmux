@@ -1,4 +1,4 @@
-if-shell '[ -f ~/.config/tmux/theme.conf ]' 'source-file ~/.config/tmux/theme.conf'
+if-shell '[ -f ~/.config/tmux/theme-name.conf ]' 'source-file ~/.config/tmux/theme-name.conf'
 
 # Window Title and Status
 # qual eh a ideia do T e do W:

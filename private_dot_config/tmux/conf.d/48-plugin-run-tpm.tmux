@@ -1,1 +1,1 @@
-run '~/.config/tmux/plugins/tpm/tpm'
+run -b '~/.config/tmux/plugins/tpm/tpm'
