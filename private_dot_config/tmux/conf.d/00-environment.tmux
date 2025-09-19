@@ -18,7 +18,7 @@ set -g history-limit 1000000
 set -s escape-time 10
 set -g assume-paste-time 100
 
-set -g detach-on-destroy off
+# set -g detach-on-destroy off
 
 set -g status-interval 2
 set -g status-keys vi
