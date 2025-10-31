@@ -14,7 +14,6 @@
 
 # Use the command 'task show' to see all defaults and overrides
 
-# Files
 # To use the default location of the XDG directories,
 # move this configuration file from ~/.taskrc to ~/.config/task/taskrc and uncomment below
 data.location=~/.local/share/task
@@ -36,17 +35,16 @@ include dark-256.theme
 #include solarized-light-256.theme
 #include no-color.theme
 
+search.case.sensitive=off
+
 # Contextos
 context.proj=project:PROJECT or project:P or +proj or +project or +pro
-
 context.misc=project:OUTROS or project:TERMINAL or project:MISC or project:INBOX
+context.sup=project:PIT or project:SUPORTE or project:GMUD or +pit or +gmud or +card or +suporte or +jira
 
-project.sup=project:PIT or project:SUPORTE or project:GMUD or +pit or +gmud or +suporte or +jira
+context.all=project:PROJECT or project:P or +proj or +project or +pro or project:OUTROS or project:TERMINAL or project:MISC or project:INBOX or project:PIT or project:SUPORTE or project:GMUD or +pit or +gmud or +card or +suporte or +jira
 
-project.all=project:PROJECT or project:P or project:OUTROS or project:TERMINAL or project:MISC or project:INBOX or project:PIT or project:SUPORTE or project:GMUD or +proj or +project or +pro or +pit or +gmud or +suporte or +jira
-
-# Configuracoes gerais
-default.project=inbox
+default.project=INBOX
 default.priority=L
 news.version=3.4.1
 news.disabled=yes
