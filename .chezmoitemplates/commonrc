@@ -84,22 +84,6 @@ alias docs='cd $HOME/Documents'
 alias dt='cd $HOME/Desktop'
 
 
-
-# Networking
-# -----------------------------------------------------------------------------
-
-# Flushes the DNS cache.
-if [[ "$OSTYPE" =~ ^darwin ]]; then
-    alias flushdns='dscacheutil -flushcache; sudo killall -HUP mDNSResponder;echo DNS cache flushed'
-elif [[ "$OSTYPE" =~ ^(cygwin|mingw|msys) ]]; then
-    alias flushdns='ipconfig //flushdns'
-else
-    alias flushdns='sudo /etc/init.d/dns-clean restart && echo DNS cache flushed'
-fi
-
-# Gets all IP addresses.
-alias ips="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[0-9]\+\)\|[a-fA-F0-9:]\+\)' | awk '{ sub(/inet6? (addr:)? ?/, \"\"); print }'"
-
 # this line receives the arch var by passing a dictionary argument
 {{ if (or (and (eq .arch "arm") (eq .os "linux"))
       (and (eq .arch "amd64") (eq .os "darwin")))}}
@@ -257,3 +241,4 @@ source $HOME/.local/share/powerlevel10k/powerlevel10k.zsh-theme
 
 # DO NOT CHANGE THIS FILE BECAUSE IT IS MANAGED BY CHEZMOI READ MORE HERE
 # https://github.com/rodolfolabipari/dotfiles
+
