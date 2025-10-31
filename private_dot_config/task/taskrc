@@ -48,5 +48,5 @@ default.project=INBOX
 default.priority=L
 news.version=3.4.1
 news.disabled=yes
-_forececolor=on
+_forcecolor=on
 context=all
