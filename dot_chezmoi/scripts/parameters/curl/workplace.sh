@@ -1,8 +1,5 @@
-#!/bin/bash
 # -*- mode:bash; tab-with=2; indent-tabs-mode=0; -*-
 # vim:ft=bash
-
-set -e
 
 # Create temp dir to download files
 mkdir -p /tmp/beans
@@ -10,7 +7,7 @@ cd /tmp/beans
 
 # Install bat
 echo "Downloading Bat"
-BAT="bat-v0.24.0-x86_64-unknown-linux-gnu"
+BAT="bat-v0.25.0-x86_64-unknown-linux-gnu"
 curl -OL "https://github.com/sharkdp/bat/releases/download/v0.24.0/${BAT}.tar.gz"
 
 # Extract a single file from tar.gz

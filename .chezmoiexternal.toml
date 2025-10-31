@@ -1,16 +1,9 @@
 # Pacotes Tmux
 # Installs tpm manager
-[".local/share/tmux/plugins/tpm"]
+[".tmux/plugins/tpm"]
     type = "git-repo"
     url = "https://github.com/tmux-plugins/tpm.git"
     refreshPeriod = "168h"
-
-# tmux catppuccin theme
-[".local/share/tmux/plugins/catppuccin"]
-    type = "git-repo"
-    url = "https://github.com/catppuccin/tmux.git"
-    refreshPeriod = "168h"
-
 
 # Pacotes ZSH
 # ZSH catppuccin Highlighting
