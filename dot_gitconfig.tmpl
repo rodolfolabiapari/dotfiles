@@ -27,10 +27,10 @@
   excludesfile = ~/.gitignore_global
   # Set editor to nvim
   editor = nvim
+  pager = less
   preloadindex = true
 
 {{- if not (and (eq .chezmoi.arch "arm64") (eq .chezmoi.os "linux") ) }}
-  # TODO: Configure commit signing for Raspberry Pi
 [commit]
   # Enable commit signing by default
   gpgsign = true
