@@ -63,6 +63,6 @@ bind d display-menu -T "#[align=centre]Dotfiles" -x C -y C \
 bind r source-file ~/.tmux.conf \; display "Configurações do TMUX Recarregadas!"
 
 # Ressurect sessoes
-bind R run-shell ~/.tmux/plugins/tmux-resurrect/scripts/restore.sh
-bind S run-shell ~/.tmux/plugins/tmux-resurrect/scripts/save.sh
+bind R run-shell ~/.config/tmux/plugins/tmux-resurrect/scripts/restore.sh
+bind S run-shell ~/.config/tmux/plugins/tmux-resurrect/scripts/save.sh
 
