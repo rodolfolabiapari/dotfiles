@@ -141,7 +141,8 @@ bindsym $mod+Shift+z exec systemctl suspend
 floating_modifier $mod
 
 # Terminal
-bindsym $mod+Return exec alacritty
+#bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec kitty
 
 # Fechar Janela Focada
 bindsym $mod+q kill
