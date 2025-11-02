@@ -66,10 +66,10 @@ exec_always --no-startup-id killall polybar
 exec_always --no-startup-id ~/.config/polybar/launch.sh --hack
 
 # Configuração de Monitores (xrandr)
-# Define o monitor HDMI-1-1 à esquerda do eDP-1-1
-exec_always --no-startup-id xrandr --output HDMI-1-1 --auto --left-of eDP-1-1
-# Exemplo de configuração mais complexa (comentada)
-# exec_always --no-startup-id xrandr --output eDP-1-1 --mode 1920x1080 --pos 1920x0 --rotate normal --output HDMI-1-1 --mode 1920x1080 --pos 0x0 --rotate normal --output DP-1-1 --off --output HDMI-1-2 --off
+exec_always --no-startup-id ~/bin/auto-display.sh
+#exec_always --no-startup-id xrandr --output HDMI-1-1 --auto --right-of eDP-1-1
+#  exec_always --no-startup-id xrandr --output eDP-1-1 --mode 1920x1080 --pos 0x0 --output HDMI-1-1 --mode 1920x1080 --rate 60 --pos 1920x0
+# exec_always --no-startup-id xrandr --output eDP-1-1 --mode 1920x1080 --pos 0x0 --rotate normal --output HDMI-1-1 --mode 1920x1080 --pos 1920x0 --rotate normal --output DP-1-1 --off --output HDMI-1-2 --off
 
 # Layout de Teclado
 exec_always --no-startup-id setxkbmap us intl
