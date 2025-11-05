@@ -17,3 +17,6 @@ my_buffer
 # Sensible files
 private_dot_config/cointop/config.toml
 
+# Tmux
+private_dot_config/tmux/plugins/
+

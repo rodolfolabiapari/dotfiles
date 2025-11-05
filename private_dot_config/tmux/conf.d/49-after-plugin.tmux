@@ -1,6 +1,3 @@
-# Carrega o nome do tema
-if-shell '[ -f ~/.config/tmux/theme-name.tmux]' 'source-file ~/.config/tmux/theme-name.tmux'
-
 # Window Title and Status
 # qual eh a ideia do T e do W:
 # quando eu tiver na janela, mostra o titulo completo (T)

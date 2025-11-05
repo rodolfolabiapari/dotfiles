@@ -60,9 +60,9 @@ bind d display-menu -T "#[align=centre]Dotfiles" -x C -y C \
   ".tmux.conf"        t  "display-popup -E 'nvim ~/.tmux.conf'" \
   "Exit"              q  ""
 
-bind r source-file ~/.tmux.conf \; display "Configurações do TMUX Recarregadas!"
-
 # Ressurect sessoes
 bind R run-shell ~/.config/tmux/plugins/tmux-resurrect/scripts/restore.sh
 bind S run-shell ~/.config/tmux/plugins/tmux-resurrect/scripts/save.sh
+
+bind r source-file "${HOME}/.config/tmux/tmux.conf \; display -d 2000 "Configurações do ~/.config/tmux/tmux.conf Recarregadas!"
 
