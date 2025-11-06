@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+{{- if (eq .chezmoi.os "darwin") }}
+# Instala viddy no macOS via Homebrew
+if ! command -v brew &> /dev/null; then
+  echo "Homebrew não está instalado. Instale-o para continuar."
+  exit 1
+fi
+echo "Instalando viddy via Homebrew..."
+brew install viddy
+
+{{- else if (eq .chezmoi.os "linux") }}
+
+# Instala viddy no Linux via curl
+echo "Instalando viddy via curl..."
+curl -L https://github.com/viddy-app/viddy/releases/latest/download/viddy-linux-amd64 -o /usr/local/bin/viddy
+chmod +x /usr/local/bin/viddy
+{{- end }}
