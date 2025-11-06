@@ -110,3 +110,12 @@
   branch = true
   showStash = true
   showUntrackedFiles = all
+
+
+# Para funcionar em repositórios já existentes, deve-se executar o comando
+#  abaixo para apagar os dados dos repositórios locais pois eles possuem
+#  prioridade
+#  git config --local --unset user.email
+[includeIf "gitdir:~/g/l/"]
+  path = ~/.gitconfig-lxp
+

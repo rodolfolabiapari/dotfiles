@@ -1,5 +1,5 @@
 # -*- mode:yaml; tab-with=2; indent-tabs-mode=0; -*-
-# vim:ft=yaml
+# vim:ft=tmpl
 
 # ~/.local/share/chezmoi/.chezmoi.yaml.tmpl
 # =============================================================================
@@ -10,17 +10,25 @@
 # `~/.config/chezmoi/chezmoi.toml`
 # See https://www.chezmoi.io/docs/how-to/
 
-{{ $email    := promptStringOnce . "email" "Email address"   }}
+{{ $email    := promptStringOnce . "email" "Email Pessoal"   }}
+{{ $emailLxP := promptStringOnce . "emailLxP" "Email Pessoal"   }}
 {{ $pgp      := promptBoolOnce   . "pgp"   "Does it use PGP" }}
-# TODO deve ter uma opcao de nao ter pgp nem ssh para assinatura de commit
+
 data:
   email: {{ $email | quote }}
   username: "Rodolfo Labiapari Mansur, MSc. @rodolfolabiapari"
   usePgp: {{ $pgp | quote }}
   signkey: 3A0990FAE12D319E
+
+  # LxP
+  usernameLxp: "Rodolfo Labiapari Mansur Guimarães"
+  emailLxp: {{ $emailLxp | quote }}
+
 format: yaml
+
 gpg:
   symmetric: true
+
 merge:
   command: nvim
   args:
@@ -28,5 +36,7 @@ merge:
     - "{{ "{{ .Destination }}" }}"
     - "{{ "{{ .Source }}" }}"
     - "{{ "{{ .Target }}" }}"
+
 git:
   autoAdd: true
+
