@@ -3,7 +3,6 @@
 # DO NOT CHANGE THIS FILE BECAUSE IT IS MANAGED BY CHEZMOI READ MORE HERE
 # https://github.com/rodolfolabipari/dotfiles
 
-alias cat="bat --paging=never --style=-header,-grid"
 alias CAT=cat
 alias cdob="cd $(cat ~/.config/nvim/lua/config_local.lua | grep 'obsidian_work_path' | awk '{print $5}')"
 alias CP=cp
@@ -23,7 +22,6 @@ alias gti="git "
 alias k=kubecolor
 alias K=kubecolor
 alias kubectl=kubecolor
-alias less="bat --paging=always --style=-header,-grid"
 alias LS=ls
 alias mkdir='mkdir -pv'
 alias mv=mv

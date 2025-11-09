@@ -3,6 +3,10 @@
 # DO NOT CHANGE THIS FILE BECAUSE IT IS MANAGED BY CHEZMOI READ MORE HERE
 # https://github.com/rodolfolabipari/dotfiles
 
+# Aliases
+alias cat="bat --paging=never --style=-header,-grid"
+alias less="bat --paging=always --style=-header,-grid"
+
 # Exports
 export PATH=$PATH:/Library/Apple/usr/bin
 export PATH=$PATH:/Library/Frameworks/Python.framework/Versions/3.7/bin
@@ -15,6 +19,7 @@ export PATH=$PATH:$HOME/Library/Python/3.7/bin
 export PATH=$PATH:$HOME/Library/Python/3.9/bin
 export PATH=$PATH:$HOME/.iac/bin
 export HOMEBREW_BUILD_BOTTLE=1
+
 
 # Remove BIN from quarantine
 alias quarentena="xattr -d com.apple.quarantine "

@@ -5,11 +5,12 @@
 
 # Alias
 alias bat=batcat
+alias cat="bat --paging=never"
+alias less="bat --paging=always"
 
 # Clipboard
 command -v xclip >/dev/null 2>&1 && alias pbcopy="xclip -selection c"
 command -v xclip >/dev/null 2>&1 && alias pbpaste="xclip -selection clipboard -o"
-
 # Vpn
 command -v wg-quick >/dev/null 2>&1 && alias wireguard_down='sudo wg-quick down wg0'
 command -v wg-quick >/dev/null 2>&1 && alias wireguard_up='sudo wg-quick up wg0'
