@@ -17,6 +17,7 @@ command -v wg-quick >/dev/null 2>&1 && alias wireguard_up='sudo wg-quick up wg0'
 
 # Bat batcat cat alias configurations
 # colorize help pages
+# está separado por causa que, no linux o comando chama batcat
 alias -- -h='-h 2>&1 | batcat --language=help --style=plain'
 alias -- --help='--help 2>&1 | batcat --language=help --style=plain'
 # Configure bat to colorize man pager
