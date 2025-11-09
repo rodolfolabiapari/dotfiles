@@ -1,13 +1,7 @@
+# -*- mode:bash; tab-with=2; indent-tabs-mode=0; -*-
+# vim:ft=bash
 # DO NOT CHANGE THIS FILE BECAUSE IT IS MANAGED BY CHEZMOI READ MORE HERE
 # https://github.com/rodolfolabipari/dotfiles
-
-# Exports
-export PATH=$PATH:/snap/bin
-export PATH=$PATH:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/local/go/bin
-export PATH=$PATH:$HOME/.local/bin
-export PATH=$PATH:$HOME/.npm-global/bin
-export PATH=$PATH:$HOME/.gems/bin
-export GEM_HOME="$HOME/.gems"
 
 # Alias
 alias bat=batcat
@@ -23,6 +17,7 @@ command -v wg-quick >/dev/null 2>&1 && alias wireguard_up='sudo wg-quick up wg0'
 
 # Bat batcat cat alias configurations
 # colorize help pages
+# está separado por causa que, no linux o comando chama batcat
 alias -- -h='-h 2>&1 | batcat --language=help --style=plain'
 alias -- --help='--help 2>&1 | batcat --language=help --style=plain'
 # Configure bat to colorize man pager
@@ -33,18 +28,6 @@ export MANPAGER="sh -c 'sed -u -e \"s/\\x1B\[[0-9;]*m//g; s/.\\x08//g\" | batcat
 # loading fzf git installed configuration
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# Functions
-vault_remain() {
-  local now=$(TZ=UTC date -u +%Y-%m-%dT%H:%M:%SZ)
-  local aws_expire=$(TZ=UTC date -u -d "${AWS_CREDENTIAL_EXPIRATION:-$now}" +%s)
-  local curr=$(TZ=UTC date -u +%s)
-  local left_sec=$((aws_expire-curr))
-  let "left_hour=(left_sec/3600)"
-  let "left_sec=(left_sec - (left_hour * 3600))"
-  let "left_min=(left_sec/60)"
-  let "left_sec=(left_sec - (left_min*60))"
-  echo ${left_min}:${left_sec}
-}
 
 # DO NOT CHANGE THIS FILE BECAUSE IT IS MANAGED BY CHEZMOI READ MORE HERE
 # https://github.com/rodolfolabipari/dotfiles
