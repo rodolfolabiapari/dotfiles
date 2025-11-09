@@ -1,3 +1,5 @@
+# -*- mode:bash; tab-with=2; indent-tabs-mode=0; -*-
+# vim:ft=bash
 
 # Carreaga em ordem numérica
 
@@ -6,6 +8,4 @@ if [ -d "${ZDOTDIR:-$HOME}/.zshrc.d/" ]; then
     [ -f "$config_file" ] && source "$config_file"
   done
 fi
-
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
