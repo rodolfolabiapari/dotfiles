@@ -46,6 +46,8 @@
   conflictstyle = merge
   log = false
   ff = true
+  # Define que a ferramenta de merge será o nvim
+  tool = nvimdiff
 
 # Push settings
 [push]
@@ -118,4 +120,20 @@
 #  git config --local --unset user.email
 [includeIf "gitdir:~/g/l/"]
   path = ~/.gitconfig-lxp
+
+
+# Define que minha ferramente de merge é o nvim -d
+# essa ferramenta é definida no merge.tool
+# para utilizar, executar o comando "git mergetool"
+[mergetool "nvimdiff"]
+  #cmd = nvim -d $LOCAL $BASE $REMOTE $MERGED -c \"wincmd l\"
+  # layout = "LOCAL,BASE,REMOTE / MERGED"
+  layout = LOCAL,REMOTE
+  cmd = nvim -d $LOCAL $REMOTE
+  trustExitCode = true
+
+# Define configuracoes gerais para mergetool
+[mergetool]
+  prompt = false
+  keepBackup = false
 

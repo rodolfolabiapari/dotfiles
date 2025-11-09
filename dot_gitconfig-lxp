@@ -1,3 +1,8 @@
+# Para funcionar em repositórios já existentes, deve-se executar o comando
+#  abaixo para apagar os dados dos repositórios locais pois eles possuem
+#  prioridade
+#  git config --local --unset user.email
 [user]
   email = {{ .emailLxp | quote }}
   name = {{ .usernameLxp | quote }}
+  signingkey = "2C1A901B64045DD6"
