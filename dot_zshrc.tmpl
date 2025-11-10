@@ -1,0 +1,29 @@
+# -*- mode:bash; tab-with=2; indent-tabs-mode=0; -*-
+# vim:ft=bash
+
+{{ include "dot_zshrc.d/01-zshconfig.zsh" | indent 0 }}
+{{ include "dot_zshrc.d/10-aliases.zsh" | indent 0 }}
+{{ include "dot_zshrc.d/10-exports.zsh" | indent 0 }}
+{{ include "dot_zshrc.d/10-functions.zsh" | indent 0 }}
+
+{{ if eq .chezmoi.os "darwin" -}}
+{{   include "dot_zshrc.d/50-macos.zsh" | indent 0 }}
+{{   if eq .chezmoi.arch "arm64" - }}
+{{     include "dot_zshrc.d/60-macock-arm.zsh" | indent 0 }}
+{{   end }}
+{{ end -}}
+
+
+{{ if eq .chezmoi.os "linux" -}}
+{{     include "dot_zshrc.d/50-linux.zsh" | indent 0 }}
+{{   if eq .chezmoi.arch "amd64" - }}
+{{     include "dot_zshrc.d/60-linux-desktop.zsh" | indent 0 }}
+{{   else if eq .chezmoi.arch "arm64" - }}
+{{     include "dot_zshrc.d/60-pi-arm64.zsh" | indent 0 }}
+{{   else if eq .chezmoi.arch "arm" - }}
+{{     include "dot_zshrc.d/60-pi-armv6.zsh" | indent 0 }}
+{{   end }}
+{{ end -}}
+
+{{ include "dot_zshrc.d/90-load-p10k.zsh" | indent 0 }}
+{{ include "dot_zshrc.d/90-post-sources.zsh" | indent 0 }}
