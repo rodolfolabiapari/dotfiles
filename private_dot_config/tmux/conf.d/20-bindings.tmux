@@ -57,12 +57,16 @@ bind C-t display-popup \
 ##### Display Menu #####
 bind d display-menu -T "#[align=centre]Dotfiles" -x C -y C \
   ".zshrc"            z  "display-popup -E 'nvim ~/.zshrc'" \
-  ".tmux.conf"        t  "display-popup -E 'nvim ~/.tmux.conf'" \
+  ".kube/config"      k  "display-popup -E 'nvim ~/.kube/config'" \
+  ".aws/config"       a  "display-popup -E 'nvim ~/.aws/config'" \
+  ".p10k.zsh"         p  "display-popup -E 'nvim ~/.p10k.zsh'" \
+  ".tmux folder"      t  "display-popup -E 'nvim ~/.config/tmux/'" \
+  "chezmoi folder"    c  "display-popup -E 'nvim ~/.local/share/chezmoi/'" \
   "Exit"              q  ""
 
 # Ressurect sessoes
 bind R run-shell ~/.config/tmux/plugins/tmux-resurrect/scripts/restore.sh
 bind S run-shell ~/.config/tmux/plugins/tmux-resurrect/scripts/save.sh
 
-bind r source-file "${HOME}/.config/tmux/tmux.conf \; display -d 2000 "Configurações do ~/.config/tmux/tmux.conf Recarregadas!"
+bind r source-file -q "${HOME}/.config/tmux/tmux.conf" \; display -d 2000 "Configurações do ~/.config/tmux/tmux.conf Recarregadas!"
 
