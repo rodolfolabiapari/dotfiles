@@ -37,6 +37,18 @@ export MANPAGER="sh -c 'sed -u -e \"s/\\x1B\[[0-9;]*m//g; s/.\\x08//g\" | bat --
 # shell Integration for fzf
 source <(fzf --zsh)
 
+# Functions
+vault_remain() {
+  local now=$(TZ=UTC date -j +%Y-%m-%dT%H:%M:%SZ)
+  local aws_expire=$(TZ=UTC date -j -f "%Y-%m-%dT%H:%M:%SZ" -u "${AWS_CREDENTIAL_EXPIRATION:-$now}" "+%s")
+  local curr=$(TZ=UTC date -j +%s)
+  local left_sec=$((aws_expire-curr))
+  let "left_hour=(left_sec/3600)"
+  let "left_sec=(left_sec - (left_hour * 3600))"
+  let "left_min=(left_sec/60)"
+  let "left_sec=(left_sec - (left_min*60))"
+  echo ${left_hour}:${left_min}:${left_sec}
+}
 
 # DO NOT CHANGE THIS FILE BECAUSE IT IS MANAGED BY CHEZMOI READ MORE HERE
 # https://github.com/rodolfolabipari/dotfiles

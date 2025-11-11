@@ -2,6 +2,8 @@
 # vim:ft=bash
 # Post sources
 
+eval "$(zoxide init zsh)"
+
 # Load ZSH Syntax Hightlight
 source $HOME/.local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
