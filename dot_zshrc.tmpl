@@ -5,6 +5,7 @@
 {{ include "dot_zshrc.d/10-aliases.zsh" | indent 0 }}
 {{ include "dot_zshrc.d/10-exports.zsh" | indent 0 }}
 {{ include "dot_zshrc.d/10-functions.zsh" | indent 0 }}
+{{ include "dot_zshrc.d/10-runs.zsh" | indent 0 }}
 
 {{ if eq .chezmoi.os "darwin" -}}
 {{   include "dot_zshrc.d/50-macos.zsh" | indent 0 }}

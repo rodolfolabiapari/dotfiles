@@ -1,0 +1,9 @@
+
+# ordem
+# feat, fix, docs, ci, chore (faxina, nao funcional), refactor, build, revert
+# (helm, argocd, fluxcd, k8s, terraform, pipeline, iam, docker)
+# ! se for break change
+# :
+#
+#
+# BREAKING CHANGE:
