@@ -60,9 +60,9 @@ bind d display-menu -T "#[align=centre]Dotfiles" -x C -y C \
   ".kube/config"      k  "display-popup -E 'nvim ~/.kube/config'" \
   ".aws/config"       a  "display-popup -E 'nvim ~/.aws/config'" \
   ".p10k.zsh"         p  "display-popup -E 'nvim ~/.p10k.zsh'" \
-  ".tmux folder"      t  "display-popup -E 'nvim ~/.config/tmux/'" \
+  "tmux folder"       t  "display-popup -E 'nvim ~/.config/tmux/'" \
   "chezmoi folder"    c  "display-popup -E 'nvim ~/.local/share/chezmoi/'" \
-  "Exit"              q  ""
+  "Exit Menu"         q  ""
 
 # Ressurect sessoes
 bind R run-shell ~/.config/tmux/plugins/tmux-resurrect/scripts/restore.sh
