@@ -1,23 +1,32 @@
 #!/usr/bin/env bash
 
-# ATENÇÃO: Para que isso funcione, você deve EXECUTAR o script com 'source'
-# (ex: source meu_script.sh), e NÃO com './meu_script.sh'.
-# criei um alias par isso chamado setProfileAws
+if [ -z "$AWS_SESSION_TOKEN" ]; then
+    echo "ERRO: As variáveis AWS não foram encontradas. Você está no sub-shell do 'aws-vault exec'?"
+    exit 1
+fi
 
 mkdir -p "$HOME/.aws"
-
 cat <<EOF > "$HOME/.aws/credentials"
 [default]
 aws_session_token=${AWS_SESSION_TOKEN}
 aws_secret_access_key=${AWS_SECRET_ACCESS_KEY}
 aws_access_key_id=${AWS_ACCESS_KEY_ID}
-EOF
+aws_credential_expiration=${AWS_CREDENTIAL_EXPIRATION}
+aws_vault=${AWS_VAULT}
+eOF
 
+if command -v tmux &> /dev/null && [ -n "$TMUX" ]; then
 
-export AWS_SESSION_TOKEN=${AWS_SESSION_TOKEN}
-export AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
-export AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
-export AWS_DEFAULT_REGION=${AWS_DEFAULT_REGION}
-export AWS_REGION=${AWS_REGION}
+    tmux setenv AWS_ACCESS_KEY_ID "$AWS_ACCESS_KEY_ID"
+    tmux setenv AWS_SECRET_ACCESS_KEY "$AWS_SECRET_ACCESS_KEY"
+    tmux setenv AWS_SESSION_TOKEN "$AWS_SESSION_TOKEN"
+    tmux setenv AWS_CREDENTIAL_EXPIRATION "$AWS_CREDENTIAL_EXPIRATION"
+    tmux setenv AWS_VAULT "$AWS_VAULT"
 
-aws configure set default.region ${AWS_REGION}
+    if [ -n "$AWS_REGION" ]; then
+        tmux setenv AWS_DEFAULT_REGION "$AWS_DEFAULT_REGION"
+        tmux setenv AWS_REGION "$AWS_REGION"
+    fi
+else
+    echo "⚠️ Não está em uma sessão tmux. Credenciais salvas apenas no arquivo ~/.aws/credentials."
+fi
