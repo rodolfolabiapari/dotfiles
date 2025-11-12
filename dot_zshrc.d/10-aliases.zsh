@@ -4,6 +4,7 @@
 # https://github.com/rodolfolabipari/dotfiles
 
 alias CAT=cat
+alias cd='z' #z zoxide alias
 alias cdob="cd $(cat ~/.config/nvim/lua/config_local.lua | grep 'obsidian_work_path' | awk '{print $5}')"
 alias CP=cp
 alias cp='cp -v';
@@ -35,6 +36,7 @@ alias pwc="pwd | tr -d '\n' | pbcopy"
 alias PWD=pwd
 alias q=exit
 alias quit=exit
+alias setProfileAws='source ~/bin/setProfile.sh' # precisa ser source para export funcionar
 alias sl=ls
 alias SL=ls
 alias sz="source ~/.zshrc && echo \"~/.zshrc reloaded.\"" # Reload zsh
