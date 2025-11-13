@@ -31,6 +31,8 @@ export AWS_VAULT=${AWS_VAULT}
 if command -v tmux &> /dev/null && [ -n "$TMUX" ]; then
 
     tmux setenv AWS_ACCESS_KEY_ID "$AWS_ACCESS_KEY_ID"
+    # o tmux tem algum problema em exporta essa variavel
+    # ela nao chega n noutro lado
     tmux setenv AWS_CREDENTIAL_EXPIRATION "$AWS_CREDENTIAL_EXPIRATION"
     tmux setenv AWS_SECRET_ACCESS_KEY "$AWS_SECRET_ACCESS_KEY"
     tmux setenv AWS_SESSION_TOKEN "$AWS_SESSION_TOKEN"
