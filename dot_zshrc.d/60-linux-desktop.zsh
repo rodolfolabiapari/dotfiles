@@ -5,8 +5,8 @@
 
 # Alias
 alias bat=batcat
-alias cat="bat --paging=never"
-alias less="bat --paging=always"
+alias cat="bat --paging=never --style numbers"
+alias less="bat --paging=always --style numbers"
 
 # Clipboard
 command -v xclip >/dev/null 2>&1 && alias pbcopy="xclip -selection c"
