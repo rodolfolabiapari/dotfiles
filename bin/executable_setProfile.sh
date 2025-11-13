@@ -18,7 +18,7 @@ aws_region=${AWS_REGION}
 aws_secret_access_key=${AWS_SECRET_ACCESS_KEY}
 aws_session_token=${AWS_SESSION_TOKEN}
 aws_vault=${AWS_VAULT}
-eOF
+EOF
 
 export AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
 export AWS_CREDENTIAL_EXPIRATION="$AWS_CREDENTIAL_EXPIRATION"
@@ -31,8 +31,6 @@ export AWS_VAULT=${AWS_VAULT}
 if command -v tmux &> /dev/null && [ -n "$TMUX" ]; then
 
     tmux setenv AWS_ACCESS_KEY_ID "$AWS_ACCESS_KEY_ID"
-    # o tmux tem algum problema em exporta essa variavel
-    # ela nao chega n noutro lado
     tmux setenv AWS_CREDENTIAL_EXPIRATION "$AWS_CREDENTIAL_EXPIRATION"
     tmux setenv AWS_SECRET_ACCESS_KEY "$AWS_SECRET_ACCESS_KEY"
     tmux setenv AWS_SESSION_TOKEN "$AWS_SESSION_TOKEN"
