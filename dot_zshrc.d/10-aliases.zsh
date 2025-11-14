@@ -5,7 +5,6 @@
 
 alias CAT=cat
 alias cd='z' #z zoxide alias
-alias cdob="cd $(cat ~/.config/nvim/lua/config_local.lua | grep 'obsidian_work_path' | awk '{print $5}')"
 alias CP=cp
 alias cp='cp -v';
 alias dls='cd $HOME/Downloads'
@@ -59,6 +58,7 @@ alias vi=nvim
 alias v=nvim
 alias week='date +"%Y-W%V"'
 alias weekday='date +"%u"'
+alias ':q'=exit
 
 # DO NOT CHANGE THIS FILE BECAUSE IT IS MANAGED BY CHEZMOI READ MORE HERE
 # https://github.com/rodolfolabipari/dotfiles
