@@ -1,104 +1,140 @@
 # -*- mode:toml; tab-with=2; indent-tabs-mode=0; -*-
 # vim:ft=toml
 
+# =============================================================================
 # User configuration
+# =============================================================================
 [user]
   email = {{ .email | quote }}
   name = {{ .username | quote }}
-
-{{- if (eq .chezmoi.username "fo097044") }}
-  # Sign commits with SSH key for specific user
+  {{ if (and (eq .chezmoi.arch "arm64") (eq .chezmoi.os "darwin") ) -}}
   signingKey = {{ .chezmoi.homeDir }}/.ssh/id_rsa.pub
-
-[gpg]
-  format = ssh
-{{- else }}
-  # Specify the signing key for GPG
+  {{ else }}
   signingkey = {{ .signkey | quote }}
+  {{ end -}}
 
-# Configure the GPG program to use
 [gpg]
+  {{ if (and (eq .chezmoi.arch "arm64") (eq .chezmoi.os "darwin") ) -}}
+  format = ssh
+  {{- else }}
   program = gpg
-{{- end }}
+  {{- end }}
 
-# Core Git configuration
-[core]
-  # Store global exclusions into a custom file
-  excludesfile = ~/.gitignore_global
-  # Set editor to nvim
-  editor = nvim
-  pager = less
-  preloadindex = true
-
-{{- if not (and (eq .chezmoi.arch "arm64") (eq .chezmoi.os "linux") ) }}
 [commit]
   # Enable commit signing by default
   gpgsign = true
-{{- end }}
+  verbose = true
 
+[tag]
+  gpgsigh = true
+
+
+# =============================================================================
+# Core Git Configuration
+# =============================================================================
+[core]
+  # Store global exclusions into a custom file
+  excludesfile = ~/.gitignore_global
+  editor = nvim
+  # o diff tem override abaixo
+  pager = less
+  preloadindex = true
+
+[rerere]
+  enabled = true
+  autoupdate = true
+
+# =============================================================================
+# Credentials Configuration
+# =============================================================================
 [credential]
   # Store credentials to not ask everytime
   helper = store
 
-# Merge settings
+# =============================================================================
+# Merge e Rebase Configuration
+# =============================================================================
 [merge]
-  # Include summaries of merged commits in newly created merge commit messages
-  conflictstyle = merge
+  conflictstyle = zdiff3
   log = false
+  # FF true não faz merge nas divergencias. Ideal pra usar com rebase
+  # Se tiver atrapalhando muito, colocar false
   ff = true
   # Define que a ferramenta de merge será o nvim
   tool = nvimdiff
 
-# Push settings
-[push]
-  # Push changes to the current branch by default
-  default = current
-  autoSetupRemote = true
+# Define configuracoes gerais para mergetool
+[mergetool]
+  prompt = false
+  keepBackup = false
 
-# Pull settings
-[pull]
-  # Disable rebase for pull
-  rebase = false
+# Define que minha ferramente de merge é o nvim -d
+# essa ferramenta é definida no merge.tool
+# para utilizar, executar o comando "git mergetool"
+[mergetool "nvimdiff"]
+  #cmd = nvim -d $LOCAL $BASE $REMOTE $MERGED -c \"wincmd l\"
+  # layout = "LOCAL,BASE,REMOTE / MERGED"
+  #layout = LOCAL,REMOTE
+  cmd = nvim -d "$LOCAL" "$REMOTE"
 
-# Rebase settings
 [rebase]
   # Automatically stash changes before rebasing
   autoStash = true
+  autosquash = true
+  updateRefs = true
 
-# Fetch settings
-[fetch]
-  # Remove any remote-tracking references that no longer exist on the remote
-  prune = true
+[pull]
+  rebase = true
+  # FF true não faz merge nas divergencias. Ideal pra usar com rebase
+  ff = only
 
-# Help settings
-[help]
-  # Enable autocorrection for mistyped commands
-  autocorrect = 1
-
-# Include external configuration files
-[include]
-  # Include Git aliases configuration
-  path = .gitconfig_aliases
-  # Include any additional Git configuration
-  path = .gitconfig_local
-
-# Default branch name for new repositories
-[init]
-  defaultBranch = master
-
-# Git diff wrapper with vimdiff
-# Config for using with git_diff_wrapper
+# =============================================================================
+# Diff e Difftoll
+# =============================================================================
 [diff]
-  external = git_diff_wrapper
+  tool = nvimdiff
 
 # Diff tool configuration
 [difftool]
   # Allow aborting all diffs with `:cq` or `:cquit`
   trustExitCode = true
+  prompt = false
+
+[difftool "nvimdiff"]
+  cmd = nvim -d "$LOCAL"
 
 # Pager configuration for diff
 [pager]
   diff =
+
+# =============================================================================
+# Push, Branch, Fetch
+# =============================================================================
+[push]
+  default = current
+  autoSetupRemote = true
+
+[remote]
+  pushDefault = origin
+
+[branch]
+  autosetupmode = always
+
+[fetch]
+  # Remove any remote-tracking references that no longer exist on the remote
+  prune = true
+
+# =============================================================================
+# Help, status, init, http
+# =============================================================================
+# Help settings
+[help]
+  # Enable autocorrection for mistyped commands
+  autocorrect = 1
+
+# Default branch name for new repositories
+[init]
+  defaultBranch = master
 
 # Color UI settings
 [color]
@@ -112,28 +148,24 @@
   branch = true
   showStash = true
   showUntrackedFiles = all
+  submoduleSummary = true
+
+# =============================================================================
+# Includes
+# =============================================================================
+
+# Include external configuration files
+[include]
+  # Include Git aliases configuration
+  path = ~/.git.d/alias
+  # Include any additional Git configuration
+  path = ~/.git.d/ignore
+  path = ~/.git.d/message
 
 
 # Para funcionar em repositórios já existentes, deve-se executar o comando
-#  abaixo para apagar os dados dos repositórios locais pois eles possuem
-#  prioridade
-#  git config --local --unset user.email
+#abaixo para apagar os dados dos repositórios locais pois eles possuem
+#prioridade
+#git config --local --unset user.email
 [includeIf "gitdir:~/g/l/"]
-  path = ~/.gitconfig-lxp
-
-
-# Define que minha ferramente de merge é o nvim -d
-# essa ferramenta é definida no merge.tool
-# para utilizar, executar o comando "git mergetool"
-[mergetool "nvimdiff"]
-  #cmd = nvim -d $LOCAL $BASE $REMOTE $MERGED -c \"wincmd l\"
-  # layout = "LOCAL,BASE,REMOTE / MERGED"
-  layout = LOCAL,REMOTE
-  cmd = nvim -d $LOCAL $REMOTE
-  trustExitCode = true
-
-# Define configuracoes gerais para mergetool
-[mergetool]
-  prompt = false
-  keepBackup = false
-
+  path = ~/.git.d/lxp

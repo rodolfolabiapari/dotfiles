@@ -6,6 +6,7 @@
 # Aliases
 alias cat="bat --paging=never --style=-header,-grid"
 alias less="bat --paging=always --style=-header,-grid"
+alias watch="viddy"
 
 # Exports
 export PATH=$PATH:/Library/Apple/usr/bin
