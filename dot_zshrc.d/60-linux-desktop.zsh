@@ -29,6 +29,8 @@ export MANPAGER="sh -c 'sed -u -e \"s/\\x1B\[[0-9;]*m//g; s/.\\x08//g\" | batcat
 # loading fzf git installed configuration
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+# Para que o tmux saiba qual socket o i3 está
+export I3SOCK=$(i3 --get-socketpath)
 
 # DO NOT CHANGE THIS FILE BECAUSE IT IS MANAGED BY CHEZMOI READ MORE HERE
 # https://github.com/rodolfolabipari/dotfiles

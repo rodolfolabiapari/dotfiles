@@ -40,9 +40,9 @@
   pager = less
   preloadindex = true
 
-[rerere]
-  enabled = true
-  autoupdate = true
+#[rerere]
+ # enabled = true
+ # autoupdate = true
 
 # =============================================================================
 # Credentials Configuration
@@ -52,53 +52,17 @@
   helper = store
 
 # =============================================================================
-# Merge e Rebase Configuration
-# =============================================================================
-[merge]
-  conflictstyle = merge
-  log = false
-  # FF true não faz merge nas divergencias. Ideal pra usar com rebase
-  # Se tiver atrapalhando muito, colocar false
-  ff = true
-  # Define que a ferramenta de merge será o nvim
-  tool = vimdiff2
-
-# Define configuracoes gerais para mergetool
-[mergetool]
-  prompt = false
-  keepBackup = false
-
-# Define que minha ferramenta de merge é o nvim -d
-# essa ferramenta é definida no merge.tool
-# para utilizar, executar o comando "git mergetool"
-[mergetool "nvimdiff"]
-  #cmd = nvim -d $LOCAL $BASE $REMOTE $MERGED -c \"wincmd l\"
-  # layout = "LOCAL,BASE,REMOTE / MERGED"
-  # O comando abaixo abre 3 buffers: Local (esquerda), Remoto (direita)
-  # e o Merged (onde você edita) no meio ou embaixo dependendo da sua config do nvim.
-  # Se preferir o padrão do git, apenas comente a linha 'cmd' abaixo.
-  #cmd = nvim -d "$LOCAL" "$REMOTE" "$MERGED"
-  # cmd = nvim -d "$REMOTE" "$MERGED" -c "wincmd w" -c "wincmd H"
-
-[rebase]
-  # Automatically stash changes before rebasing
-  autoStash = true
-  autosquash = true
-  updateRefs = true
-
-[pull]
-  rebase = true
-  # FF true não faz merge nas divergencias. Ideal pra usar com rebase
-  ff = only
-
-# =============================================================================
 # Diff e Difftoll
 # =============================================================================
 [diff]
   tool = nvimdiff
+  # O Git para de olhar linhas isoladas e olha "pacotes" de texto.
+  # Se você tem uma função A e B, e inverte a ordem delas, o diff padrão surta.
+  # O histograma entende que elas só trocaram de lugar e muitas vezes faz o
+  # merge automático sem te perguntar nada.
   algorithm = histogram
-  renames = true
-  mnemonicprefix = true
+  # Tenta detectar código movido e colorir diferente
+  colorMoved = default
 
 # Diff tool configuration
 [difftool]
@@ -112,6 +76,45 @@
 # Pager configuration for diff
 [pager]
   diff =
+
+# =============================================================================
+# Merge e Rebase Configuration
+# =============================================================================
+[merge]
+  conflictstyle = merge
+  strategy = org
+  log = false
+  # FF true não faz merge nas divergencias. Ideal pra usar com rebase
+  # Se tiver atrapalhando muito, colocar false
+  ff = true
+  # Define que a ferramenta de merge será o nvim
+  tool = nvimdiff
+
+# Define configuracoes gerais para mergetool
+[mergetool]
+  prompt = false
+  keepBackup = false
+
+# Define que minha ferramenta de merge é o nvim -d
+# essa ferramenta é definida no merge.tool
+# para utilizar, executar o comando "git mergetool"
+[mergetool "nvimdiff"]
+  #cmd = nvim -d $LOCAL $BASE $REMOTE $MERGED -c \"wincmd l\"
+  # layout = "LOCAL,BASE,REMOTE / MERGED"
+  cmd = nvim -d "$MERGED" "$LOCAL" "$REMOTE"
+  layout = "MERGED,LOCAL,REMOTE"
+  # cmd = nvim -d "$REMOTE" "$MERGED" -c "wincmd w" -c "wincmd H"
+
+[rebase]
+  # Automatically stash changes before rebasing
+  autoStash = true
+  autosquash = true
+  updateRefs = true
+
+[pull]
+  rebase = true
+  # FF true não faz merge nas divergencias. Ideal pra usar com rebase
+  ff = only
 
 # =============================================================================
 # Push, Branch, Fetch
