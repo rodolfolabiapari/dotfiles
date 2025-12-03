@@ -70,7 +70,7 @@ DISABLE_MAGIC_FUNCTIONS=true
 # "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
 # or set a custom format using the strftime function format specifications,
 # see 'man strftime' for details.
-# HIST_STAMPS="mm/dd/yyyy"
+HIST_STAMPS="yyyy-mm-dd"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
@@ -87,8 +87,19 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 
 # Configuracao de Histórico
-setopt HIST_IGNORE_SPACE  # Don't save when prefixed with space
-setopt HIST_IGNORE_DUPS   # Don't save duplicate lines
+setopt HIST_IGNORE_SPACE   # Don't save when prefixed with space
+setopt EXTENDED_HISTORY    # timestamp e duracao
+setopt HIST_REDUCE_BLANKS  # normaliza espacos
+setopt HIST_FIND_NO_DUPS   # evita duplicados na busca
+setopt APPEND_HISTORY      # anexa em vez de reescrever ao sair
+setopt INC_APPEND_HISTORY  # escreve no arquivo a medida que roda os comandos
+setopt HIST_FCNTL_LOCK     # locking de arquivo para evitar corridas
+
+# para que meu historico tenha todos os comandos executados
+unsetopt HIST_IGNORE_DUPS      # nao ignora duplicados
+unsetopt HIST_IGNORE_ALL_DUPS  # nao remove entradas antigas iguais
+unsetopt HIST_SAVE_NO_DUPS     # nao elimina duplicados ao salvar
+
 
 # export MANPATH="/usr/local/man:$MANPATH"
 

@@ -9,6 +9,8 @@ export GOPATH=$HOME/go/work
 export GPG_TTY=$TTY
 #export GPG_TTY=$(tty) # https://github.com/romkatv/powerlevel10k?tab=readme-ov-file#how-do-i-export-gpg_tty-when-using-instant-prompt
 export KUBECOLOR_CONFIG="${HOME}/.config/kubecolor/kubecolor.yaml"
+export HISTSIZE=1000000
+export SAVEHIST=1000000
 export PATH=$PATH:$HOME/bin
 export PATH=$PATH:$HOME/bin/jmeter/bin
 export PATH=$PATH:$HOME/.gems/bin
@@ -32,5 +34,6 @@ export PATH=$PATH:/usr/local/games
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:/usr/local/sbin
 export PATH=$PATH:/usr/sbin
+export PATH=$PATH:"${KREW_ROOT:-$HOME/.krew}/bin"
 #export TERM="xterm-256color" Configurado no alacritty
 export ZSH=$HOME/.oh-my-zsh
