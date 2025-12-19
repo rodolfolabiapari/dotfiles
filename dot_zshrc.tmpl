@@ -1,9 +1,11 @@
 # -*- mode:bash; tab-with=2; indent-tabs-mode=0; -*-
 # vim:ft=bash
 
+{{ include "dot_zshrc.d/00-p10k-instant.zsh" | indent 0 }}
 {{ include "dot_zshrc.d/01-zshconfig.zsh" | indent 0 }}
-{{ include "dot_zshrc.d/10-aliases.zsh" | indent 0 }}
+{{ include "dot_zshrc.d/02-compinit.zsh" | indent 0 }}
 {{ include "dot_zshrc.d/10-exports.zsh" | indent 0 }}
+{{ include "dot_zshrc.d/10-aliases.zsh" | indent 0 }}
 {{ include "dot_zshrc.d/10-functions.zsh" | indent 0 }}
 {{ include "dot_zshrc.d/10-runs.zsh" | indent 0 }}
 
