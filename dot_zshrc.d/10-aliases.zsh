@@ -36,6 +36,7 @@ alias PWD=pwd
 alias q=exit
 alias quit=exit
 alias awsSetProfile='source ~/bin/setProfile.sh' # precisa ser source para export funcionar
+alias rg='rg --hidden --glob "!.git"'
 alias sl=ls
 alias SL=ls
 alias sz="source ~/.zshrc && echo \"~/.zshrc reloaded.\"" # Reload zsh

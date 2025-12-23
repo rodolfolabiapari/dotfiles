@@ -24,6 +24,3 @@ scroll_page_up = "Ctrl-b"
 scroll_page_down = "Ctrl-f"
 scroll_bottom_of_page = "Shift-g"
 scroll_top_of_page = "g g"
-
-[color]
-background = "white" # Default value is inherit from terminal color.
