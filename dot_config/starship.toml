@@ -3,7 +3,7 @@
 add_newline = true # Recomendado para não poluir com tantas informações
 command_timeout = 500 # Aumentei um pouco para chamadas de API (AWS/K8s)
 
-format = """$directory$git_branch$git_status$fill $username$hostname$aws$kubernetes$terraform$gcloud$cmd_duration$time
+format = """$directory$git_branch$git_status$git_metrics$fill $username$hostname$aws$kubernetes$terraform$gcloud$cmd_duration$time
 $character"""
 
 [character]
@@ -25,6 +25,10 @@ repo_root_format = "[$before_root_path]($before_repo_root_style)[$repo_root]($re
 [git_branch]
 format = '[$symbol$branch(:$remote_branch)]($style)'
 style = "italic purple"
+
+[git_metrics]
+added_style = 'bold blue'
+format = '[+$added]($added_style)/[-$deleted]($deleted_style) '
 
 [time]
 disabled = false
@@ -51,7 +55,6 @@ style = "bold yellow"
 
 [kubernetes]
 symbol = "󱃾 "
-enabled = true
 #format = "at [$symbol$context]($style) "
 format = '[$symbol$context( \($namespace\))]($style) in '
 style = "cyan bold"
