@@ -1,24 +1,39 @@
-# Crypt
+# Instrucoes
 
-## Symetric
+
+## Crypt
+
+### Simétrico
+
+Verifique a versão do gpg com
 
 ```bash
-gpg --version # 2.4.4
-
-# crypting with symetric
-# --armor: ASCII output
-# --symetric: 
-gpg --armor --symmetric config.toml
-
-# decrypt
-gpg -d config.toml
+gpg --version
+# Saída esperada 2.4.4 ou mais
 ```
 
-## Assymetric
+Encriptando com chave simétrica (usando senha)
 
 ```bash
-# crypting with assymetric
-gpg --armor --encrypt --recipient ${KEY_ADDRESS} config.toml
+gpg --armor --symmetric config.toml
+# --armor: ASCII output
+# --symetric: pede password para encriptar
+```
 
+### Assimétrico
+
+Para Assymetric utiliza-se o `--encrypt`.
+
+```bash
+# --armor: ASCII output
+gpg --armor --encrypt --recipient ${KEY_ADDRESS} config.toml
+```
+
+## Para decriptar
+
+Basta usar
+
+```bash
 gpg --decrypt config.toml.gpg --output config.toml
 ```
+
