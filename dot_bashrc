@@ -1,0 +1,60 @@
+# If not running interactively, don't do anything (leave this at the top of this file)
+[[ $- != *i* ]] && return
+
+# All the default Omarchy aliases and functions
+# (don't mess with these directly, just overwrite them here!)
+source ~/.local/share/omarchy/default/bash/rc
+
+# Add your own exports, aliases, and functions here.
+
+
+# Enable history substitution, etc.
+set -o history
+set -o histexpand
+
+# Bash options
+shopt -s histappend       # Append history rather than overwriting
+shopt -s histverify       # Show command before executing if it's a history substitution
+shopt -s autocd           # Automatically cd to a directory if it's the only argument
+shopt -s cdspell          # Correct minor errors in directory names when using cd
+
+# Ignore duplicate commands in history
+export HISTCONTROL=ignoredups
+export HISTSIZE=100000
+export HISTFILESIZE=10000000
+
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+
+# Make an alias for invoking commands you use constantly
+# alias p='python'
+alias cat='bat --paging=never --style=-grid,+snip,-header'
+alias '...'="cd ../../"
+alias '....'="cd ../../.."
+alias '.....'="cd ../../../.."
+alias '......'="cd ../../../../.."
+alias '.......'="cd ../../../../../.."
+alias k=kubectl
+alias kubectl="kubecolor"
+alias ll='eza -l --group-directories-first --icons=auto'
+alias ls='eza --group-directories-first --icons=auto'
+alias neovim=nvim
+alias oc="env KUBECTL_COMMAND=oc kubecolor"
+alias ':q'=exit
+alias 'q'=exit
+alias sb='source ~/.bashrc'
+alias ta='task add'
+alias t='task'
+alias vim=nvim
+alias vi=nvim
+alias vm=nvim
+alias gst="git status"
+alias gco="git checkout"
+
+for i in "${HOME}/.bashrc.d"/[0-9][0-9]-*.bashrc; do
+  if [ -r "$i" ]; then
+    . "$i"
+  fi
+done
+unset i
+
+. "$HOME/.local/share/../bin/env"

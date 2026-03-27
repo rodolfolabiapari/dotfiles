@@ -1,0 +1,76 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+add_newline = true # Recomendado para não poluir com tantas informações
+command_timeout = 500 # Aumentei um pouco para chamadas de API (AWS/K8s)
+
+format = """$directory$git_branch$git_status$fill $username$hostname$aws$kubernetes$terraform$gcloud$cmd_duration$time
+$character"""
+
+[character]
+error_symbol = "[✗](bold purple)"
+success_symbol = "[❯](bold green)"
+
+# Fill character (empty space) between the left and right prompt
+[fill]
+symbol = "-"
+
+[directory]
+truncation_symbol = "…/"
+truncation_length = 5 # 0 mostra o caminho completo
+fish_style_pwd_dir_length = 1
+style = "bold blue"
+repo_root_style = "bold cyan"
+repo_root_format = "[$before_root_path]($before_repo_root_style)[$repo_root]($repo_root_style)[$path]($style)[$read_only]($read_only_style) "
+
+[git_branch]
+format = '[$symbol$branch(:$remote_branch)]($style)'
+style = "italic purple"
+
+[time]
+disabled = false
+format = "[$time]($style) "
+time_format = "%T"
+style = "dimmed white"
+
+[cmd_duration]
+min_time = 500
+format = "took [$duration]($style) "
+show_milliseconds = true
+
+[username]
+style_user = "white bold"
+style_root = "black bold"
+format = "[$user]($style) "
+disabled = true
+show_always = true
+
+[aws]
+symbol = " "
+format = '[$symbol($profile )(\($region\) )(\[$duration\] )]($style)'
+style = "bold yellow"
+
+[kubernetes]
+symbol = "󱃾 "
+enabled = true
+#format = "at [$symbol$context]($style) "
+format = '[$symbol$context( \($namespace\))]($style) in '
+style = "cyan bold"
+disabled = false
+
+[terraform]
+symbol = "󱁢 "
+format = "[$symbol$version]($style) "
+detect_extensions = ['tf', 'tfplan', 'tfstate', 'hcl', 'tfvars']
+
+[gcloud]
+symbol = " "
+format = '[$symbol$account(@$domain)(\($project\))]($style) '
+disabled = true
+
+# TODO
+[custom.taskwarrior]
+command = "task status:pending count" # Comando que retorna o número
+when = "type task" # Só executa se o taskwarrior estiver instalado
+shell = ["bash", "--noprofile", "--norc"]
+format = "tasks: [$output]($style) "
+style = "bold magenta"
