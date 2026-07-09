@@ -1,6 +1,0 @@
-#local do binario
-kubectl: kubectl
-
-# theme
-preset: protanopia-dark
-
