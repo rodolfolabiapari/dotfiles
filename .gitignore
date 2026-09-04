@@ -1,0 +1,18 @@
+# GNU Stow artifacts
+/.stow-global-ignore
+
+# Omarchy runtime state (machine-specific, regenerated on reboot/theme change)
+omarchy/.config/omarchy/branding/
+omarchy/.config/omarchy/themed/
+omarchy/.config/omarchy/shell.json.bak.*
+
+# Sample backup files from omarchy upgrades
+*.omarchy-upgrade-to-quattro.*.bak
+
+# Neovim runtime state
+nvim/.config/nvim/plugin/after/
+nvim/.config/nvim/.gitignore
+
+# OS generated files
+.DS_Store
+Thumbs.db
