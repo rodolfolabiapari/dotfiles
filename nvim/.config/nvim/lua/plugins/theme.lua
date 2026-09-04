@@ -1,1 +1,1 @@
-../../../../.local/state/omarchy/current/theme/neovim.lua
+/home/rodolfo/.local/state/omarchy/current/theme/neovim.lua
