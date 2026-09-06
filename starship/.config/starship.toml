@@ -16,8 +16,8 @@ symbol = "-"
 
 [directory]
 truncation_symbol = "…/"
-truncation_length = 5 # 0 mostra o caminho completo
-fish_style_pwd_dir_length = 1
+truncation_length = 8 # 0 mostra o caminho completo
+fish_style_pwd_dir_length = 3
 style = "bold blue"
 repo_root_style = "bold cyan"
 repo_root_format = "[$before_root_path]($before_repo_root_style)[$repo_root]($repo_root_style)[$path]($style)[$read_only]($read_only_style) "
