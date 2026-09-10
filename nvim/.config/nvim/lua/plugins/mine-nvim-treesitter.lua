@@ -5,8 +5,8 @@ return {
     opts = {
       ensure_installed = {
         "bash",
-        "beancount-language-server",
-        "beanhub-cli",
+        -- "beancount-language-server",
+        -- "beanhub-cli",
         "diff",
         "dockerfile",
         "gitcommit",

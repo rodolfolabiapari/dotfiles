@@ -1,0 +1,1 @@
+- aplicando format automaticamente no save do lua. Preciso remover isso e adiconar na doc como fazer manualmente.

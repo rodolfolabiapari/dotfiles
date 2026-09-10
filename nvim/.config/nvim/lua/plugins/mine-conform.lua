@@ -16,7 +16,7 @@ return {
         python = { "ruff_format", "ruff_organize_imports", "black" },
       },
       formatters = {
-        injected = { options = { ignore_erros = true } },
+        injected = { options = { ignore_errors = true } },
         shfmt = {
           prepend_args = { "-i", "2", "-ci", "-bn" },
         },

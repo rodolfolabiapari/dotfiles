@@ -1,6 +1,5 @@
 # Plano de Estudos: Neovim + LazyVim para SRE
 
-
 ## Como usar este plano
 
 Cada checkbox `- [ ]` vira `- [x]` quando concluído.
@@ -36,7 +35,7 @@ Os exercícios práticos são opcionais mas recomendados.
 
 ### Exercício prático
 
-```
+```text
 1. Abra o nvim:                 nvim
 2. Pressione <space> → veja o which-key
 3. Pressione <space>e → abra o neo-tree
@@ -380,7 +379,7 @@ q                          → para gravar
 Quando estiver confortável com as fases anteriores, instale:
 
 - [ ] **CodeCompanion.nvim** (`olimorris/codecompanion.nvim`) — prompts de IA no nvim
-- [ ] **render-markdown.nvim** (`MeanderingProgrammer/render-markdown.nvim`) — renderiza markdown inline
+- [x] **render-markdown.nvim** (`MeanderingProgrammer/render-markdown.nvim`) — renderiza markdown inline
 - [ ] **harpoon** (`ThePrimeagen/harpoon`) — marca arquivos para acesso rápido
 - [ ] **undotree** (`mbbill/undotree`) — visualizar histórico de mudanças
 
@@ -402,6 +401,8 @@ Quando estiver confortável com as fases anteriores, instale:
 | Git status | `<space>gs` |
 | Git diff | `<space>gd` |
 | Git blame | `<space>gb` |
+| Render Markdown | `<space>um` |
+| Toggle Spell | `<space>us` |
 | Which-key | `<space>` (espere) |
 
 ### Comandos úteis

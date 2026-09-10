@@ -15,11 +15,12 @@ return {
     ft = "markdown",
     event = { "VimEnter" },
     dependencies = { "nvim-lua/plenary.nvim" },
-    ---@module 'obsidian'
+    ---@module "obsidian"
     ---@type obsidian.config
     opts = function()
       local cfg = local_config()
       local obsidian_path = cfg.obsidian_work_path or (vim.fn.expand("~") .. "/Documents/obsidian/personal/")
+
       return {
         workspaces = {
           {
@@ -32,17 +33,14 @@ return {
           ignore_conceal_warn = true,
           enable = true,
         },
-        completion = {
-          blink = true,
-          min_chars = 0,
-        },
         daily_notes = {
-          folder = os.date("9dailies/%Y-%m"),
-          date_format = "%d-%m-%yyyy",
+          folder = os.date("9dailies/%Y/%m"),
+          -- date_format = "%d-%m-%yyyy",
+          date_format = "%Y-%m-%d",
           alias_format = "%B %-d %a, %Y",
           default_tags = { "daily" },
           templates = {
-            folder = "7templates",
+            folder = "templates",
             date_format = "%Y-%m-%d",
             time_format = "%H:%M",
             substitutions = {},
@@ -52,7 +50,7 @@ return {
         new_notes_location = "notes_subdir",
         notes_subdir = "0inbox",
         templates = {
-          folder = "7templates",
+          folder = "templates",
           date_format = "%Y%m%d%H%M%S",
           time_format = "%H:%M",
         },

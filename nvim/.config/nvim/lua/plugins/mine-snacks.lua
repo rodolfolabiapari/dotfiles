@@ -3,7 +3,7 @@ return {
     "folke/snacks.nvim",
     priority = 1000,
     lazy = false,
-    --@type snacks.Config
+    ---@type snacks.Config
     opts = {
       bigfile = { enabled = true },
       dashboard = { enabled = true },
@@ -29,7 +29,7 @@ return {
       },
       terminal = { enabled = true },
       toggle = { enabled = true },
-      workds = { enabled = true },
+      words = { enabled = true },
       zen = { enabled = true },
     },
     keys = {
@@ -38,7 +38,7 @@ return {
         function()
           Snacks.zen()
         end,
-        desc = "Toogle Zen Mode",
+        desc = "Toggle Zen Mode",
       },
       {
         "<leader>zm",
@@ -85,16 +85,16 @@ return {
       {
         "]]",
         function()
-          Snacks.words.jump(1, true)()
+          Snacks.words.jump(1, true)
         end,
         desc = "Next Reference",
       },
       {
         "[[",
         function()
-          Snacks.words.jump(-1, true)()
+          Snacks.words.jump(-1, true)
         end,
-        desc = "Prov Reference",
+        desc = "Prev Reference",
       },
     },
   },
