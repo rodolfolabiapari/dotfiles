@@ -1,3 +1,7 @@
+-- nvim-treesitter: parsing sintático avançado (coloração, folding, navegação
+-- estrutural, seleção de objetos). Cada parser instalado abaixo permite que o
+-- Treesitter entenda a linguagem e melhore destaque/smart seleção/textobjects.
+
 return {
   -- add more treesitter parsers
   {

@@ -1,3 +1,11 @@
+-- snacks.nvim: coleção de funcionalidades modulares do LazyVim:
+-- - dashboard (tela inicial), indent (guias), picker (busca tipo Telescope),
+-- - lazygit (<space>gg), notifier (notificações estilo VSCode),
+-- - zen/zoom (<space>zz / <space>zm), scratchpad (<space>zs),
+-- - statuscolumn (número+git na margem), rename (<space>cR),
+-- - words (]] / [[ para pular referências), terminal, toggle, etc.
+-- Scroll animations desligado (snacks-animated-scrolling-off.lua).
+
 return {
   {
     "folke/snacks.nvim",

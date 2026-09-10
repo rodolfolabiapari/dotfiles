@@ -1,15 +1,10 @@
--- Autocmds are automatically loaded on the VeryLazy event
--- Default autocmds that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/autocmds.lua
--- Default autocmds: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/autocmds.lua
---
--- Add any additional autocmds here
--- with `vim.api.nvim_create_autocmd`
---
--- Or remove existing autocmds by their group name (which is prefixed with `lazyvim_` for the defaults)
--- e.g. vim.api.nvim_del_augroup_by_name("lazyvim_wrap_spell")
+-- Eventos automáticos (autocmds) carregados no evento VeryLazy
+-- Remove o grupo padrão do LazyVim que liga spell+wrap pra markdown/gitcommit
+-- (substituímos abaixo só com spell, sem o wrap).
 
 vim.api.nvim_del_augroup_by_name("lazyvim_wrap_spell")
 
+-- Liga corretor ortográfico pt+en só em markdown e gitcommit
 vim.api.nvim_create_autocmd("FileType", {
   group = vim.api.nvim_create_augroup("mine_spell", { clear = true }),
   pattern = { "markdown", "gitcommit" },

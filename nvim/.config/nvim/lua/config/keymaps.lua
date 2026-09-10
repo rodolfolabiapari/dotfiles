@@ -1,10 +1,8 @@
--- Keymaps are automatically loaded on the VeryLazy event
--- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
--- Add any additional keymaps here
-
+-- Atalhos (keymaps) personalizados, sobrepostos/complementares aos do LazyVim.
+-- Grupo do leader: <space> + letra. Ex: <space>od abre a nota de hoje.
 local map = vim.keymap.set
 
--- Obsidian
+-- ===== Obsidian (gerenciar notas/vault)
 map("n", "<leader>o<CR>", "<cmd>Obsidian<CR>", { desc = "Obsidian Menu" })
 map("n", "<leader>oa", "<cmd>Obsidian dailies -30<CR>", { desc = "Obsidian Dailies" })
 map("n", "<leader>ob", "<cmd>Obsidian backlinks<CR>", { desc = "Obsidian Backlinks" })
@@ -20,12 +18,12 @@ map("n", "<leader>ow", "<cmd>Obsidian workspace<CR>", { desc = "Obsidian Workspa
 map("n", "<leader>ox", "<cmd>Obsidian template<CR>", { desc = "Obsidian Insert Template" })
 map("n", "<leader>oy", "<cmd>Obsidian yesterday<CR>", { desc = "Obsidian Yesterday" })
 
--- TreeSJ
+-- ===== TreeSJ (juntar/separar objetos JSON/YAML em uma linha)
 map("n", "<leader>jt", "<cmd>TSJToggle<CR>", { desc = "TreeSJ Toogle Join/Split" })
 map("n", "<leader>js", "<cmd>TSJSplit<CR>", { desc = "TreeSJ Split" })
 map("n", "<leader>jj", "<cmd>TSJJoin<CR>", { desc = "TreeSJ Join" })
 
--- Format (conform)
+-- ===== Formatação manual (conform) — o auto-format está desligado
 map({ "n", "v" }, "<leader>cf", function()
   require("conform").format({ async = true, lsp_fallback = true })
 end, { desc = "Format Buffer/Selection" })

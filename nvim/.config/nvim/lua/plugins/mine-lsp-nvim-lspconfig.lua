@@ -1,6 +1,15 @@
-return {
+-- nvim-lspconfig: configura os servidores de linguagem (LSP) que rodam no
+-- Neovim: autocomplete, diagnóstico, hover (K), go-to-definition (gd), rename.
+-- Cada servidor declarado aqui é instalado via Mason automaticamente.
+--
+-- Destaques:
+-- - jsonls + SchemaStore → schemas de JSON (incluindo K8s)
+-- - yamlls + SchemaStore → schemas de YAML (kind:, apiVersion: autocompletam)
+-- - marksman → LSP de markdown (links, headings)
+-- - terraformls + tflint → validação de Terraform/HCL
+-- - pyright → Python type checking
 
-  -- add pyright to lspconfig
+return {
   {
     "neovim/nvim-lspconfig",
     ---@class PluginLspOpts

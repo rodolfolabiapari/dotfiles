@@ -1,3 +1,6 @@
+-- gitsigns.nvim: mostra mudanças do git na gutter (margem esquerda)
+-- e permite stage/blame/navegação entre hunks (]c / [c).
+-- Personaliza os símbolos usados na gutter.
 return {
   -- https://github.com/lewis6991/gitsigns.nvim
   { -- Adds git related signs to the gutter, as well as utilities for managing changes

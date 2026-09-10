@@ -1,3 +1,7 @@
+-- vim-fugitive: interface git completa dentro do vim (status, diff, blame,
+-- log, commit, rebase) usando comandos G*.
+-- Mapeia <space>gs/gd/gb/gl/gca/grb.
+
 return {
   "tpope/vim-fugitive",
   cmd = { "G", "Git", "Gvdiff", "Gstatus", "Gblame", "Gcommit", "Gdiffsplit", "Gread" },

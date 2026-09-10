@@ -1,3 +1,5 @@
+-- Bootstrap lazy.nvim (plugin manager): clones itself if not present, then loads all plugin specs.
+-- LazyVim é importado primeiro, depois meus plugins em lua/plugins/.
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
   local lazyrepo = "https://github.com/folke/lazy.nvim.git"

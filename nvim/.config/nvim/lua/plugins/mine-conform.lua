@@ -1,4 +1,7 @@
--- Formata texto
+-- conform.nvim: formatador de código
+-- Associa extensões de arquivo a formatadores (stylua p/ lua, shfmt p/ bash,
+-- terraform_fmt p/ HCL, ruff/black p/ Python).
+-- <leader>cf formata manualmente — auto-format no save está desligado.
 
 return {
   {

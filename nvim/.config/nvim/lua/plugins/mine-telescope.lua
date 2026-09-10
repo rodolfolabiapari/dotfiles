@@ -1,3 +1,8 @@
+-- telescope.nvim: fuzzy finder (arquivos, grep, buffers, git...).
+-- ATENÇÃO: telescope está desabilitado aqui (enabled = false) porque o LazyVim
+-- usa Snacks.picker no lugar. O bloco abaixo serve apenas como referência de
+-- configuração caso reative o Telescope no futuro.
+
 return {
   -- change some telescope options and a keymap to browse plugin files
   {

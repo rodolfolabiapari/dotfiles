@@ -1,3 +1,9 @@
+-- obsidian.nvim: gerencia vaults do Obsidian dentro do Neovim: daily notes,
+-- links [[wiki]], busca de notas, templates, workspace sync.
+-- Lê a chave obsidian_work_path de lua/config/local.lua (não versionado)
+-- ou usa ~/Documents/obsidian/personal/ como fallback.
+
+-- Carrega configuração local (por máquina) se existir
 local function local_config()
   local ok, cfg = pcall(require, "config.local")
   if ok then

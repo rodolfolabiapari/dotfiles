@@ -1,3 +1,6 @@
+-- vim-tmux-navigator: navegar entre janelas do Neovim E painéis do tmux com
+-- as mesmas teclas (Ctrl+h/j/k/l). Sem precisar alternar entre os dois.
+
 return {
   -- https://github.com/christoomey/vim-tmux-navigator
   {
