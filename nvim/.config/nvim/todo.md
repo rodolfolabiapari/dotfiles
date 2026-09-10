@@ -1,1 +1,3 @@
 - aplicando format automaticamente no save do lua. Preciso remover isso e adiconar na doc como fazer manualmente.
+- estou do nvim e preciso fazer diff e rebase, entender as diferenças, aplicar o que eu quero (stage) e commitar
+- Prender sobre essas mensagens de erros e e avisos que aparecem nas linhas do markdown

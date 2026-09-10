@@ -21,7 +21,7 @@ map("n", "<leader>ox", "<cmd>Obsidian template<CR>", { desc = "Obsidian Insert T
 map("n", "<leader>oy", "<cmd>Obsidian yesterday<CR>", { desc = "Obsidian Yesterday" })
 
 -- TreeSJ
-map("n", "<leader>jt", "<cmd>TSJToogle<CR>", { desc = "TreeSJ Toogle Join/Split" })
+map("n", "<leader>jt", "<cmd>TSJToggle<CR>", { desc = "TreeSJ Toogle Join/Split" })
 map("n", "<leader>js", "<cmd>TSJSplit<CR>", { desc = "TreeSJ Split" })
 map("n", "<leader>jj", "<cmd>TSJJoin<CR>", { desc = "TreeSJ Join" })
 

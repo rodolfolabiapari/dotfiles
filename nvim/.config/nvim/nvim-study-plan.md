@@ -57,7 +57,7 @@ Os exercícios práticos são opcionais mas recomendados.
 #### 1A — Movimento básico
 
 | Tecla | Ação | Prática no YAML |
-|-------|------|-----------------|
+| ------- | ------ | ----------------- |
 | `h` `j` `k` `l` | esquerda, baixo, cima, direita | Navegue `kind: Deployment` |
 | `w` `W` | próxima palavra (espaço/palavra) | Pule entre campos |
 | `b` `B` | palavra anterior | Volte para `metadata:` |
@@ -76,7 +76,7 @@ Os exercícios práticos são opcionais mas recomendados.
 Text objects permitem operar sobre **palavras, aspas, parênteses, colchetes, chaves, tags**.
 
 | Objeto | O que seleciona | Exemplo YAML |
-|--------|----------------|--------------|
+| -------- | ---------------- | -------------- |
 | `iw` | palavra interna | `ciw` troca `name:` |
 | `iW` | palavra com espaço | `ciW` troca `"meu deployment"` |
 | `i"` | dentro de aspas duplas | `ci"` troca `name: "nginx"` → `ci"` + `"apache"` |
@@ -90,7 +90,7 @@ Text objects permitem operar sobre **palavras, aspas, parênteses, colchetes, ch
 #### 1C — Combinando text objects com ações
 
 | Comando | Ação | Uso no YAML |
-|---------|------|-------------|
+| --------- | ------ | ------------- |
 | `ci"` | Change Inside Quotes | Trocar `image: "nginx:1.25"` → `ci"` → `"nginx:1.26"` |
 | `da"` | Delete Around Quotes | Remover as aspas e o conteúdo |
 | `ci{` | Change Inside Braces | Trocar todo o bloco `{}` |
@@ -102,7 +102,7 @@ Text objects permitem operar sobre **palavras, aspas, parênteses, colchetes, ch
 #### 1D — Busca e replace
 
 | Comando | Ação |
-|---------|------|
+| --------- | ------ |
 | `/texto` | Buscar para frente |
 | `?texto` | Buscar para trás |
 | `n` | Próximo resultado |
@@ -115,7 +115,7 @@ Text objects permitem operar sobre **palavras, aspas, parênteses, colchetes, ch
 #### 1E — Repetição e macros
 
 | Comando | Ação |
-|---------|------|
+| --------- | ------ |
 | `.` | **Repetir última alteração** (mais útil do que parece!) |
 | `q{letra}` | Iniciar gravação de macro na letra |
 | `q` | Parar gravação |
@@ -145,7 +145,7 @@ Abra um arquivo YAML qualquer (deployment, service, configmap):
 ### Ferramentas disponíveis
 
 | Plugin | Para que serve |
-|--------|---------------|
+| -------- | --------------- |
 | **Gitsigns** (já instalado) | Sinais na gutter, blame inline, stage hunk |
 | **Fugitive** (instalado agora) | Status, diff, blame, rebase, commit — interface git completa |
 | **Telescope git** (já instalado) | Buscar commits, arquivos modificados |
@@ -153,7 +153,7 @@ Abra um arquivo YAML qualquer (deployment, service, configmap):
 ### 2A — Gitsigns (gutter e hunks)
 
 | Comando | Ação |
-|---------|------|
+| --------- | ------ |
 | `]c` | Próximo hunk (alteração) |
 | `[c` | Hunk anterior |
 | `<leader>hs` | Stage hunk (preparar para commit) |
@@ -165,7 +165,7 @@ Abra um arquivo YAML qualquer (deployment, service, configmap):
 ### 2B — Fugitive (git completo)
 
 | Atalho / Comando | Ação |
-|-----------------|------|
+| ----------------- | ------ |
 | `<leader>gs` | Git Status (tela tipo `git status`) |
 | `<leader>gd` | Git Diff vertical (vs staged/HEAD) |
 | `<leader>gb` | Git Blame |
@@ -176,7 +176,7 @@ Abra um arquivo YAML qualquer (deployment, service, configmap):
 **Na tela de Status do Fugitive (`<leader>gs`):**
 
 | Tecla | Ação |
-|-------|------|
+| ------- | ------ |
 | `s` | Stage arquivo/hunk |
 | `u` | Unstage |
 | `-` | Stage/reverse toggle |
@@ -201,7 +201,7 @@ Abra um arquivo YAML qualquer (deployment, service, configmap):
 ### 2C — Telescope git
 
 | Atalho | Ação |
-|--------|------|
+| -------- | ------ |
 | `<leader>gc` | Git Commits (buscar mensagens de commit) |
 | `<leader>gt` | Git Status (arquivos modificados) |
 | `<leader>gf` | Git Files (arquivos trackeados) |
@@ -238,7 +238,7 @@ Abra um arquivo YAML qualquer (deployment, service, configmap):
 ### 3A — LSP básico
 
 | Comando | Ação |
-|---------|------|
+| --------- | ------ |
 | `gd` | Go to Definition (vá para definição) |
 | `K` | Hover (documentação do campo) |
 | `<space>ca` | Code Actions (ações disponíveis) |
@@ -251,13 +251,14 @@ Abra um arquivo YAML qualquer (deployment, service, configmap):
 ### 3B — YAML + K8s
 
 **Autocomplete de schemas K8s** já está configurado:
+
 - `jsonls` + SchemaStore.org → autocomplete para `kind:`, `apiVersion:`, campos específicos
 - Digite `Deployment` → autocomplete sugere `apps/v1`
 
 ### 3C — Telescope search
 
 | Atalho | Ação | Uso |
-|--------|------|-----|
+| -------- | ------ | ----- |
 | `<space>ff` | Find files (nome do arquivo) | Buscar `deployment-prod.yaml` |
 | `<space>sg` | Grep (conteúdo) | Buscar `ClusterIssuer` no repo |
 | `<space>sw` | Search word sob cursor | Palavra atual em todos arquivos |
@@ -290,7 +291,7 @@ Abra um arquivo YAML qualquer (deployment, service, configmap):
 Já configurado — workspace em `~/Documents/obsidian/personal/`.
 
 | Comando | Ação |
-|---------|------|
+| --------- | ------ |
 | `:Obsidian today` | Criar/abrir daily note de hoje |
 | `[[link` | Autocomplete de links entre notas |
 | `:Obsidian search` | Buscar texto em todas as notas |
@@ -301,15 +302,15 @@ Já configurado — workspace em `~/Documents/obsidian/personal/`.
 ### Markdown editing
 
 | Técnica | Como fazer |
-|---------|------------|
-| Cabeçalhos | `:# ` ou `:## ` (snippets) |
+| --------- | ------------ |
+| Cabeçalhos | `:#` ou `:##` (snippets) |
 | Listas | `- item` + indent com `>>` |
 | Código inline | `` `code` `` |
 | Bloco de código | ```` ```yaml ```` |
 | Bold/ Italic | `**bold**`, `*italic*` |
 | Links | `[texto](url)` |
 | Imagens | `![alt](path)` |
-| Tabelas | `| col1 | col2 |` |
+| Tabelas | ` | col1 | col2 | ` |
 
 ### Exercício prático
 
@@ -327,6 +328,7 @@ Já configurado — workspace em `~/Documents/obsidian/personal/`.
    apiVersion: apps/v1
    kind: Deployment
    ```
+
 ```
 
 ---
@@ -338,17 +340,20 @@ Já configurado — workspace em `~/Documents/obsidian/personal/`.
 ### Macros
 
 ```
+
 1. qa — comece a gravar na tecla 'a'
 2. Execute ações (edições, navegação)
 3. q — pare de gravar
 4. @a — execute macro
 5. 5@a — execute 5 vezes
 6. @@ — repita última macro
+
 ```
 
 **Exemplo prático:** Adicionar `env:` em 10 containers de um YAML multi-deployment:
 
 ```
+
 qa                          → começa gravar
 /containers                 → busca containers
 j                          → desce uma linha
@@ -356,6 +361,7 @@ oenv:                      → nova linha com env:
 <Esc>                      → volta ao normal
 q                          → para gravar
 10@a                       → executa 10 vezes
+
 ```
 
 ### Snippets (friendly-snippets já incluso)
@@ -379,7 +385,7 @@ q                          → para gravar
 Quando estiver confortável com as fases anteriores, instale:
 
 - [ ] **CodeCompanion.nvim** (`olimorris/codecompanion.nvim`) — prompts de IA no nvim
-- [x] **render-markdown.nvim** (`MeanderingProgrammer/render-markdown.nvim`) — renderiza markdown inline
+- [X] **render-markdown.nvim** (`MeanderingProgrammer/render-markdown.nvim`) — renderiza markdown inline
 - [ ] **harpoon** (`ThePrimeagen/harpoon`) — marca arquivos para acesso rápido
 - [ ] **undotree** (`mbbill/undotree`) — visualizar histórico de mudanças
 
@@ -401,8 +407,8 @@ Quando estiver confortável com as fases anteriores, instale:
 | Git status | `<space>gs` |
 | Git diff | `<space>gd` |
 | Git blame | `<space>gb` |
-| Render Markdown | `<space>um` |
-| Toggle Spell | `<space>us` |
+| Render markdown | `<space>um` |
+| Toggle spell | `<space>us` |
 | Which-key | `<space>` (espere) |
 
 ### Comandos úteis
