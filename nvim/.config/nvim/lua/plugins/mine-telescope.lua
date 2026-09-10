@@ -2,6 +2,7 @@ return {
   -- change some telescope options and a keymap to browse plugin files
   {
     "nvim-telescope/telescope.nvim",
+    enabled = false,
     keys = {
       -- add a keymap to browse plugin files
       -- stylua: ignore
@@ -20,5 +21,13 @@ return {
         winblend = 0,
       },
     },
+  },
+  {
+    "nvim-telescope/telescope-fzf-native.nvim",
+    enabled = false,
+  },
+  {
+    "nvim-telescope/telescope-ui-select.nvim",
+    enabled = false,
   },
 }

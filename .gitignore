@@ -12,6 +12,7 @@ omarchy/.config/omarchy/shell.json.bak.*
 # Neovim runtime state
 nvim/.config/nvim/plugin/after/
 nvim/.config/nvim/.gitignore
+nvim/.config/nvim/lua/config/local.lua
 
 # OS generated files
 .DS_Store

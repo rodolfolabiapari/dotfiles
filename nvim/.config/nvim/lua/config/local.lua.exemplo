@@ -1,0 +1,7 @@
+-- Copie este arquivo para local.lua (não versionado) e ajuste por máquina:
+--   cp lua/config/local.lua.exemplo lua/config/local.lua
+
+return {
+  obsidian_work_path = vim.fn.expand("~") .. "/Documents/obsidian/personal/",
+  nvim_theme = "mocha",
+}
