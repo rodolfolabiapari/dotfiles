@@ -18,6 +18,10 @@ vim.opt.updatetime = 250
 vim.opt.timeoutlen = 300
 vim.opt.spelllang = { "pt", "en" }
 
+-- LazyVim formata no save via BufWritePre (grupo LazyFormat).
+-- Desliga o auto-format: formate manualmente com <leader>cf ou :LazyFormat.
+vim.g.autoformat = false
+
 vim.diagnostic.config({
   update_in_insert = false,
   severity_sort = true,

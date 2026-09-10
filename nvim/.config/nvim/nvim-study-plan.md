@@ -198,7 +198,29 @@ Abra um arquivo YAML qualquer (deployment, service, configmap):
 - `:G rebase -i HEAD~3` → abre lista de commits
 - `r` = reword, `e` = edit, `s` = squash, `d` = drop, `p` = pick
 
-### 2C — Telescope git
+### 2C — Fluxo completo: diff → stage → commit → rebase
+
+Dois caminhos: Fugitive (vim puro) ou **Lazygit** (`<leader>gg` — interface git visual, mais fácil para aprender).
+
+**Caminho rápido com Fugitive (`<leader>gs`):**
+
+1. `<leader>gs` → tela de status (aparece a lista de arquivos)
+2. `=` sobre um arquivo → vê o diff das mudanças
+3. `s` → stage (preparar) | `u` → unstage | `-` → alterna
+4. `cc` → escreve a mensagem e `:wq` → commit
+5. `:G rebase -i HEAD~N` → rebase interativo (r/e/s/d/p)
+
+**Diferenças entre as janelas de diff:**
+
+| Comando | O que compara |
+| -------- | ------ |
+| `<leader>gd` | Working tree vs HEAD (o que você mudou e não commitou) |
+| `=` no status | Suas mudanças ainda não staged (vs index) |
+| `D` no status | Diff do arquivo contra o HEAD |
+
+> **Gitsigns** mostra as alterações na linha na hora (gutter `+`/`~`); `]c`/`[c` navega entre trechos alterados. É o jeito mais rápido de "entender as diferenças" antes de stage.
+
+### 2D — Telescope git
 
 | Atalho | Ação |
 | -------- | ------ |
@@ -255,7 +277,26 @@ Abra um arquivo YAML qualquer (deployment, service, configmap):
 - `jsonls` + SchemaStore.org → autocomplete para `kind:`, `apiVersion:`, campos específicos
 - Digite `Deployment` → autocomplete sugere `apps/v1`
 
-### 3C — Telescope search
+### 3C — Formatação (o auto-format está DESLIGADO)
+
+O LazyVim formata no save por padrão, mas o auto-format foi desligado na config
+(`vim.g.autoformat = false`). Tudo é manual, quando você quiser:
+
+| Atalho | Ação |
+| -------- | ------ |
+| `<leader>cf` | Formatar buffer/linha atual (conform) |
+| `<space>cF` | Formatar languages injetadas (blocos de código) |
+| `:LazyFormat` | Formatar buffer manualmente |
+| `:LazyFormatInfo` | Ver quais formatadores estão ativos | 
+| `<leader>uf` | Toggle auto-format global (liga/desliga no save) |
+| `<leader>uF` | Toggle auto-format só para o buffer atual |
+
+Formatadores já configurados: `stylua` (lua), `shfmt` (bash/sh), `terraform_fmt` (hcl/terraform), `ruff`/`black` (python).
+
+> **Verificar estado:** `:LazyFormatInfo` mostra se o auto-format está `enabled`/`disabled`.
+> `vim.g.autoformat` (global) e `vim.b.autoformat` (buffer) controlam isso.
+
+### 3D — Telescope search
 
 | Atalho | Ação | Uso |
 | -------- | ------ | ----- |
@@ -299,7 +340,7 @@ Já configurado — workspace em `~/Documents/obsidian/personal/`.
 | `:Obsidian link` | Criar link para nota nova |
 | `:Obsidian template` | Inserir template |
 
-### Markdown editing
+### Markdown editing e diagnóstico
 
 | Técnica | Como fazer |
 | --------- | ------------ |
@@ -311,6 +352,16 @@ Já configurado — workspace em `~/Documents/obsidian/personal/`.
 | Links | `[texto](url)` |
 | Imagens | `![alt](path)` |
 | Tabelas | ` | col1 | col2 | ` |
+
+**O que são aqueles sinais/avisos no markdown?**
+
+São **3 coisas diferentes** que aparecem ao mesmo tempo:
+
+- **Spell check** (corretor ortográfico) — palavras erradas aparecem destacadas (sublinhado vermelho/ondulado). Navegue com `]s`/`[s`, veja sugestões com `z=`, adicione ao dicionário com `zg`, desfaça com `zug`. Idiomas configurados: `pt` e `en`.
+- **Diagnósticos do LSP (marksman)** — avisos/info do marksman (LSP de markdown), como links quebrados. Navegue com `]d`/`[d`, veja todos com `<space>le`, detalhes com `<space>cd` ou `K`. O **underline** agora é só a partir de `WARN` (configurado em options.lua).
+- **Caracteres invisíveis (`list`)** — `vim.opt.list = true` mostra `·` para espaços e `$` para fim de linha. Desligue com `:set nolist`.
+
+**Renderização inline (render-markdown.nvim):** o markdown aparece com negrito/itálico/cabeçalhos/etc visuais (não em raw). Veja o source real com `:set conceallevel=0` e volte com `:set conceallevel=2`. Toggle com `<space>um`.
 
 ### Exercício prático
 
@@ -385,7 +436,8 @@ q                          → para gravar
 Quando estiver confortável com as fases anteriores, instale:
 
 - [ ] **CodeCompanion.nvim** (`olimorris/codecompanion.nvim`) — prompts de IA no nvim
-- [X] **render-markdown.nvim** (`MeanderingProgrammer/render-markdown.nvim`) — renderiza markdown inline
+- [X] **render-markdown.nvim** (`MeanderingProgrammer/render-markdown.nvim`) — renderiza markdown inline (negrito/itálico/código visuais)
+- [X] **markdown-preview.nvim** (`iamcco/markdown-preview.nvim`) — abre o markdown **no navegador** com preview ao vivo
 - [ ] **harpoon** (`ThePrimeagen/harpoon`) — marca arquivos para acesso rápido
 - [ ] **undotree** (`mbbill/undotree`) — visualizar histórico de mudanças
 
@@ -407,8 +459,15 @@ Quando estiver confortável com as fases anteriores, instale:
 | Git status | `<space>gs` |
 | Git diff | `<space>gd` |
 | Git blame | `<space>gb` |
+| Lazygit | `<space>gg` |
 | Render markdown | `<space>um` |
 | Toggle spell | `<space>us` |
+| Format | `<leader>cf` |
+| Auto-format toggle | `<leader>uf` |
+| Zen Mode | `<space>zz` |
+| Zoom janela | `<space>zm` |
+| Scratchpad | `<space>zs` |
+| LazyFormatInfo | `:LazyFormatInfo` |
 | Which-key | `<space>` (espere) |
 
 ### Comandos úteis
