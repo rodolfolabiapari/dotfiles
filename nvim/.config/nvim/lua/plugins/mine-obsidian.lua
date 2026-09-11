@@ -39,35 +39,32 @@ return {
           ignore_conceal_warn = true,
           enable = true,
         },
-        daily_notes = {
-          folder = os.date("9dailies/%Y/%m"),
-          -- date_format = "%d-%m-%yyyy",
-          date_format = "%Y-%m-%d",
-          alias_format = "%B %-d %a, %Y",
-          default_tags = { "daily" },
-          templates = {
-            folder = "templates",
-            date_format = "%Y-%m-%d",
-            time_format = "%H:%M",
-            substitutions = {},
-          },
-        },
+
+        -- Nomes legíveis a partir do título (sem timestamp)
+        note_id_func = require("obsidian.builtin").title_id,
+
         -- Essas duas linhas devem andar juntas
         new_notes_location = "notes_subdir",
         notes_subdir = "0inbox",
-        templates = {
-          folder = "templates",
-          date_format = "%Y%m%d%H%M%S",
-          time_format = "%H:%M",
+
+        daily_notes = {
+          folder = "9dailies",
+          date_format = "%Y/%m/%Y-%m-%d",
+          alias_format = "%B %-d %a, %Y",
+          default_tags = { "daily-notes" },
+          template = "daily-template.md",
         },
-        -- GERADOR DE ID
-        note_id_func = function(title)
-          local suffix = ""
-          if title ~= nil then
-            suffix = title:gsub(" ", "-"):lower()
-          end
-          return os.date("%Y%m%d%H%M%S") .. "-" .. suffix
-        end,
+        templates = {
+          enabled = true,
+          folder = "templates",
+          date_format = "YYYY-MM-DD",
+          time_format = "HH:mm",
+        },
+
+        -- Evita :Obsidian unique_note riar arquivos com timestamp
+        unique_note = {
+          enabled = false,
+        }
       }
     end,
   },

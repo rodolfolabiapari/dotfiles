@@ -287,7 +287,7 @@ O LazyVim formata no save por padrão, mas o auto-format foi desligado na config
 | `<leader>cf` | Formatar buffer/linha atual (conform) |
 | `<space>cF` | Formatar languages injetadas (blocos de código) |
 | `:LazyFormat` | Formatar buffer manualmente |
-| `:LazyFormatInfo` | Ver quais formatadores estão ativos | 
+| `:LazyFormatInfo` | Ver quais formatadores estão ativos |
 | `<leader>uf` | Toggle auto-format global (liga/desliga no save) |
 | `<leader>uF` | Toggle auto-format só para o buffer atual |
 
@@ -363,25 +363,6 @@ São **3 coisas diferentes** que aparecem ao mesmo tempo:
 
 **Renderização inline (render-markdown.nvim):** o markdown aparece com negrito/itálico/cabeçalhos/etc visuais (não em raw). Veja o source real com `:set conceallevel=0` e volte com `:set conceallevel=2`. Toggle com `<space>um`.
 
-### Exercício prático
-
-```
-1. Crie um runbook:
-   :Obsidian today → abre daily note
-   Escreva título ## Runbook: Incidente X
-
-2. Use links:
-   [[k8s-commands]] → autocomplete
-   :Obsidian search "deployment" → busque em notas
-
-3. Formate markdown:
-   ```yaml
-   apiVersion: apps/v1
-   kind: Deployment
-   ```
-
-```
-
 ---
 
 ## Fase 5 — Macros, Snippets e Automação
@@ -418,7 +399,7 @@ q                          → para gravar
 ### Snippets (friendly-snippets já incluso)
 
 | Trigger (digitar + Tab) | Expande para |
-|-------------------------|-------------|
+| ------------------------- | ------------- |
 | `deploy` + Tab | Esqueleto de Deployment YAML |
 | `svc` + Tab | Esqueleto de Service |
 | `ing` + Tab | Esqueleto de Ingress |
@@ -448,7 +429,7 @@ Quando estiver confortável com as fases anteriores, instale:
 ### Atalhos essenciais
 
 | O quê | Atalho |
-|-------|--------|
+| ------- | -------- |
 | Salvar | `<space>w` |
 | Fechar | `<space>q` |
 | Fechar tudo | `<space>Q` |
@@ -473,7 +454,7 @@ Quando estiver confortável com as fases anteriores, instale:
 ### Comandos úteis
 
 | Comando | Ação |
-|---------|------|
+| --------- | ------ |
 | `:Lazy` | Gerenciador de plugins |
 | `:Lazy sync` | Atualizar plugins |
 | `:Mason` | Gerenciar LSPs (instalar/atualizar) |
@@ -484,7 +465,7 @@ Quando estiver confortável com as fases anteriores, instale:
 ### Modos do Vim
 
 | Modo | Entrar | Sair | Para que |
-|------|--------|------|----------|
+| ------ | -------- | ------ | ---------- |
 | Normal | `Esc` | — | Navegar, comandos |
 | Insert | `i` | `Esc` | Digitar texto |
 | Visual | `v` / `V` / `Ctrl+v` | `Esc` | Selecionar |
@@ -506,6 +487,7 @@ Quando estiver confortável com as fases anteriores, instale:
 ---
 
 > 📖 **Links úteis:**
+>
 > - [LazyVim Reference](https://lazyvim.github.io/installation)
 > - [Vim Cheatsheet](https://vim.rtorr.com/)
 > - [Learn Vim Progressively](https://yannesposito.com/Scratch/en/blog/Learn-Vim-Progressively/)

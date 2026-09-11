@@ -1,0 +1,8 @@
+# Config do markdownlint-cli2 (nvim-lint no extra lang.markdown do LazyVim)
+# MD013 = line-length (padrão é 80)
+
+config:
+  MD013:
+    line_length: 120
+    heading_line_length: 120
+    code_bloc_line_length: 120

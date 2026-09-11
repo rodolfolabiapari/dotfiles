@@ -8,17 +8,23 @@ return {
     "stevearc/conform.nvim",
     opts = {
       formatters_by_ft = {
-        bash = { "shfmt" },
-        sh = { "shfmt" },
-        zsh = { "shfmt" },
-        hcl = { "terraform_fmt" },
-        lua = { "stylua" },
-        terraform = { "terraform_fmt" },
         ["terraform-vars"] = { "terraform_fmt" },
-        python = { "ruff_format", "ruff_organize_imports", "black" },
+        bash = { "shfmt" },
+        hcl = { "terraform_fmt" },
+        json = { "prettier" },
+        lua = { "stylua" },
+        markdown = { "prettier", "markdownlint-cli2", "markdown-toc" },
+        python = { "ruff_format", "ruff_organize_imports" },
+        sh = { "shfmt" },
+        terraform = { "terraform_fmt" },
+        yaml = { "yamlfmt" },
+        zsh = { "shfmt" },
       },
       formatters = {
         injected = { options = { ignore_errors = true } },
+        prettier = {
+          prepend_args = { "--prose-wrap", "always", "--print-width", "120" },
+        },
         shfmt = {
           prepend_args = { "-i", "2", "-ci", "-bn" },
         },
