@@ -54,6 +54,7 @@ return {
           default_tags = { "daily-notes" },
           template = "daily-template.md",
         },
+
         templates = {
           enabled = true,
           folder = "templates",

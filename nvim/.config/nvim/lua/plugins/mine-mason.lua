@@ -1,7 +1,7 @@
 -- mason.nvim: gerenciador de instaladores externos (LSPs, linters,
 -- formatadores). A lista abaixo é instalada automaticamente na primeira vez
 -- que o Neovim inicia. Ferramentas SRE: ansible, helm, terraform, kube-linter,
--- yamllint, shellcheck, shfmt, markdownlint.
+-- yamllint, shellcheck, shfmt, markdownlint-cli2.
 
 return {
   {
