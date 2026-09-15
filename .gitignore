@@ -5,6 +5,7 @@
 omarchy/.config/omarchy/branding/
 omarchy/.config/omarchy/themed/
 omarchy/.config/omarchy/shell.json.bak.*
+omarchy/.config/omarchy/plugins/
 
 # Sample backup files from omarchy upgrades
 *.omarchy-upgrade-to-quattro.*.bak
@@ -13,6 +14,7 @@ omarchy/.config/omarchy/shell.json.bak.*
 nvim/.config/nvim/plugin/after/
 nvim/.config/nvim/.gitignore
 nvim/.config/nvim/lua/config/local.lua
+
 
 # OS generated files
 .DS_Store
