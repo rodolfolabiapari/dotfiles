@@ -1,6 +1,6 @@
 -- conform.nvim: formatador de código
 -- Associa extensões de arquivo a formatadores (stylua p/ lua, shfmt p/ bash,
--- terraform_fmt p/ HCL, ruff p/ Python, yamlfmt p/ YML)
+-- terraform_fmt p/ HCL, ruff p/ Python, yamlfmt p/ YAML).
 -- <leader>cf formata manualmente — auto-format no save está desligado.
 
 return {

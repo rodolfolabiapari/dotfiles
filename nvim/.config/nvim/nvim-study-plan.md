@@ -371,21 +371,18 @@ São **3 coisas diferentes** que aparecem ao mesmo tempo:
 
 ### Macros
 
-```
-
+```text
 1. qa — comece a gravar na tecla 'a'
 2. Execute ações (edições, navegação)
 3. q — pare de gravar
 4. @a — execute macro
 5. 5@a — execute 5 vezes
 6. @@ — repita última macro
-
 ```
 
 **Exemplo prático:** Adicionar `env:` em 10 containers de um YAML multi-deployment:
 
 ```
-
 qa                          → começa gravar
 /containers                 → busca containers
 j                          → desce uma linha
@@ -393,7 +390,6 @@ oenv:                      → nova linha com env:
 <Esc>                      → volta ao normal
 q                          → para gravar
 10@a                       → executa 10 vezes
-
 ```
 
 ### Snippets (friendly-snippets já incluso)

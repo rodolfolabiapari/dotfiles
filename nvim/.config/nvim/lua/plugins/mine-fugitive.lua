@@ -12,5 +12,10 @@ return {
     { "<leader>gl", "<cmd>Git log<cr>", desc = "Git Log" },
     { "<leader>gca", "<cmd>Git commit --all<cr>", desc = "Git Commit All" },
     { "<leader>grb", "<cmd>Git rebase -i<cr>", desc = "Git Rebase Interactive" },
+
+    -- Criar um atalho para o :GBrowse
+    -- que nao funciona com o ssh, pelo jeito
+
+    -- Criar uma funcao para gmr: -o merge_request.create -o merge_request.title...
   },
 }
