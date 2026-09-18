@@ -382,7 +382,7 @@ São **3 coisas diferentes** que aparecem ao mesmo tempo:
 
 **Exemplo prático:** Adicionar `env:` em 10 containers de um YAML multi-deployment:
 
-```
+```text
 qa                          → começa gravar
 /containers                 → busca containers
 j                          → desce uma linha

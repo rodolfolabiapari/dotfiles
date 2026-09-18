@@ -49,7 +49,7 @@ return {
 
         daily_notes = {
           folder = "9dailies",
-          date_format = "%Y/%m/%Y-%m-%d",
+          date_format = "%Y/%m/%Y-%m-%d-%a",
           alias_format = "%B %-d %a, %Y",
           default_tags = { "daily-notes" },
           template = "daily-template.md",
@@ -58,7 +58,7 @@ return {
         templates = {
           enabled = true,
           folder = "templates",
-          date_format = "YYYY-MM-DD",
+          date_format = "YYYY-MM-DD-ddd",
           time_format = "HH:mm",
         },
 
