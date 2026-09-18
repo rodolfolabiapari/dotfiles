@@ -5,7 +5,7 @@ local map = vim.keymap.set
 -- ===== Obsidian - navegacao e comandos do vault
 -- Plugin: obisidian.nvim. Vault em config/local.lua -> obsidian_work_path.
 map("n", "<leader>o<CR>", "<cmd>Obsidian<CR>", { desc = "Menu" })
-map("n", "<leader>oa", "<cmd>Obsidian dailies -30<CR>", { desc = "Dailies" })
+map("n", "<leader>oa", "<cmd>Obsidian dailies -30<CR>", { desc = "Dailies" }) -- pricker: últimos 30 dias
 map("n", "<leader>ob", "<cmd>Obsidian backlinks<CR>", { desc = "Backlinks" })
 map("n", "<leader>oc", "<cmd>Obsidian toc<CR>", { desc = "Table of Contents" })
 map("n", "<leader>od", "<cmd>Obsidian today<CR>", { desc = "Today's Note" })
@@ -18,6 +18,7 @@ map("n", "<leader>ot", "<cmd>Obsidian template<CR>", { desc = "Template" })
 map("n", "<leader>ow", "<cmd>Obsidian workspace<CR>", { desc = "Workspace" })
 map("n", "<leader>ox", "<cmd>Obsidian template<CR>", { desc = "Insert Template" })
 map("n", "<leader>oy", "<cmd>Obsidian yesterday<CR>", { desc = "Yesterday" })
+map("n", "<leader>om", "<cmd>Obsidian tomorrow<CR>", { desc = "Tomorrow" })
 
 -- ==== Obsidian - inserir data/hora no cursor
 -- Só atua em buffers markdown. Formato YYYY-MM-DD-dia
@@ -34,41 +35,41 @@ local function is_markdown()
 end
 
 -- <space>oi - insere data YYYY-MM-DD-dia
-map({ "n", "i" }, "<leader>oi", function ()
+map({ "n", "i" }, "<leader>oi", function()
   if not is_markdown() then
     return
   end
   insert_at_cursor(os.date("%Y-%m-%d-%a"))
-end, { desc = "Insert Date"})
+end, { desc = "Insert Date" })
 
 -- <space>ol - insere wiki-link da data [[YYYY-MM-DD-dia]]
-map({ "n", "i" }, "<leader>ol", function ()
+map({ "n", "i" }, "<leader>ol", function()
   if not is_markdown() then
     return
   end
   insert_at_cursor("[[" .. os.date("%Y-%m-%d-%a") .. "]]")
-end, { desc = "Insert Daily Link"})
+end, { desc = "Insert Daily Link" })
 
 -- <space>oh - insere hora
-map({ "n", "i" }, "<leader>oh", function ()
+map({ "n", "i" }, "<leader>oh", function()
   if not is_markdown() then
     return
   end
   insert_at_cursor(os.date("%H:%M"))
-end, { desc = "Insert Time"})
+end, { desc = "Insert Time" })
 
 -- Ctrl+d (insert mode) - atalho rápido para data
-map("i", "<C-d>", function ()
+map("i", "<C-d>", function()
   if not is_markdown() then
     return
   end
   insert_at_cursor(os.date("%Y-%m-%d-%a"))
-end, { desc = "Insert Date"})
+end, { desc = "Insert Date" })
 
 -- ===== TreeSJ (juntar/separar objetos JSON/YAML em uma linha)
 map("n", "<leader>jt", "<cmd>TSJToggle<CR>", { desc = "TreeSJ Toggle Join/Split" })
-map("n", "<leader>js", "<cmd>TSJSplit<CR>", { desc = "TreeSJ Split" })
-map("n", "<leader>jj", "<cmd>TSJJoin<CR>", { desc = "TreeSJ Join" })
+map("n", "<leader>js", "<cmd>TSJSplit<CR>", { desc = "TreeSJ Split" }) -- multilinha
+map("n", "<leader>jj", "<cmd>TSJJoin<CR>", { desc = "TreeSJ Join" }) -- umalinha
 
 -- ===== Formatação manual (conform) — o auto-format está desligado
 -- Auto-format no save está desligado

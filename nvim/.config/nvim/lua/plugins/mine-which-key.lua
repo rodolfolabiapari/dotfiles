@@ -5,7 +5,7 @@
 
 local diff_spec = {
   {
-    cond = function ()
+    cond = function()
       return vim.wo.diff
     end,
     mode = "n",
@@ -18,7 +18,7 @@ local diff_spec = {
     { "]c", desc = "Next change" },
     { "[C", desc = "Previous change (no wrap)" },
     { "]C", desc = "Next change (no wrap)" },
-    { "[h", desc = "Previos change (LazyVim / gitsigns)" },
+    { "[h", desc = "Previous change (LazyVim / gitsigns)" },
     { "]h", desc = "Next change (LazyVim / gitsigns)" },
   },
 }
@@ -35,10 +35,10 @@ return {
     opts = {
       spec = diff_spec,
     },
-    init = function ()
+    init = function()
       vim.api.nvim_create_autocmd({ "OptionSet", "WinEnter" }, {
         group = vim.api.nvim_create_augroup("mine_which_key_diff", { clear = true }),
-        callback = function ()
+        callback = function()
           if not vim.wo.diff then
             return
           end
