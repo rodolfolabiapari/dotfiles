@@ -1,0 +1,20 @@
+#!/bin/bash
+set -e
+
+WHISPER_DIR="$HOME/Work/tries/2026-09-18-arch-mixrecorder/whisper.cpp"
+MODEL="$HOME/.local/share/whisper-models/ggml-medium-q5_0.bin"
+GPU_DEVICE=1
+LANG="pt"
+
+if [ -z "$1" ]; then
+    echo "Uso: transcrever <arquivo-de-audio>"
+    exit 1
+fi
+
+"$WHISPER_DIR/build/bin/whisper-cli" \
+    -m "$MODEL" \
+    -f "$1" \
+    -l "$LANG" \
+    --device $GPU_DEVICE \
+    -otxt \
+    -of "${1%.*}"

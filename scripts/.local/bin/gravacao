@@ -1,0 +1,23 @@
+#!/bin/bash
+set -e
+mkdir -p ~/reunioes
+
+P2="alsa_output.pci-0000_00_1f.3.analog-stereo"
+MIC="alsa_input.usb-Samsung_Samsung_USB_C_Earphones_20160406.1-00.analog-stereo"
+
+pactl unload-module module-loopback 2>/dev/null || true
+pactl unload-module module-null-sink 2>/dev/null || true
+
+pactl load-module module-null-sink sink_name=mixrecorder media.class=Audio/Sink channel_map=stereo
+
+pactl load-module module-loopback \
+    source="$P2.monitor" sink=mixrecorder \
+    latency_msec=20 source_dont_move=true sink_dont_move=true
+
+pactl load-module module-loopback \
+    source="$MIC" sink=mixrecorder \
+    latency_msec=20 source_dont_move=true sink_dont_move=true
+
+ARQ=~/reunioes/$(date +%F-%H%M).wav
+echo "Gravando em $ARQ  (Ctrl+C para parar)"
+parec --device=mixrecorder.monitor --file-format=wav "$ARQ"
