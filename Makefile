@@ -8,7 +8,7 @@ help:
 
 ## stow: Stow all packages (create symlinks from ~ to ~/.dotfiles)
 stow:
-	@for pkg in bash zsh scripts starship tmux git nvim alacritty foot kitty ghostty omarchy btop; do \
+	@for pkg in bash zsh scripts starship tmux git nvim alacritty foot kitty ghostty omarchy btop hypr flameshot bat mise; do \
 		if [ -d "$(DOTFILES)/$$pkg" ]; then \
 			stow -d $(DOTFILES) -R $$pkg && echo "  ✓ $$pkg"; \
 		fi; \
@@ -16,7 +16,7 @@ stow:
 
 ## unstow: Remove all symlinks (unstow everything)
 unstow:
-	@for pkg in bash zsh scripts starship tmux git nvim alacritty foot kitty ghostty omarchy btop; do \
+	@for pkg in bash zsh scripts starship tmux git nvim alacritty foot kitty ghostty omarchy btop hypr flameshot bat mise; do \
 		if [ -d "$(DOTFILES)/$$pkg" ]; then \
 			stow -d $(DOTFILES) -D $$pkg && echo "  ✓ unstowed $$pkg"; \
 		fi; \

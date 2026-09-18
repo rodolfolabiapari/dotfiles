@@ -1,0 +1,4 @@
+[tools]
+codex = "latest"
+node = "25.8.0"
+opencode = "latest"
