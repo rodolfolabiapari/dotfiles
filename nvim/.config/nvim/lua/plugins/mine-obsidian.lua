@@ -45,21 +45,21 @@ return {
 
         -- Essas duas linhas devem andar juntas
         new_notes_location = "notes_subdir",
-        notes_subdir = "0inbox",
+        notes_subdir = "References",
 
         daily_notes = {
-          folder = "9dailies",
-          date_format = "%Y/%m/%Y-%m-%d-%a",
-          alias_format = "%B %-d %a, %Y",
-          default_tags = { "daily-notes" },
-          template = "daily-template.md",
+          folder = "Journal/Daily",
+          date_format = "YYYY/MM/YYYY-MM-DD-ddd",
+          alias_format = nil,
+          default_tags = {},
+          template = "System/Daily-Note-Template.md",
         },
 
         templates = {
           enabled = true,
-          folder = "templates",
+          folder = "System/Templates",
           date_format = "YYYY-MM-DD-ddd",
-          time_format = "HH:mm",
+          time_format = "HH:mm:ss",
         },
 
         -- Evita :Obsidian unique_note riar arquivos com timestamp
