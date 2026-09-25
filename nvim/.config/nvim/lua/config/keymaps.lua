@@ -5,7 +5,7 @@ local map = vim.keymap.set
 -- ===== Obsidian - navegacao e comandos do vault
 -- Plugin: obisidian.nvim. Vault em config/local.lua -> obsidian_work_path.
 map("n", "<leader>o<CR>", "<cmd>Obsidian<CR>", { desc = "Menu" })
-map("n", "<leader>oa", "<cmd>Obsidian dailies -30<CR>", { desc = "Dailies" }) -- pricker: últimos 30 dias
+map("n", "<leader>oa", "<cmd>Obsidian dailies -30<CR>", { desc = "Dailies" }) -- picker: últimos 30 dias
 map("n", "<leader>ob", "<cmd>Obsidian backlinks<CR>", { desc = "Backlinks" })
 map("n", "<leader>oc", "<cmd>Obsidian toc<CR>", { desc = "Table of Contents" })
 map("n", "<leader>od", "<cmd>Obsidian today<CR>", { desc = "Today's Note" })
@@ -69,7 +69,7 @@ end, { desc = "Insert Date" })
 -- ===== TreeSJ (juntar/separar objetos JSON/YAML em uma linha)
 map("n", "<leader>jt", "<cmd>TSJToggle<CR>", { desc = "TreeSJ Toggle Join/Split" })
 map("n", "<leader>js", "<cmd>TSJSplit<CR>", { desc = "TreeSJ Split" }) -- multilinha
-map("n", "<leader>jj", "<cmd>TSJJoin<CR>", { desc = "TreeSJ Join" }) -- umalinha
+map("n", "<leader>jj", "<cmd>TSJJoin<CR>", { desc = "TreeSJ Join" }) -- uma linha
 
 -- ===== Formatação manual (conform) — o auto-format está desligado
 -- Auto-format no save está desligado

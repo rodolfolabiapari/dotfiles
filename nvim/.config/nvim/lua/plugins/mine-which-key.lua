@@ -1,8 +1,22 @@
 -- Grupo which-key personalizados
 
+-- mini.surround - prefixo gs (sem <space>)
+local surround_spec = {
+  {
+    mode = { "n", "x" },
+    { "gs", group = "Surround" },
+    { "gsa", desc = "Adicionar par (` \" ( [ {)" },
+    { "gsd", desc = "Remove par ao redor do cursor" },
+    { "gsr", desc = "Troca par (gsr + antigo + novo, ex.: gsr\"')" },
+    { "gsf", desc = "Ir para o próximo par" },
+    { "gsF", desc = "Ir para o par anterior" },
+    { "gsh", desc = "Destacar par ao redor do cursor" },
+    { "gsn", desc = "Ajustar quantas linhas o Surround busca" },
+  },
+}
+
 -- Para modo diff
 -- do/dp são mapeamentos nativos no Vim; aqui só adicionamos descrições no popoup
-
 local diff_spec = {
   {
     cond = function()
@@ -33,7 +47,7 @@ return {
     optional = true,
     opts_extend = { "spec" },
     opts = {
-      spec = diff_spec,
+      spec = vim.list_extend(vim.deepcopy(surround_spec), diff_spec),
     },
     init = function()
       vim.api.nvim_create_autocmd({ "OptionSet", "WinEnter" }, {
@@ -46,5 +60,5 @@ return {
         end,
       })
     end,
-  }
+  },
 }
