@@ -1,10 +1,8 @@
 require("config.remote_clipboard").setup()
 
--- Sincroniza yank/paste com o clipboard do sistema (pbcopy no macOS).
--- LazyVim desliga em SSH; fora de SSH, unnamedplus cobre registros + e *.
-if not vim.env.SSH_CONNECTION then
-  vim.opt.clipboard = "unnamedplus"
-end
+-- Clipboard fica 100% a cargo do remote_clipboard.setup() acima: ele detecta
+-- o SO (macOS/Windows -> pbcopy, Linux Wayland -> wl-copy, Linux X11 -> xclip/xsel)
+-- e emite OSC 52 em tmux/SSH/herdr. Não sobrescrever vim.opt.clipboard aqui.
 
 -- Opções globais do vim (carregadas antes do lazy.nvim iniciar).
 -- As opções padrão do LazyVim estão em: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
