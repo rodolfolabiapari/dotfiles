@@ -30,3 +30,4 @@ alias vm=nvim
 alias watch='viddy --exec '
 alias vm='mv'
 alias quit=exit
+alias nvim_unmerged='nvim $(git diff --name-only --diff-filter=U)'
