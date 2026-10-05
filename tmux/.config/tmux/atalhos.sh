@@ -81,6 +81,11 @@ cat > "$HELP_FILE" <<'EOF'
 [copia]      w / b                  palavra adiante / atrás
 [copia]      Ctrl+u / Ctrl+d        meia página acima / abaixo
 [copia]      q / Escape             sair do modo de cópia
+
+[feedback]   qualquer ação acima    mostra confirmação na barra (1500ms)
+[feedback]   criar/fechar janela    "Janela criada / fechada"
+[feedback]   criar/fechar sessão    "Sessão criada / fechada"
+[feedback]   redimensionar painel   "Painel redimensionado"
 EOF
 
 if command -v gum >/dev/null 2>&1; then

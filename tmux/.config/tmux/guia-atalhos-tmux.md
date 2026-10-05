@@ -83,6 +83,26 @@ Janelas temporárias que abrem em overlay na tela:
 
 ---
 
+## ✅ Mensagens de Confirmação
+
+Diversas ações mostram uma confirmação na barra de status (visível por `1500ms`), para fácil validação:
+
+| Ação                        | Mensagem                    |
+| :-------------------------- | :-------------------------- |
+| Recarregar config (`q`)     | _Configurações recarregadas_ |
+| Dividir painel              | _Painel dividido_           |
+| Fechar painel               | _Painel fechado_            |
+| Criar / fechar janela       | _Janela criada / fechada_   |
+| Criar / fechar sessão       | _Sessão criada / fechada_   |
+| Renomear janela / sessão    | _Janela / Sessão renomeada_ |
+| Reordenar janela            | _Janela reordenada_         |
+| Juntar/mover painel         | _Painel movido_             |
+| Redimensionar painel        | _Painel redimensionado_     |
+
+Os textos ficam centralizados no `tmux.conf` nas variáveis `@msg_*` (seção "Mensagens de confirmação").
+
+---
+
 ## 📋 Modo de Cópia (Estilo Vim)
 
 Pressione `Prefixo` + `[` para entrar no modo de cópia/scroll.
