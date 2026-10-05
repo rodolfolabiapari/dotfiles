@@ -79,6 +79,7 @@ Janelas temporárias que abrem em overlay na tela:
 - `Prefixo` + `Ctrl + b` ➔ Edita o arquivo `~/.bashrc` via Neovim.
 - `Prefixo` + `Ctrl + t` ➔ Abre um terminal Bash temporário em popup.
 - `Prefixo` + `Ctrl + o` ➔ Abre suas notas do Obsidian (`README.md`).
+- `Prefixo` + `Ctrl + g` ➔ Abre o popup de atalhos (busca interativa com `gum`).
 
 ---
 
