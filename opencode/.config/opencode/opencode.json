@@ -1,0 +1,38 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "model": "deepseek/deepseek-v4-pro:floor",
+  "small_model": "deepseek/deepseek-v4-flash:floor",
+  "model_routing": {
+    "code_generation": "deepseek/deepseek-v4-pro:floor",
+    "code_review": "deepseek/deepseek-v4-pro:floor",
+    "quick_edits": "deepseek/deepseek-v4-flash:floor",
+    "analysis": "deepseek/deepseek-v4-pro:floor",
+    "chat": "deepseek/deepseek-v4-flash:floor"
+  },
+  "permission": {
+    "external_directory": {
+      "/home/rodolfo/Documents/obsidian/personal/**": "allow",
+      "/home/rodolfo/Documents/obsidian/personal/private/**": "deny"
+    },
+    "read": {
+      "*": "allow",
+      "/home/rodolfo/Documents/obsidian/personal/private/**": "deny"
+    },
+    "edit": {
+      "*": "allow",
+      "/home/rodolfo/Documents/obsidian/personal/private/**": "deny"
+    },
+    "glob": {
+      "*": "allow",
+      "/home/rodolfo/Documents/obsidian/personal/private/**": "deny"
+    },
+    "grep": {
+      "*": "allow",
+      "/home/rodolfo/Documents/obsidian/personal/private/**": "deny"
+    },
+    "bash": {
+      "*": "ask",
+      "*private*": "deny"
+    }
+  }
+}
