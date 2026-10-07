@@ -1,5 +1,3 @@
 #!/usr/bin/env bash
-
-set -eou pipefail
-
+set -euo pipefail
 pgrep -l caffeinate || echo "caffeinate não está rodando."

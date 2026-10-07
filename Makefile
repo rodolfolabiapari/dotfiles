@@ -23,12 +23,12 @@ endif
 
 ## ── Dry-run support ──────────────────────────────────────────────────────────
 ifdef DRYRUN
-STOW_PREFIX = @echo "[DRYRUN] stow -d $(DOTFILES)"
+STOW_FLAGS := -n
 else
-STOW_PREFIX = @stow -d $(DOTFILES)
+STOW_FLAGS :=
 endif
 
-.PHONY: help stow unstow rehome list export-lists
+.PHONY: help stow stow-dry unstow rehome list export-lists
 
 ## help: Show this help
 help:
@@ -38,15 +38,19 @@ help:
 stow:
 	@for pkg in $(STOW_TARGET); do \
 		if [ -d "$(DOTFILES)/$$pkg" ]; then \
-			$(STOW_PREFIX) -R $$pkg && echo "  ✓ $$pkg"; \
+		  stow -d $(DOTFILES) $(STOW_FLAGS) -R $$pkg && echo "  ✓ $$pkg"; \
 		fi; \
 	done
+
+## stow-dry: Simulate stow (same as make DRYRUN=1 stow)
+stow-dry:
+	@$(MAKE) DRYRUN=1 stow
 
 ## unstow: Remove all symlinks (unstow everything)
 unstow:
 	@for pkg in $(STOW_TARGET); do \
 		if [ -d "$(DOTFILES)/$$pkg" ]; then \
-			$(STOW_PREFIX) -D $$pkg && echo "  ✓ unstowed $$pkg"; \
+		  stow -d $(DOTFILES) $(STOW_FLAGS) -D $$pkg && echo "  ✓ unstowed $$pkg"; \
 		fi; \
 	done
 

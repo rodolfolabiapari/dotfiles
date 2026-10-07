@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
-
-set -eou pipefail
-
+set -euo pipefail
 # Descobre o caminho
 bin_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 # Executa o start
