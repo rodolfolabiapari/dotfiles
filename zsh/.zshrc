@@ -1,40 +1,35 @@
-# If not running interactively, do nt do anything. keep it on top
+# If not running interactively, don't do anything (leave this at the top)
 [[ $- != *i* ]] && return
 
 . "$HOME/.local/share/../bin/env"
 
-# Modular zsh config
-for i in "${HOME}/.zshrc.d"/[0-9][0-9]-*.zsh; do
+# Source shared shellrc (cross-shell, cross-platform config)
+for i in "${HOME}/.shellrc.d"/[0-9][0-9]-*.sh; do
   [[ -r "$i" ]] || continue
   case "${i:t}" in
-    90-load-p10k.zsh|90-post-sources.zsh)
-      continue
-      ;;
     *linux*)
-      [[ "$(uname -s)"  == Darwin ]] && continue
+      [[ "$(uname -s)" == Darwin ]] && continue
       ;;
   esac
   source "$i"
 done
 unset i
 
-[[ -t "${HOME}/.zshrc.d/99-local.zsh" ]] && source "${HOME}/.zshrc.d/99-local.zsh"
+# Source zsh-specific configs
+for i in "${HOME}/.zshrc.d"/[0-9][0-9]-*.zsh; do
+  [[ -r "$i" ]] || continue
+  source "$i"
+done
+unset i
 
+# Source local overrides if exist
+[[ -f "${HOME}/.zshrc.d/99-local.zsh" ]] && source "${HOME}/.zshrc.d/99-local.zsh"
+
+# Init tools (non-Omarchy fallback or double-check)
 cmd="zoxide"
 if command -v ${cmd} >/dev/null 2>&1; then
   eval "$(zoxide init zsh)"
 fi
-
-# se existe zsh syntax highlight, carrega
-#p=path to zsh sytax highlight
-#if [[ -r $p ]]; then
-#  source it
-#fi
-# se existe zsh catppuccin
-#p=path to zsh sytax highlight
-#if [[ -r $p ]]; then
-#  source it
-#fi
 
 cmd="starship"
 if command -v ${cmd} >/dev/null 2>&1; then

@@ -1,0 +1,4 @@
+# Copy to 99-local.sh and customize for machine-specific overrides
+
+# export X_TOKEN="..."
+# export SECRET_Y="..."

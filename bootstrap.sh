@@ -3,6 +3,8 @@ set -euo pipefail
 
 # bootstrap.sh — sets up a new machine with dotfiles and core dependencies.
 # Run from the dotfiles repo root:  ./bootstrap.sh
+#
+# Note: package lists below must match Makefile (STOW_CROSS etc.)
 
 DOTFILES="$(cd "$(dirname "$0")" && pwd)"
 OS="$(uname -s)"
@@ -104,24 +106,23 @@ fi
 echo
 info "Stowing dotfiles..."
 
-# Always-safe packages (no OS-specific configs)
-SAFE_PACKAGES=(bash zsh scripts starship tmux git nvim)
+# Package lists (keep in sync with Makefile)
+STOW_CROSS=(bash zsh shellrc.d scripts starship tmux git nvim bat mise opencode agents claude kitty)
+STOW_OMARCHY_ONLY=(omarchy hypr)
+STOW_OMARCHY_MACOS=(flameshot btop)
+STOW_MACOS_ONLY=(kitty-macos)
 
 case "$OS_FAMILY" in
   arch)
-    # On Arch/Omarchy, also stow terminal configs and omarchy
-    EXTRA_PACKAGES=(alacritty foot kitty ghostty omarchy btop)
+    ALL_PACKAGES=("${STOW_CROSS[@]}" "${STOW_OMARCHY_ONLY[@]}" "${STOW_OMARCHY_MACOS[@]}")
     ;;
   macos)
-    # On macOS, only alacritty + kitty (no foot/ghostty/omarchy)
-    EXTRA_PACKAGES=(alacritty kitty)
+    ALL_PACKAGES=("${STOW_CROSS[@]}" "${STOW_OMARCHY_MACOS[@]}" "${STOW_MACOS_ONLY[@]}")
     ;;
   *)
-    EXTRA_PACKAGES=()
+    ALL_PACKAGES=("${STOW_CROSS[@]}")
     ;;
 esac
-
-ALL_PACKAGES=("${SAFE_PACKAGES[@]}" "${EXTRA_PACKAGES[@]}")
 
 for pkg in "${ALL_PACKAGES[@]}"; do
   if [ -d "$DOTFILES/$pkg" ]; then

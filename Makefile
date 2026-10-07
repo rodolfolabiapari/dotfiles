@@ -1,6 +1,34 @@
 DOTFILES := $(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
 
-.PHONY: help stow unstow rehome list
+## ── Package groups (single source of truth) ──────────────────────────────────
+STOW_CROSS := bash zsh shellrc.d scripts starship tmux git nvim bat mise opencode agents claude kitty
+STOW_OMARCHY_ONLY  := omarchy hypr
+STOW_OMARCHY_MACOS := flameshot btop
+STOW_MACOS_ONLY    := kitty-macos
+
+## ── OS detection ──────────────────────────────────────────────────────────────
+OS_FAMILY := $(shell uname -s)
+
+ifeq ($(OS_FAMILY),Linux)
+  ifneq ($(shell test -f /etc/arch-release && echo arch),)
+    STOW_TARGET := $(STOW_CROSS) $(STOW_OMARCHY_ONLY) $(STOW_OMARCHY_MACOS)
+  else
+    STOW_TARGET := $(STOW_CROSS)
+  endif
+else ifeq ($(OS_FAMILY),Darwin)
+  STOW_TARGET := $(STOW_CROSS) $(STOW_OMARCHY_MACOS) $(STOW_MACOS_ONLY)
+else
+  STOW_TARGET := $(STOW_CROSS)
+endif
+
+## ── Dry-run support ──────────────────────────────────────────────────────────
+ifdef DRYRUN
+STOW_PREFIX = @echo "[DRYRUN] stow -d $(DOTFILES)"
+else
+STOW_PREFIX = @stow -d $(DOTFILES)
+endif
+
+.PHONY: help stow unstow rehome list export-lists
 
 ## help: Show this help
 help:
@@ -8,17 +36,17 @@ help:
 
 ## stow: Stow all packages (create symlinks from ~ to ~/.dotfiles)
 stow:
-	@for pkg in bash zsh scripts starship tmux git nvim alacritty foot kitty ghostty omarchy btop hypr flameshot bat mise opencode agents claude; do \
+	@for pkg in $(STOW_TARGET); do \
 		if [ -d "$(DOTFILES)/$$pkg" ]; then \
-			stow -d $(DOTFILES) -R $$pkg && echo "  ✓ $$pkg"; \
+			$(STOW_PREFIX) -R $$pkg && echo "  ✓ $$pkg"; \
 		fi; \
 	done
 
 ## unstow: Remove all symlinks (unstow everything)
 unstow:
-	@for pkg in bash zsh scripts starship tmux git nvim alacritty foot kitty ghostty omarchy btop hypr flameshot bat mise opencode agents claude; do \
+	@for pkg in $(STOW_TARGET); do \
 		if [ -d "$(DOTFILES)/$$pkg" ]; then \
-			stow -d $(DOTFILES) -D $$pkg && echo "  ✓ unstowed $$pkg"; \
+			$(STOW_PREFIX) -D $$pkg && echo "  ✓ unstowed $$pkg"; \
 		fi; \
 	done
 
@@ -29,3 +57,10 @@ rehome: unstow stow
 list:
 	@echo "Packages in $(DOTFILES):"
 	@ls -1d $(DOTFILES)/*/ | xargs -n1 basename
+
+## export-lists: Emit package lists for bootstrap.sh to consume
+export-lists:
+	@echo STOW_CROSS="$(STOW_CROSS)"
+	@echo STOW_OMARCHY_ONLY="$(STOW_OMARCHY_ONLY)"
+	@echo STOW_OMARCHY_MACOS="$(STOW_OMARCHY_MACOS)"
+	@echo STOW_MACOS_ONLY="$(STOW_MACOS_ONLY)"

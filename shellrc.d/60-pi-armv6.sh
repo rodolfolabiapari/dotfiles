@@ -1,0 +1,1 @@
+[[ "$(uname -m)" != armv6l ]] && return
