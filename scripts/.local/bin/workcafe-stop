@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+PID_FILE="${HOME}./cache/workcafe/workcafe.pid"
+
+kill "$(cat "${PID_FILE}" 2>/dev/null)" 2>/dev/null \
+  && rm -f "${PID_FILE}" \
+  && echo "workcafe encerrado."

@@ -1,0 +1,4 @@
+- adicionar dryrun
+- colocar a lista em um variável separada
+- adicionar supoerte omarchy e macos
+- verificar o tema no omarchy e aplicar dentro do meu stow pra nao conflitar ou faltar com outros sistemas nao-omarchy

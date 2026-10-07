@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+set -eou pipefail
+
+LOG_FILE="${HOME}./cache/workcafe/workcafe.log"
+exec tail -f "${LOG_FILE}"

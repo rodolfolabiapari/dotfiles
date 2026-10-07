@@ -1,15 +1,5 @@
 #!/usr/bin/env bash
 
-#Melhorias
-
-# - Habilitar para trabalhos a noite
-
-#workcafe-start: ./workcafe.sh
-#workcafe-stop: 'kill $(cat ~/.cache/workcafe/workcafe.pid) 2>/dev/null && rm -f ~/.cache/workcafe/workcafe.pid && echo "workacfe encerrado"'
-#workcafe-status: 'pgrep -l caffeinate || echo "caffeinate nao está rodando."'
-#workcaf-log: 'tail -f ~/.cache/workcafe/workcafe.log'
-# são todos alias
-
 END_TIME="18:01"
 PID_FILE="${HOME}/.cache/workcafe/workcafe.pid"
 LOG_FILE="${HOME}/.cache/workcafe/workcafe.log"
@@ -17,12 +7,12 @@ LOG_FILE="${HOME}/.cache/workcafe/workcafe.log"
 mkdir -p "$(dirname "${PID_FILE}")"
 
 # Evita duplicata
-if [[ -f "${PID_FILE" ]] && kill -0 "$(cat "${PID_FILE}")" 2>/dev/null; then
+if [[ -f "${PID_FILE}" ]] && kill -0 "$(cat "${PID_FILE}")" 2>/dev/null; then
   echo "workcafe já está rodando (PID $(cat "${PID_FILE}"))."
   exit 0
 fi
 
-# Calcula segundos restarntes até END_TIME
+# Calcula segundos restantes até END_TIME
 # Validar  se funciona em linux e macos
 end_epoch=$(date -j -f "%H:%M" "${END_TIME}" +%s 2>/dev/null)
 [[ -z "${end_epoch}" ]] && end_epoch=$(date -d "today ${END_TIME}" +%s)
@@ -31,7 +21,7 @@ now=$(date +%s)
 seconds_left=$(( end_epoch - now ))
 
 if (( seconds_left <= 0 )); then
-  echo "Já passou das ${END_TIME}. Nada a fazer"
+  echo "Já passou das ${END_TIME}. Nada a fazer."
   exit 0
 fi
 
@@ -47,4 +37,4 @@ nohup bash -c "
 
 # Aguarda o PID file ser escrrito pelo subshell
 sleep 0.5
-ecoh "Rodando em background (PID $(cat ${PID_FILE}")). Pode fechar o terminal."
+echo "Rodando em background (PID $(cat "${PID_FILE}")). Pode fechar o terminal."

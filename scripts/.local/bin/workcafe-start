@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+set -eou pipefail
+
+# Descobre o caminho
+bin_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+# Executa o start
+exec "${bin_dir}/workcafe.sh" "$@"

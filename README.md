@@ -85,3 +85,5 @@ cd ~/.dotfiles
 git pull
 make stow    # re-create or refresh symlinks
 ```
+
+deve ficar em `~/.dotfiles` para o `make stow` usar o `~` como destinkkkk

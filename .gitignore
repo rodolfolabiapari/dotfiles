@@ -16,6 +16,8 @@ nvim/.config/nvim/.gitignore
 nvim/.config/nvim/lua/config/local.lua
 nvim/.config/nvim/lazy-lock.json
 
+# Per machine secret (copy from 99-local.zsh)
+zsh/.zshrc.d/99-local.zsh
 
 # OS generated files
 .DS_Store
