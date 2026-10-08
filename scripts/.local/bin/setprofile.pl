@@ -1,18 +1,32 @@
 #!/usr/bin/env perl
 
-open( CF, '>', "$ENV{HOME}/.aws/credentials");
+use strict;
+use warnings;
 
-print CF <<EOF;
-[default]
-aws_session_token=$ENV{AWS_SESSION_TOKEN}
-aws_secret_access_key=$ENV{AWS_SECRET_ACCESS_KEY}
+die "Uso: $0 <arquivo-credenciais> <perfil>\n" unless @ARGV >= 2;
+
+my ( $cred_file, $profile ) = @ARGV[0, 1];
+
+for my $var (qw(AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY AWS_SESSION_TOKEN)) {
+  die "Variável ausente: $var\n"
+    unless defined $ENV{$var} && $ENV{$var} ne '';
+}
+
+my $expiration = $ENV{AWS_CREDENTIAL_EXPIRATION} // $ENV{AWS_SESSION_EXPIRATION} // '';
+
+open my $cf, '>', $cred_file
+  or die "Não foi possível escrever $cred_file: $!\n";
+
+print $cf <<"EOF";
+[$profile]
 aws_access_key_id=$ENV{AWS_ACCESS_KEY_ID}
+aws_secret_access_key=$ENV{AWS_SECRET_ACCESS_KEY}
+aws_session_token=$ENV{AWS_SESSION_TOKEN}
 EOF
 
-system "export AWS_SESSION_TOKEN=$ENV{AWS_SESSION_TOKEN}";
-system "export AWS_SECRET_ACCESS_KEY=$ENV{AWS_SECRET_ACCESS_KEY}";
-system "export AWS_ACCESS_KEY_ID=$ENV{AWS_ACCESS_KEY_ID}";
-system "export AWS_DEFAULT_REGION=$ENV{AWS_DEFAULT_REGION}";
-system "export AWS_REGION=$ENV{AWS_REGION}";
+if ( $expiration ne '' ) {
+  print $cf "expiration=$expiration\n";
+}
 
-system "aws configure set default.region $ENV{AWS_REGION}";
+close $cf;
+chmod 0600, $cred_file;

@@ -1,4 +1,6 @@
 DOTFILES := $(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
+HOME_DIR := $(HOME)
+STOW := stow --no-folding -d $(DOTFILES) -t $(HOME_DIR)
 
 ## ── Package groups (single source of truth) ──────────────────────────────────
 STOW_CROSS := bash zsh shellrc.d scripts starship tmux git nvim bat mise opencode agents claude kitty
@@ -38,7 +40,7 @@ help:
 stow:
 	@for pkg in $(STOW_TARGET); do \
 		if [ -d "$(DOTFILES)/$$pkg" ]; then \
-			stow --no-folding -d $(DOTFILES) $(STOW_FLAGS) -R $$pkg && echo "  ✓ $$pkg"; \
+			$(STOW) $(STOW_FLAGS) -R $$pkg && echo "  ✓ $$pkg"; \
 		fi; \
 	done
 
@@ -50,7 +52,7 @@ stow-dry:
 unstow:
 	@for pkg in $(STOW_TARGET); do \
 		if [ -d "$(DOTFILES)/$$pkg" ]; then \
-			stow --no-folding -d $(DOTFILES) $(STOW_FLAGS) -D $$pkg && echo "  ✓ unstowed $$pkg"; \
+			$(STOW) $(DOTFILES) $(STOW_FLAGS) -D $$pkg && echo "  ✓ unstowed $$pkg"; \
 		fi; \
 	done
 
