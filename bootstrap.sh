@@ -107,7 +107,7 @@ echo
 info "Stowing dotfiles..."
 
 # Package lists (keep in sync with Makefile)
-STOW_CROSS=(bash zsh shellrc.d scripts starship tmux git nvim bat mise opencode agents claude kitty)
+STOW_CROSS=(bash zsh shellrc.d scripts starship tmux git nvim bat mise opencode kitty)
 STOW_OMARCHY_ONLY=(omarchy hypr)
 STOW_OMARCHY_MACOS=(flameshot btop)
 STOW_MACOS_ONLY=(kitty-macos)
