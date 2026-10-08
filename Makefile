@@ -52,7 +52,7 @@ stow-dry:
 unstow:
 	@for pkg in $(STOW_TARGET); do \
 		if [ -d "$(DOTFILES)/$$pkg" ]; then \
-			$(STOW) $(DOTFILES) $(STOW_FLAGS) -D $$pkg && echo "  ✓ unstowed $$pkg"; \
+			$(STOW) $(STOW_FLAGS) -D $$pkg && echo "  ✓ unstowed $$pkg"; \
 		fi; \
 	done
 
