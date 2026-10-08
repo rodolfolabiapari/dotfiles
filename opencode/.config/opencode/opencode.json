@@ -11,24 +11,24 @@
   },
   "permission": {
     "external_directory": {
-      "/home/rodolfo/Documents/obsidian/personal/**": "allow",
-      "/home/rodolfo/Documents/obsidian/personal/private/**": "deny"
+      "$HOME/Documents/obsidian/personal/**": "allow",
+      "$HOME/Documents/obsidian/personal/private/**": "deny"
     },
     "read": {
       "*": "allow",
-      "/home/rodolfo/Documents/obsidian/personal/private/**": "deny"
+      "$HOME/Documents/obsidian/personal/private/**": "deny"
     },
     "edit": {
       "*": "allow",
-      "/home/rodolfo/Documents/obsidian/personal/private/**": "deny"
+      "$HOME/Documents/obsidian/personal/private/**": "deny"
     },
     "glob": {
       "*": "allow",
-      "/home/rodolfo/Documents/obsidian/personal/private/**": "deny"
+      "$HOME/Documents/obsidian/personal/private/**": "deny"
     },
     "grep": {
       "*": "allow",
-      "/home/rodolfo/Documents/obsidian/personal/private/**": "deny"
+      "$HOME/Documents/obsidian/personal/private/**": "deny"
     },
     "bash": {
       "*": "ask",

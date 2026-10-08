@@ -15,6 +15,10 @@ omarchy/.config/omarchy/plugins/
 # Sample backup files from omarchy upgrades
 *.omarchy-upgrade-to-quattro.*.bak
 
+# Python bytecode cache
+__pycache__/
+*.pyc
+
 # Neovim runtime state
 nvim/.config/nvim/plugin/after/
 nvim/.config/nvim/.gitignore

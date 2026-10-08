@@ -127,7 +127,7 @@ esac
 for pkg in "${ALL_PACKAGES[@]}"; do
   if [ -d "$DOTFILES/$pkg" ]; then
     need_cmd stow || exit 1
-    stow -d "$DOTFILES" -R "$pkg" 2>/dev/null && ok "stowed $pkg" || err "failed stowing $pkg"
+    stow --no-folding -d "$DOTFILES" -R "$pkg" 2>/dev/null && ok "stowed $pkg" || err "failed stowing $pkg"
   else
     info "skipping $pkg (not found in dotfiles)"
   fi

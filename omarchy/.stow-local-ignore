@@ -1,0 +1,5 @@
+# Omarchy-specific symlinks pointing to /usr/share/omarchy/
+# These cannot be stowed because they resolve outside the stow directory.
+# They are created by post-stow scripts instead.
+\.agents
+\.claude
