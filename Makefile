@@ -38,7 +38,7 @@ help:
 stow:
 	@for pkg in $(STOW_TARGET); do \
 		if [ -d "$(DOTFILES)/$$pkg" ]; then \
-		  stow -d $(DOTFILES) $(STOW_FLAGS) -R $$pkg && echo "  ✓ $$pkg"; \
+			stow -d $(DOTFILES) $(STOW_FLAGS) -R $$pkg && echo "  ✓ $$pkg"; \
 		fi; \
 	done
 
@@ -50,7 +50,7 @@ stow-dry:
 unstow:
 	@for pkg in $(STOW_TARGET); do \
 		if [ -d "$(DOTFILES)/$$pkg" ]; then \
-		  stow -d $(DOTFILES) $(STOW_FLAGS) -D $$pkg && echo "  ✓ unstowed $$pkg"; \
+			stow -d $(DOTFILES) $(STOW_FLAGS) -D $$pkg && echo "  ✓ unstowed $$pkg"; \
 		fi; \
 	done
 
