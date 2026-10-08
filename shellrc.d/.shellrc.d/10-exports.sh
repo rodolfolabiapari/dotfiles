@@ -19,17 +19,18 @@ export GPG_TTY=$TTY
 export KUBECOLOR_CONFIG="${HOME}/.config/kubecolor/kubecolor.yaml"
 
 if [[ "$(uname -s)" == Darwin && -x /opt/homebrew/opt/ruby/bin/ruby ]]; then
-  export PATH="/opt/homebrew/opt/ruby/bin/ruby/bin:$PATH"
+  export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
 fi
 
-export PATH="/opt/homebrew/opt/util-linux/bin:$PATH
-export PATH="/opt/homebrew/opt/util-linux/sbin:$PATH
+export PATH="/opt/homebrew/opt/util-linux/bin:$PATH"
+export PATH="/opt/homebrew/opt/util-linux/sbin:$PATH"
 export PATH=$PATH:$HOME/bin
 export PATH=$PATH:$HOME/bin/jmeter/bin
 export PATH=$PATH:$HOME/.gems/bin
 export PATH=$PATH:$HOME/homebrew/bin
 export PATH=$PATH:$HOME/.local/bin
 export PATH=$PATH:$HOME/.npm-global/bin
+export PATH=$PATH:$HOME/rlmg/bin
 export PATH=$PATH:$HOME/.tfenv/bin
 export PATH=$PATH:$HOME/.tmux/plugins/tmuxifier/bin
 export PATH=$PATH:/bin

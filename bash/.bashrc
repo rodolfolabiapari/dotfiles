@@ -26,3 +26,19 @@ unset i
 
 [[ -f /usr/share/git/completion/git-completion.bash ]] && source /usr/share/git/completion/git-completion.bash
 [[ -f /usr/share/bash-completion/bash_completion ]] && source /usr/share/bash-completion/bash_completion
+
+# Init tools
+cmd="zoxide"
+if command -v ${cmd} >/dev/null 2>&1; then
+  eval "$(zoxide init bash)"
+fi
+
+cmd="starship"
+if command -v ${cmd} >/dev/null 2>&1; then
+  eval "$(starship init bash)"
+fi
+
+cmd="mise"
+if command -v ${cmd} >/dev/null 2>&1; then
+  eval "$(mise activate bash)"
+fi

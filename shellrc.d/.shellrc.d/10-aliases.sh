@@ -1,3 +1,5 @@
+# Shared aliases (bash + zsh). Platform clipboard: see 50-macos.sh / 60-linux-desktop.sh
+
 alias less='bat --paging=always --style=-grid,+snip,-header'
 alias cat='bat --paging=never --style=-grid,+snip,-header'
 alias '...'="cd ../../"
@@ -23,7 +25,6 @@ alias vim=nvim
 alias vi=nvim
 alias vm=nvim
 alias watch='viddy --exec '
-alias vm='mv -v'
 alias quit=exit
 alias nvim_unmerged='nvim $(git diff --name-only --diff-filter=U)'
 
@@ -32,17 +33,17 @@ alias cd='z'
 alias cp='cp -v'
 alias mv='mv -v'
 alias mkdir='mkdir -pv'
-alias dls='cd "$HOME/Downloads'
-alias docs='cd "$HOME/Documents/'
-alias dt='cd "$HOME/Desktop'
+alias dls='cd "$HOME/Downloads"'
+alias docs='cd "$HOME/Documents"'
+alias dt='cd "$HOME/Desktop"'
 alias g="git "
 alias G="git "
 alias nowdate='date +"%Y-%m-%d"'
-alias now='date +"%Y-%m-%dT:%H:%M:%S"'
+alias now='date +"%Y-%m-%dT%H:%M:%S"'
 alias nowtime='date +"%T"'
 alias sz='source ~/.zshrc && echo "~/.zshrc reloaded."'
 alias tm=tmux
-alias timestamp='date -u %s'
+alias timestamp='date -u +%s'
 alias vimdiff="nvim -d "
 
 if command -v kubecolor >/dev/null 2>&1; then

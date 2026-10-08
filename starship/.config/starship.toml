@@ -109,7 +109,7 @@ command = "aws_remain"
 when = 'test -n "${AWS_CREDENTIAL_EXPIRATION:-}" || { test -n "${AWS_SHARED_CREDENTIALS_FILE:-}" && test -f "${AWS_SHARED_CREDENTIALS_FILE}"; }'
 format = "[$symbol $output]($style)"
 symbol = "o"
-stype = "bold bright-yellow"
+style = "bold bright-yellow"
 description = "AWS session time remaining (env or kwork credentials file)"
 
 [palettes.tokyo-night]
