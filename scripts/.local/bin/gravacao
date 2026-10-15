@@ -21,3 +21,5 @@ pactl load-module module-loopback \
 ARQ=~/reunioes/$(date +%F-%H%M).wav
 echo "Gravando em $ARQ  (Ctrl+C para parar)"
 parec --device=mixrecorder.monitor --file-format=wav "$ARQ"
+
+echo "Utilize 'transcricao-whisper $ARQ' para fazer a transcrição"
