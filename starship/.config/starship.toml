@@ -103,10 +103,16 @@ symbol = "󱁢 "
 format = "[$symbol$version]($style)"
 detect_extensions = ['tf', 'tfplan', 'tfstate', 'hcl', 'tfvars']
 
+# Conta e projeto do contexto ativo (o starship já respeita CLOUDSDK_ACTIVE_CONFIG_NAME)
 [gcloud]
-symbol = "󱇶 "
 format = '[$symbol$account(@$domain)(\($project\))]($style)'
-disabled = false
+symbol = "󱇶 "
+style = "bold blue"
+
+# Selo vermelho quando o projeto tem "prd" ou "prod" (vem do gcpctl)
+[env_var.GCPCTL_PROD]
+format = '[ \uf071 $env_value ]($style)'
+style = "bold bg:red fg:white"
 
 [custom.taskwarrior_overdue]
 command = "task +OVERDUE status:pending count 2>/dev/null"
