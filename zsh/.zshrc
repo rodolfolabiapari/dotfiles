@@ -40,3 +40,21 @@ cmd="mise"
 if command -v ${cmd} >/dev/null 2>&1; then
   eval "$(mise activate zsh)"
 fi
+
+# busca no histórico pelo prefixo digitado
+autoload -U up-line-or-beginning-search
+autoload -U down-line-or-beginning-search
+
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+
+bindkey "^[[A" up-line-or-beginning-search # seta pra cima
+bindkey "^[[B" down-line-or-beginning-search # seta pra cima
+
+# Autosuggestions
+# git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# Syntax highlighting (sempre por último)
+# git clone https://github.com/zsh-users/zsh-syntax-highlighting ~/.zsh/zsh-syntax-highlighting
+source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

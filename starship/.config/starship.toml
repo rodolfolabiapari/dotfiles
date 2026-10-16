@@ -4,10 +4,10 @@ add_newline = true # Recomendado para não poluir com tantas informações
 command_timeout = 500 # Aumentei um pouco para chamadas de API (AWS/K8s)
 palette = "tokyo-night"
 
-format = """$directory$git_branch $git_status$git_metrics$fill $username $hostname ${custom.taskwarrior} $cmd_duration $time
+format = """$directory$git_branch $git_status$git_metrics$fill $kubernetes $username $hostname ${custom.taskwarrior} $cmd_duration $time
 $character"""
 
-right_format = """$aws ${custom.aws_remain} $kubernetes $terraform $gcloud $python"""
+right_format = """$aws ${custom.aws_remain} $kubernetes $terraform$gcloud$python"""
 
 [character]
 error_symbol = "[✗](bold purple)"
@@ -82,7 +82,7 @@ style = "bold yellow"
 [kubernetes]
 symbol = "󱃾 "
 #format = "at [$symbol$context]($style) "
-format = '[$symbol$context(\($namespace\))]($style) in '
+format = '[$symbol$context(\($namespace\))]($style)'
 style = "cyan bold"
 disabled = false
 
@@ -93,7 +93,7 @@ detect_extensions = ['tf', 'tfplan', 'tfstate', 'hcl', 'tfvars']
 
 [gcloud]
 symbol = " "
-format = '[$symbol$account(@$domain)(\($project\))]($style) '
+format = '[$symbol$account(@$domain)(\($project\))]($style)'
 disabled = false
 
 [custom.taskwarrior]

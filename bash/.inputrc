@@ -1,0 +1,12 @@
+# Apertando pra cima procura o comando mais próximo
+"\e[A": history-search-backward
+"\e[B": history-search-forward
+
+# Completa sem diferencar maiúsculas/minúsculas
+set completion-ignore-case on
+
+# Cores nos completions
+set colored-stats on
+
+# Mostra apenas o que muda ao completar
+set completion-prefix-display-length 2

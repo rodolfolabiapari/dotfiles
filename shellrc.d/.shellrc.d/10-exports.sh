@@ -45,3 +45,6 @@ export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:/usr/local/sbin
 export PATH=$PATH:/usr/sbin
 export ZSH=$HOME/.oh-my-zsh
+
+## Evals
+eval "$(try init ~/src/tries)"

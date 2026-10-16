@@ -7,7 +7,7 @@ alias '....'="cd ../../.."
 alias '.....'="cd ../../../.."
 alias '......'="cd ../../../../.."
 alias '.......'="cd ../../../../../.."
-alias fvim='$EDITOR "$(ff)"'
+alias fvim='nvim $(fzf -m --preview="bat --color=always {}")'
 alias gco="git checkout"
 alias gst="git status -sb"
 alias k=kubectl

@@ -2,9 +2,9 @@
 
 reloadrc() {
   if [[ -n "${ZSH_VERSION:-}" ]]; then
-     source ~/.zshrc
+    source "${HOME}/.zshrc"
   else
-     source ~/.bashrc
+    source "${HOME}/.bashrc"
   fi
   echo "shell rc reloaded."
 }

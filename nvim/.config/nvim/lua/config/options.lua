@@ -16,7 +16,15 @@ vim.opt.tabstop = 2 -- largura visual de um Tab
 vim.opt.shiftwidth = 2 -- largura de indentação (>> e <)
 vim.opt.linebreak = true -- quebra a linha no fim de palavra (com wrap), não no meio
 vim.opt.textwidth = 120 -- coluna máxima ao formatar texto (gqq / gqap)
-vim.opt.colorcolumn = "80,120" -- linhas verticais de referência nas colunas 80 e 120
+-- Limite visual na coluna 120; visibilidade dinâmica via deadcolumn.nvim
+vim.opt.colorcolumn = "120" -- linhas verticais de referência nas colunas 80 e 120
+-- Divisórias entre as janelas (:vs / :sp); cor em autocmds.lua
+vim.opt.fillchars:append({
+  horiz = "-",
+  horizup = "-",
+  horizdown = "-",
+  vert = "|",
+})
 vim.opt.list = true -- mostra caracteres invisíveis (· para espaço, $ para fim de linha)
 vim.opt.scrolloff = 10 -- mantém 10 linhas visíveis acima/abaixo do cursor ao rolar
 vim.opt.updatetime = 250 -- ms antes de disparar eventos (usado p/ gitsigns, etc.)
