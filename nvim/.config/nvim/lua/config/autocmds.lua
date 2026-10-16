@@ -12,7 +12,7 @@ end
 
 vim.api.nvim_create_autocmd({ "ColorScheme", "VimEnter" }, {
   group = vim.api.nvim_create_augroup("mine_ui_winsep", { clear = true }),
-  callback = set_win_separator_hl()
+  callback = set_win_separator_hl,
 })
 
 -- Liga corretor ortográfico pt+en só em markdown e gitcommit

@@ -48,7 +48,7 @@ autoload -U down-line-or-beginning-search
 zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
 
-bindkey "^[[A" up-line-or-beginning-search # seta pra cima
+bindkey "^[[A" up-line-or-beginning-search   # seta pra cima
 bindkey "^[[B" down-line-or-beginning-search # seta pra cima
 
 # Autosuggestions

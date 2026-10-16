@@ -30,7 +30,7 @@ else
 STOW_FLAGS :=
 endif
 
-.PHONY: help stow stow-dry unstow rehome list export-lists
+.PHONY: help stow stow-dry unstow rehome restow list export-lists
 
 ## help: Show this help
 help:
@@ -58,6 +58,9 @@ unstow:
 
 ## rehome: Unstow → stow (refresh all symlinks)
 rehome: unstow stow
+
+## restow: Alias for rehome
+restow: rehome
 
 ## list: List all stow-managed packages
 list:

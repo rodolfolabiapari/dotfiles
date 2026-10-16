@@ -7,7 +7,7 @@ palette = "tokyo-night"
 format = """$directory$git_branch $git_status$git_metrics$fill $kubernetes $username $hostname ${custom.taskwarrior} $cmd_duration $time
 $character"""
 
-right_format = """$aws ${custom.aws_remain} $kubernetes $terraform$gcloud$python"""
+right_format = """$aws ${custom.aws_remain} $terraform$gcloud$python"""
 
 [character]
 error_symbol = "[✗](bold purple)"

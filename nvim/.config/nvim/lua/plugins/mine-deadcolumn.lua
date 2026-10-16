@@ -8,7 +8,7 @@ return {
     opts = {
       extra = {
         -- mantem colorcolumn sincronizado com o textwidth
-        follow_tw = "+0"
+        follow_tw = "+0",
       },
     },
   },

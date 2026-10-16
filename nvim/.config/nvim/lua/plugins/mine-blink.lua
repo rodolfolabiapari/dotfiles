@@ -5,9 +5,9 @@ return {
     opts = {
       sources = {
         -- Global (teste futuro): descomantar e comentar o abaixo
-        -- min_keyboard_length = 2,
+        -- min_keyword_length = 2,
 
-        min_keyboard_length = function ()
+        min_keyword_length = function()
           local ft = vim.bo.filetype
           if ft == "markdown" or ft == "markdown.mdx" then
             return 2

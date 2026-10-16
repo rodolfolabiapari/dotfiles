@@ -2,10 +2,10 @@
 "\e[A": history-search-backward
 "\e[B": history-search-forward
 
-# Completa sem diferencar maiúsculas/minúsculas
+# Completa sem diferenciar maiúsculas/minúsculas
 set completion-ignore-case on
 
-# Cores nos completions
+# Cores nos completions (igual ao ls)
 set colored-stats on
 
 # Mostra apenas o que muda ao completar
