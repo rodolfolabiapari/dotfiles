@@ -6,8 +6,6 @@
 #   echo 'source ~/.local/share/gcpctl/gcpctl.sh' >> ~/.bashrc
 #
 # Requer bash 4+ e gcloud.
-# Ele precisa ser carregado com source (e não ser um executável) porque só assim consegue exportar variáveis para outro
-# terminal atual.
 
 # ---------------------------------------------------------------- helpers ---
 
@@ -26,9 +24,9 @@ _gcpctl_project_fast() {
 
 # Liga/desliga a flag de produção (usada pelo starship e pelo guard)
 _gcpctl_refresh() {
-  local p; p=$(_gcpctl_project_fast)
-  p=${p,,}
-  if [[ "$p" =~ (prd|prod) ]]; then
+  local p n; p=$(_gcpctl_project_fast); n=$(_gcpctl_active)
+  p=${p,,}; n=${n,,}
+  if [[ "$p" =~ (prd|prod) ]] || [[ "$n" =~ (prd|prod)$ ]]; then
     export GCPCTL_PROD="PRD"
   else
     unset GCPCTL_PROD

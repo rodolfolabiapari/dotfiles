@@ -4,10 +4,12 @@ add_newline = true # Recomendado para não poluir com tantas informações
 command_timeout = 500 # Aumentei um pouco para chamadas de API (AWS/K8s)
 palette = "tokyo-night"
 
-format = """$directory$git_branch $git_status$git_metrics$fill $kubernetes $username $hostname ${custom.taskwarrior_overdue}${custom.taskwarrior_total} $cmd_duration $time
+format = """$directory$git_branch $git_status$git_metrics$fill $kubernetes $username $hostname ${custom.taskwarrior_overdue}${custom.taskwarrior_total} $gcloud${env_var} $cmd_duration$time
 $character"""
 
-right_format = """$aws ${custom.aws_remain} $terraform$gcloud$python"""
+
+
+right_format = """$aws ${custom.aws_remain} $terraform$python"""
 
 [character]
 error_symbol = "[✗](bold purple)"
@@ -75,7 +77,7 @@ format = '[${pyenv_prefix}(${version})(\($virtualenv\))]($style)'
 
 [cmd_duration]
 min_time = 500
-format = "dur [$duration]($style)"
+format = "[$duration]($style)"
 show_milliseconds = true
 
 [username]
@@ -105,9 +107,11 @@ detect_extensions = ['tf', 'tfplan', 'tfstate', 'hcl', 'tfvars']
 
 # Conta e projeto do contexto ativo (o starship já respeita CLOUDSDK_ACTIVE_CONFIG_NAME)
 [gcloud]
-format = '[$symbol$account(@$domain)(\($project\))]($style)'
+#format = '[$symbol$account(@$domain)(\($project\))]($style)'
+format = '[$symbol($project)]($style)'
 symbol = "󱇶 "
 style = "bold blue"
+disabled = false
 
 # Selo vermelho quando o projeto tem "prd" ou "prod" (vem do gcpctl)
 [env_var.GCPCTL_PROD]
