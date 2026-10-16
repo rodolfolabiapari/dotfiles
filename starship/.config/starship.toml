@@ -4,12 +4,11 @@ add_newline = true # Recomendado para não poluir com tantas informações
 command_timeout = 500 # Aumentei um pouco para chamadas de API (AWS/K8s)
 palette = "tokyo-night"
 
-format = """$directory$git_branch $git_status$git_metrics$fill $kubernetes $username $hostname ${custom.taskwarrior_overdue}${custom.taskwarrior_total} $gcloud${env_var} $cmd_duration$time
+format = """$directory$git_branch $git_status$git_metrics$fill $kubernetes ${custom.taskwarrior_overdue}${custom.taskwarrior_total} $gcloud${env_var} $cmd_duration$time
 $character"""
 
-
-
-right_format = """$aws ${custom.aws_remain} $terraform$python"""
+# Não funciona no bash
+right_format = """$aws ${custom.aws_remain} $terraform$python$username"""
 
 [character]
 error_symbol = "[✗](bold purple)"
@@ -77,7 +76,7 @@ format = '[${pyenv_prefix}(${version})(\($virtualenv\))]($style)'
 
 [cmd_duration]
 min_time = 500
-format = "[$duration]($style)"
+format = "[$duration]($style) "
 show_milliseconds = true
 
 [username]
@@ -123,7 +122,7 @@ command = "task +OVERDUE status:pending count 2>/dev/null"
 when = "command -v task"
 shell = ["bash", "--noprofile", "--norc"]
 format = '[$symbol$output]($style)'
-symbol = "󰄬 "
+#symbol = "󰄬 "
 style = "bold red"
 
 [custom.taskwarrior_total]

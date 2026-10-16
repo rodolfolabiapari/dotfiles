@@ -33,6 +33,14 @@ if command -v ${cmd} >/dev/null 2>&1; then
   eval "$(zoxide init bash)"
 fi
 
+# Override z to auto-pushd (popd support)
+z() {
+  local oldpwd
+  oldpwd="$(pwd)"
+  __zoxide_z "$@"
+  [[ $(pwd) != "$oldpwd" ]] && pushd -n "$oldpwd" >/dev/null 2>&1
+}
+
 cmd="starship"
 if command -v ${cmd} >/dev/null 2>&1; then
   eval "$(starship init bash)"
