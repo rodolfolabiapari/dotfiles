@@ -20,10 +20,10 @@ vim.opt.textwidth = 120 -- coluna máxima ao formatar texto (gqq / gqap)
 vim.opt.colorcolumn = "120" -- linhas verticais de referência nas colunas 80 e 120
 -- Divisórias entre as janelas (:vs / :sp); cor em autocmds.lua
 vim.opt.fillchars:append({
-  horiz = "-",
-  horizup = "-",
-  horizdown = "-",
-  vert = "|",
+    horiz = "─",
+    horizup = "┴",
+    horizdown = "┬",
+    vert = "│",
 })
 vim.opt.list = true -- mostra caracteres invisíveis (· para espaço, $ para fim de linha)
 vim.opt.scrolloff = 10 -- mantém 10 linhas visíveis acima/abaixo do cursor ao rolar
