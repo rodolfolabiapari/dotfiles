@@ -32,20 +32,6 @@ repo_root_format = "[$before_root_path]($before_repo_root_style)[$repo_root]($re
 format = '[$symbol$branch(:$remote_branch)]($style)'
 style = "italic purple"
 
-[git_statuas]
-format = '([$ahead_behind$all_status]($style))'
-conflicted = '[✖ ](bold red)'
-ahead = '[↑${count} ](bold green)'
-behind = '[↓${count} ](bold red)'
-diverged = '[↕ ](bold red)'
-up_to_date = ''
-untracked = '[? ](bold red)'
-stashed = '[\$ ](bold purple)'
-modified = '[! ](bold yellow)'
-staged = '[+ ](bold green)'
-renamed = '[» ](bold cyan)'
-deleted = '[✘ ](bold red)'
-
 [git_status]
 format = '([$all_status$ahead_behind]($style)) '
 style = "bold yellow"
