@@ -111,12 +111,11 @@
 [http]
   cookiefile = ~/.gitcookies
 
-#[status]
-# Não gostei, reduziu muito informações importantes
-#  branch = true
-#  showStash = true
-#  showUntrackedFiles = all
-#  submoduleSummary = true
+[status]
+  branch = true
+  showStash = true
+  showUntrackedFiles = all
+  submoduleSummary = true
 
 
 # =============================================================================
