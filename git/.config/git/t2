@@ -1,0 +1,7 @@
+[user]
+  name = SEU_SEGUNDO_NOME_TRABALHO
+  email = seu.segundo@trabalho.com.br
+  signingkey = SUA_CHAVE_SSH_OU_GPG_PUB
+
+[gpg]
+  format = ssh

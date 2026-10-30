@@ -25,6 +25,9 @@ nvim/.config/nvim/.gitignore
 nvim/.config/nvim/lua/config/local.lua
 nvim/.config/nvim/lazy-lock.json
 
+# Git configs with real personal data (not for public repo)
+git/.config/git/local
+
 # Per-machine secrets
 shellrc.d/.shellrc.d/99-local.sh
 bash/.bashrc.d/99-local.bashrc

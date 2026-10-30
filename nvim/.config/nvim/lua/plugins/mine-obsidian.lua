@@ -49,8 +49,8 @@ return {
 
         daily_notes = {
           folder = "Journal/Daily",
-          date_format = "YYYY/MM/YYYY-MM-DD-ddd",
-          alias_format = nil,
+          date_format = "YYYY/MM/YYYY-MM-DD",
+          alias_format = "YYYY-MM-DD-ddd",
           default_tags = {},
           template = "System/Daily-Note-Template.md",
         },
@@ -58,7 +58,7 @@ return {
         templates = {
           enabled = true,
           folder = "System/Templates",
-          date_format = "YYYY-MM-DD-ddd",
+          date_format = "YYYY-MM-DD",
           time_format = "HH:mm:ss",
         },
 

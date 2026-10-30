@@ -1,37 +1,133 @@
 # See https://git-scm.com/docs/git-config
 
-[alias]
-	co = checkout
-	br = branch
-	ci = commit
-	st = status
-[init]
-	defaultBranch = master
-[pull]
-	rebase = true 			 # Rebase (instead of merge) on pull
-[push]
-	autoSetupRemote = true   # Automatically set upstream branch on push
-[diff]
-	algorithm = histogram    # Clearer diffs on moved/edited lines
-	colorMoved = plain       # Highlight moved blocks in diffs
-	mnemonicPrefix = true    # More intuitive refs in diff output
-[commit]
-	verbose = true           # Include diff comment in commit message template
-	gpgsign = true           # Assina commits com minha chave GPG
-[column]
-	ui = auto 			     # Output in columns when possible
-[branch]
-	sort = -committerdate    # Sort branches by most recent commit first
-[tag]
-	sort = -version:refname  # Sort version numbers as you would expect
-[rerere]
-	enabled = true           # Record and reuse conflict resolutions
-	autoupdate = true        # Apply stored conflict resolutions automatically
+# =============================================================================
+# User configuration
 [user]
-	name = Rodolfo Labiapari Mansur Guimaraes
-	email = rodolfolabiapari@gmail.com
-	signingkey = E240754FEDFB405556D82A173A0990FAE12D319E
-[help]
-	autocorrect = true
+  name = Rodolfo Labiapari Mansur Guimaraes
+  email = rodolfolabiapari@gmail.com
+  signingkey = E240754FEDFB405556D82A173A0990FAE12D319E
+
+# [gpg]
+#   format = ssh
+
+[commit]
+  gpgsign = true           # Assina commits com minha chave GPG
+  verbose = true           # Include diff comment in commit message template
+
+# =============================================================================
+# Core Git Configuration
 [core]
+  editor = nvim
+  pager = less
+  preloadindex = true
   ignorecase = true
+
+[rerere]
+  enabled = true           # Record and reuse conflict resolutions
+  autoupdate = true        # Apply stored conflict resolutions automatically
+
+[column]
+  ui = auto
+
+[tag]
+  sort = -version:refname  # Sort version numbers as you would expect
+
+[init]
+  defaultBranch = master
+
+# =============================================================================
+# Credentials
+[credential]
+  helper = store
+
+# =============================================================================
+# diff e difftool
+[diff]
+  tool = nvimdiff
+  algorithm = histogram    # Clearer diffs on moved/edited lines
+  colorMoved = plain       # Highlight moved blocks in diffs
+  mnemonicPrefix = true    # More intuitive refs in diff output
+
+[difftool]
+  trustExitCode = true
+  prompt = false
+
+[difftool "nvimdiff"]
+  cmd = nvim -d \"$REMOTE\" \"$LOCAL\"
+
+[pager]
+  diff =
+
+# =============================================================================
+# Merge e Rebse
+[merge]
+  conflitcstyle = zdiff3
+  log = false
+  ff = true # ff nao faz merge em divergencias, ideal para rebase. Se atrapalhar, colocar false.
+  tool = nvimdiff
+
+[mergetool]
+  prompt = false
+  keepBackup = false
+  hideResolved = true
+
+[mergetool "nvimdiff"]
+  layout = (LOCAL,BASE,REMOTE)/MERGED
+
+[rebase]
+  autoStash = true
+  autoSquash = true
+  updateRefs = false # o true move outras branchs no rebase
+
+[pull]
+  rebase = true            # Rebase (instead of merge) on pull
+  ff = only
+
+# =============================================================================
+# Push, Branch e Fetch
+[push]
+  default = current
+  autoSetupRemote = true   # Automatically set upstream branch on push
+
+[remote]
+  pushDefault = origin
+
+[branch]
+  autosetupmode = always
+  sort = -committerdate    # Sort branches by most recent commit first
+
+[fetch]
+  prune = true
+
+# =============================================================================
+# 
+[help]
+  autocorrect = true
+
+[column]
+  ui = auto                # Output in columns when possible
+
+[http]
+  cookiefile = ~/.gitcookies
+
+[status]
+  branch = true
+  showStash = true
+  showUntrackedFiles = all
+  submoduleSummary = true
+
+
+# =============================================================================
+# Includes
+[include]
+  path = alias
+  path = message
+
+[includeIf "gitdir:~/g/l/"]
+  path = lxp
+
+[includeIf "gitdir:~/g/r/"]
+  path = personal
+
+[includeIf "gitdir:~/g/i/"]
+  path = t2

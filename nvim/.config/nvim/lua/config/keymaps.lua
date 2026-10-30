@@ -21,7 +21,7 @@ map("n", "<leader>oy", "<cmd>Obsidian yesterday<CR>", { desc = "Yesterday" })
 map("n", "<leader>om", "<cmd>Obsidian tomorrow<CR>", { desc = "Tomorrow" })
 
 -- ==== Obsidian - inserir data/hora no cursor
--- Só atua em buffers markdown. Formato YYYY-MM-DD-dia
+-- Só atua em buffers markdown. Formato YYYY-MM-DD
 -- alinhado ao date_format das dailyes notes no mine-obsidian.lua
 local function insert_at_cursor(text)
   local row, col = unpack(vim.api.nvim_win_get_cursor(0))
@@ -34,7 +34,7 @@ local function is_markdown()
   return markdown_fts[vim.bo.filetype] == true
 end
 
--- <space>oi - insere data YYYY-MM-DD-dia
+-- <space>oi - insere data YYYY-MM-DD
 map({ "n", "i" }, "<leader>oi", function()
   if not is_markdown() then
     return
@@ -42,12 +42,12 @@ map({ "n", "i" }, "<leader>oi", function()
   insert_at_cursor(os.date("%Y-%m-%d-%a"))
 end, { desc = "Insert Date" })
 
--- <space>ol - insere wiki-link da data [[YYYY-MM-DD-dia]]
+-- <space>ol - insere wiki-link da data [[YYYY-MM-DD]]
 map({ "n", "i" }, "<leader>ol", function()
   if not is_markdown() then
     return
   end
-  insert_at_cursor("[[" .. os.date("%Y-%m-%d-%a") .. "]]")
+  insert_at_cursor("[[" .. os.date("%Y-%m-%d") .. "]]")
 end, { desc = "Insert Daily Link" })
 
 -- <space>oh - insere hora
@@ -63,7 +63,7 @@ map("i", "<C-d>", function()
   if not is_markdown() then
     return
   end
-  insert_at_cursor(os.date("%Y-%m-%d-%a"))
+  insert_at_cursor(os.date("%Y-%m-%d"))
 end, { desc = "Insert Date" })
 
 -- ===== TreeSJ (juntar/separar objetos JSON/YAML em uma linha)

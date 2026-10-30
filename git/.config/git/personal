@@ -1,0 +1,14 @@
+# Para funcionar em repositórios já existentes, deve-se executar o comando
+# abaixo para apagar os dados dos repositórios locais, pois eles possuem
+# prioridade:
+#
+# git config --local --unset user.email
+
+[user]
+  name = Rodolfo Labiapari Mansur Guimaraes
+  email = rodolfolabiapari@gmail.com
+  signingkey = E240754FEDFB405556D82A173A0990FAE12D319E
+
+[gpg]
+  format = openpgp
+

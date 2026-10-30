@@ -4,10 +4,11 @@
 
 return {
   "tpope/vim-fugitive",
-  cmd = { "G", "Git", "Gvdiff", "Gstatus", "Gblame", "Gcommit", "Gdiffsplit", "Gread" },
+  cmd = { "G", "Git", "Gvdiffsplit", "Gdiffsplit", "Gwrite", "Gread", "Gedit" },
   keys = {
     { "<leader>gs", "<cmd>Git<cr>", desc = "Git Status" },
     { "<leader>gd", "<cmd>Gvdiffsplit<cr>", desc = "Git Diff (Vertical)" },
+    { "<leader>gd", "<cmd>Gvdiffsplit!<cr>", desc = "Git Diff 3-wary (conflito)" },
     { "<leader>gb", "<cmd>Git blame<cr>", desc = "Git Blame" },
     { "<leader>gl", "<cmd>Git log<cr>", desc = "Git Log" },
     { "<leader>gca", "<cmd>Git commit --all<cr>", desc = "Git Commit All" },
