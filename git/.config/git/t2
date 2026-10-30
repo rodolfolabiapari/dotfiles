@@ -1,3 +1,6 @@
+# -*- mode:toml; tab-width=2; ident-tabs-mode=0; -*-
+# vim:ft=toml
+
 [user]
   name = SEU_SEGUNDO_NOME_TRABALHO
   email = seu.segundo@trabalho.com.br

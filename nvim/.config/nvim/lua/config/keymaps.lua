@@ -39,7 +39,7 @@ map({ "n", "i" }, "<leader>oi", function()
   if not is_markdown() then
     return
   end
-  insert_at_cursor(os.date("%Y-%m-%d-%a"))
+  insert_at_cursor(os.date("%Y-%m-%d"))
 end, { desc = "Insert Date" })
 
 -- <space>ol - insere wiki-link da data [[YYYY-MM-DD]]

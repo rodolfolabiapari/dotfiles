@@ -1,3 +1,6 @@
+# -*- mode:toml; tab-width=2; ident-tabs-mode=0; -*-
+# vim:ft=toml
+
 # Para funcionar em repositórios já existentes, deve-se executar o comando
 # abaixo para apagar os dados dos repositórios locais, pois eles possuem
 # prioridade:

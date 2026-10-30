@@ -51,6 +51,7 @@ return {
           folder = "Journal/Daily",
           date_format = "YYYY/MM/YYYY-MM-DD",
           alias_format = "YYYY-MM-DD-ddd",
+          workdays_only = false,
           default_tags = {},
           template = "System/Daily-Note-Template.md",
         },
